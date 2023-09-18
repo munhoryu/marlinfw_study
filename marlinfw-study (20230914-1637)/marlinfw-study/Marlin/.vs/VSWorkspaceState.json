@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\core",
+    "\\src\\HAL",
+    "\\src\\inc"
+  ],
+  "SelectedNode": "\\src\\core\\boards.h",
+  "PreviewInSolutionExplorer": false
+}
