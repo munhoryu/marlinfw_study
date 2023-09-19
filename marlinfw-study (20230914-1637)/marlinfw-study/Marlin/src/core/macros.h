@@ -163,63 +163,65 @@ template <class V, class N1, class N2> static constexpr void LIMIT(V& v, const N
 // Macros to chain up to 40 conditions
 #define _DO_1(W,C,A)       (_##W##_1(A))
 #define _DO_2(W,C,A,B)     (_##W##_1(A) C _##W##_1(B))
-#define _DO_3(W,C,A,V,...)  (_##W##_1(A) C _DO_2(W,C,V, ##__VA__ARGS__))
-#define _DO_4(W,C,A,V,...)  (_##W##_1(A) C _DO_3(W,C,V, ##__VA__ARGS__))
-#define _DO_5(W,C,A,V,...)  (_##W##_1(A) C _DO_4(W,C,V, ##__VA__ARGS__))
-#define _DO_6(W,C,A,V,...)  (_##W##_1(A) C _DO_5(W,C,V, ##__VA__ARGS__))
-#define _DO_7(W,C,A,V,...)  (_##W##_1(A) C _DO_6(W,C,V, ##__VA__ARGS__))
-#define _DO_8(W,C,A,V,...)  (_##W##_1(A) C _DO_7(W,C,V, ##__VA__ARGS__))
-#define _DO_9(W,C,A,V,...)  (_##W##_1(A) C _DO_8(W,C,V, ##__VA__ARGS__))
-#define _DO_10(W,C,A,V,...) (_##W##_1(A) C _DO_9(W,C,V, ##__VA__ARGS__))
-#define _DO_11(W,C,A,V,...) (_##W##_1(A) C _DO_10(W,C,V, ##__VA__ARGS__))
-#define _DO_12(W,C,A,V,...) (_##W##_1(A) C _DO_11(W,C,V, ##__VA__ARGS__))
-#define _DO_13(W,C,A,V,...) (_##W##_1(A) C _DO_12(W,C,V, ##__VA__ARGS__))
-#define _DO_14(W,C,A,V,...) (_##W##_1(A) C _DO_13(W,C,V, ##__VA__ARGS__))
-#define _DO_15(W,C,A,V,...) (_##W##_1(A) C _DO_14(W,C,V, ##__VA__ARGS__))
-#define _DO_16(W,C,A,V,...) (_##W##_1(A) C _DO_15(W,C,V, ##__VA__ARGS__))
-#define _DO_17(W,C,A,V,...) (_##W##_1(A) C _DO_16(W,C,V, ##__VA__ARGS__))
-#define _DO_18(W,C,A,V,...) (_##W##_1(A) C _DO_17(W,C,V, ##__VA__ARGS__))
-#define _DO_19(W,C,A,V,...) (_##W##_1(A) C _DO_18(W,C,V, ##__VA__ARGS__))
-#define _DO_20(W,C,A,V,...) (_##W##_1(A) C _DO_19(W,C,V, ##__VA__ARGS__))
-#define _DO_21(W,C,A,V,...) (_##W##_1(A) C _DO_20(W,C,V, ##__VA__ARGS__))
-#define _DO_22(W,C,A,V,...) (_##W##_1(A) C _DO_21(W,C,V, ##__VA__ARGS__))
-#define _DO_23(W,C,A,V,...) (_##W##_1(A) C _DO_22(W,C,V, ##__VA__ARGS__))
-#define _DO_24(W,C,A,V,...) (_##W##_1(A) C _DO_23(W,C,V, ##__VA__ARGS__))
-#define _DO_25(W,C,A,V,...) (_##W##_1(A) C _DO_24(W,C,V, ##__VA__ARGS__))
-#define _DO_26(W,C,A,V,...) (_##W##_1(A) C _DO_25(W,C,V, ##__VA__ARGS__))
-#define _DO_27(W,C,A,V,...) (_##W##_1(A) C _DO_26(W,C,V, ##__VA__ARGS__))
-#define _DO_28(W,C,A,V,...) (_##W##_1(A) C _DO_27(W,C,V, ##__VA__ARGS__))
-#define _DO_29(W,C,A,V,...) (_##W##_1(A) C _DO_28(W,C,V, ##__VA__ARGS__))
-#define _DO_30(W,C,A,V,...) (_##W##_1(A) C _DO_29(W,C,V, ##__VA__ARGS__))
-#define _DO_31(W,C,A,V,...) (_##W##_1(A) C _DO_30(W,C,V, ##__VA__ARGS__))
-#define _DO_32(W,C,A,V,...) (_##W##_1(A) C _DO_31(W,C,V, ##__VA__ARGS__))
-#define _DO_33(W,C,A,V,...) (_##W##_1(A) C _DO_32(W,C,V, ##__VA__ARGS__))
-#define _DO_34(W,C,A,V,...) (_##W##_1(A) C _DO_33(W,C,V, ##__VA__ARGS__))
-#define _DO_35(W,C,A,V,...) (_##W##_1(A) C _DO_34(W,C,V, ##__VA__ARGS__))
-#define _DO_36(W,C,A,V,...) (_##W##_1(A) C _DO_35(W,C,V, ##__VA__ARGS__))
-#define _DO_37(W,C,A,V,...) (_##W##_1(A) C _DO_36(W,C,V, ##__VA__ARGS__))
-#define _DO_38(W,C,A,V,...) (_##W##_1(A) C _DO_37(W,C,V, ##__VA__ARGS__))
-#define _DO_39(W,C,A,V,...) (_##W##_1(A) C _DO_38(W,C,V, ##__VA__ARGS__))
-#define _DO_40(W,C,A,V,...) (_##W##_1(A) C _DO_39(W,C,V, ##__VA__ARGS__))
-#define __DO_N(W,C,N,V,...) _DO_##N(W,C,V, ##__VA__ARGS__)
-#define _DO_N(W,C,N,V,...)  __DO_N(W,C,N,V, ##__VA__ARGS__)
-#define DO(W,C,V,...)       (_DO_N(W,C,NUM_ARGS(V),V, ##__VA__ARGS__))
+#define _DO_3(W,C,A,V,...)  (_##W##_1(A) C _DO_2(W,C,V, ##__VA_ARGS__))
+#define _DO_4(W,C,A,V,...)  (_##W##_1(A) C _DO_3(W,C,V, ##__VA_ARGS__))
+#define _DO_5(W,C,A,V,...)  (_##W##_1(A) C _DO_4(W,C,V, ##__VA_ARGS__))
+#define _DO_6(W,C,A,V,...)  (_##W##_1(A) C _DO_5(W,C,V, ##__VA_ARGS__))
+#define _DO_7(W,C,A,V,...)  (_##W##_1(A) C _DO_6(W,C,V, ##__VA_ARGS__))
+#define _DO_8(W,C,A,V,...)  (_##W##_1(A) C _DO_7(W,C,V, ##__VA_ARGS__))
+#define _DO_9(W,C,A,V,...)  (_##W##_1(A) C _DO_8(W,C,V, ##__VA_ARGS__))
+#define _DO_10(W,C,A,V,...) (_##W##_1(A) C _DO_9(W,C,V, ##__VA_ARGS__))
+#define _DO_11(W,C,A,V,...) (_##W##_1(A) C _DO_10(W,C,V, ##__VA_ARGS__))
+#define _DO_12(W,C,A,V,...) (_##W##_1(A) C _DO_11(W,C,V, ##__VA_ARGS__))
+#define _DO_13(W,C,A,V,...) (_##W##_1(A) C _DO_12(W,C,V, ##__VA_ARGS__))
+#define _DO_14(W,C,A,V,...) (_##W##_1(A) C _DO_13(W,C,V, ##__VA_ARGS__))
+#define _DO_15(W,C,A,V,...) (_##W##_1(A) C _DO_14(W,C,V, ##__VA_ARGS__))
+#define _DO_16(W,C,A,V,...) (_##W##_1(A) C _DO_15(W,C,V, ##__VA_ARGS__))
+#define _DO_17(W,C,A,V,...) (_##W##_1(A) C _DO_16(W,C,V, ##__VA_ARGS__))
+#define _DO_18(W,C,A,V,...) (_##W##_1(A) C _DO_17(W,C,V, ##__VA_ARGS__))
+#define _DO_19(W,C,A,V,...) (_##W##_1(A) C _DO_18(W,C,V, ##__VA_ARGS__))
+#define _DO_20(W,C,A,V,...) (_##W##_1(A) C _DO_19(W,C,V, ##__VA_ARGS__))
+#define _DO_21(W,C,A,V,...) (_##W##_1(A) C _DO_20(W,C,V, ##__VA_ARGS__))
+#define _DO_22(W,C,A,V,...) (_##W##_1(A) C _DO_21(W,C,V, ##__VA_ARGS__))
+#define _DO_23(W,C,A,V,...) (_##W##_1(A) C _DO_22(W,C,V, ##__VA_ARGS__))
+#define _DO_24(W,C,A,V,...) (_##W##_1(A) C _DO_23(W,C,V, ##__VA_ARGS__))
+#define _DO_25(W,C,A,V,...) (_##W##_1(A) C _DO_24(W,C,V, ##__VA_ARGS__))
+#define _DO_26(W,C,A,V,...) (_##W##_1(A) C _DO_25(W,C,V, ##__VA_ARGS__))
+#define _DO_27(W,C,A,V,...) (_##W##_1(A) C _DO_26(W,C,V, ##__VA_ARGS__))
+#define _DO_28(W,C,A,V,...) (_##W##_1(A) C _DO_27(W,C,V, ##__VA_ARGS__))
+#define _DO_29(W,C,A,V,...) (_##W##_1(A) C _DO_28(W,C,V, ##__VA_ARGS__))
+#define _DO_30(W,C,A,V,...) (_##W##_1(A) C _DO_29(W,C,V, ##__VA_ARGS__))
+#define _DO_31(W,C,A,V,...) (_##W##_1(A) C _DO_30(W,C,V, ##__VA_ARGS__))
+#define _DO_32(W,C,A,V,...) (_##W##_1(A) C _DO_31(W,C,V, ##__VA_ARGS__))
+#define _DO_33(W,C,A,V,...) (_##W##_1(A) C _DO_32(W,C,V, ##__VA_ARGS__))
+#define _DO_34(W,C,A,V,...) (_##W##_1(A) C _DO_33(W,C,V, ##__VA_ARGS__))
+#define _DO_35(W,C,A,V,...) (_##W##_1(A) C _DO_34(W,C,V, ##__VA_ARGS__))
+#define _DO_36(W,C,A,V,...) (_##W##_1(A) C _DO_35(W,C,V, ##__VA_ARGS__))
+#define _DO_37(W,C,A,V,...) (_##W##_1(A) C _DO_36(W,C,V, ##__VA_ARGS__))
+#define _DO_38(W,C,A,V,...) (_##W##_1(A) C _DO_37(W,C,V, ##__VA_ARGS__))
+#define _DO_39(W,C,A,V,...) (_##W##_1(A) C _DO_38(W,C,V, ##__VA_ARGS__))
+#define _DO_40(W,C,A,V,...) (_##W##_1(A) C _DO_39(W,C,V, ##__VA_ARGS__))
+#define __DO_N(W,C,N,...) _DO_##N(W,C,##__VA_ARGS__)
+#define _DO_N(W,C,N,...)  __DO_N(W,C,N,##__VA_ARGS__)
+#define DO(W,C,...)       (_DO_N(W,C,NUM_ARGS(##__VA_ARGS__),##__VA_ARGS__))
 
 // Macros to support option testing
-#define _CAT(a,V,...) a##V
-#define CAT(a,V,...) _CAT(a,V)
+//#define _CAT(a,V,...) a##V
+//#define CAT(a,V,...) _CAT(a,V)
+#define _CAT(a,...) a##__VA_ARGS__
+#define CAT(a,...) _CAT(a,##__VA_ARGS__)
 
 #define _ISENA_     ~,1
 #define _ISENA_1    ~,1
 #define _ISENA_0x1  ~,1
 #define _ISENA_true ~,1
-#define _ISENA(V,...)        IS_PROBE(V)
+#define _ISENA(...)        IS_PROBE(##__VA_ARGS__)
 
 #define _ENA_1(O)           _ISENA(CAT(_IS,CAT(ENA_, O)))
 #define _DIS_1(O)           NOT(_ENA_1(O))
-#define ENABLED(V,...)       DO(ENA,&&,V)
-#define DISABLED(V,...)      DO(DIS,&&,V)
-#define COUNT_ENABLED(V,...) DO(ENA,+,V)
+#define ENABLED(...)       DO(ENA,&&,##__VA_ARGS__)
+#define DISABLED(...)      DO(DIS,&&,##__VA_ARGS__)
+#define COUNT_ENABLED(...) DO(ENA,+,##__VA_ARGS__)
 
 #define TERN(O,A,B)         _TERN(_ENA_1(O),B,A)    // OPTION ? 'A' : 'B'
 #define TERN0(O,A)          _TERN(_ENA_1(O),0,A)    // OPTION ? 'A' : '0'
@@ -397,11 +399,13 @@ template <class T> static constexpr const T ABS(const T v) { return v >= 0 ? v :
 
 // Use NUM_ARGS(__VA_ARGS__) to get the number of variadic arguments
 #define _NUM_ARGS(_,n,m,l,k,j,i,h,g,f,e,d,c,b,a,Z,Y,X,W,V,U,T,S,R,Q,P,O,N,M,L,K,J,I,H,G,F,E,D,C,B,A,OUT,...) OUT
-#define NUM_ARGS(V,...) _NUM_ARGS(0,V,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0)
+//#define NUM_ARGS(V,...) _NUM_ARGS(0,V,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0)
+#define NUM_ARGS(...) _NUM_ARGS(0,##__VA_ARGS__,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0)
 
 // Use TWO_ARGS(__VA_ARGS__) to get whether there are 1, 2, or >2 arguments
 #define _TWO_ARGS(_,n,m,l,k,j,i,h,g,f,e,d,c,b,a,Z,Y,X,W,V,U,T,S,R,Q,P,O,N,M,L,K,J,I,H,G,F,E,D,C,B,A,OUT,...) OUT
-#define TWO_ARGS(V,...) _TWO_ARGS(0,V,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,1,0)
+//#define TWO_ARGS(V,...) _TWO_ARGS(0,V,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,1,0)
+#define TWO_ARGS(...) _TWO_ARGS(0,##__VA_ARGS__,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,1,0)
 
 #ifdef __cplusplus
 
@@ -633,7 +637,8 @@ inline const char* gtn(T*) {
 #define EVAL2(V,...)    EVAL1(EVAL1(V))
 #define EVAL1(V,...)    V
 
-#define IS_PROBE(V,...) SECOND(V, 0)     // Get the second item passed, or 0
+//#define IS_PROBE(V,...) SECOND(V, 0)     // Get the second item passed, or 0
+#define IS_PROBE(...) SECOND(##__VA_ARGS__, 0)     // Get the second item passed, or 0
 #define PROBE() ~, 1                    // Second item will be 1 if this is passed
 #define _NOT_0 PROBE()
 #define NOT(x) IS_PROBE(_CAT(_NOT_, x)) //   NOT('0') gets '1'. Anything else gets '0'.
@@ -642,13 +647,13 @@ inline const char* gtn(T*) {
 #define IF_ELSE(TF) _IF_ELSE(_BOOL(TF))
 #define _IF_ELSE(TF) _CAT(_IF_, TF)
 
-#define _IF_1(V,...) V _IF_1_ELSE
+#define _IF_1(...) __VA_ARGS__ _IF_1_ELSE
 #define _IF_0(...)    _IF_0_ELSE
 
 #define _IF_1_ELSE(...)
-#define _IF_0_ELSE(V,...) V
+#define _IF_0_ELSE(...) __VA_ARGS__
 
-#define HAS_ARGS(V,...) _BOOL(FIRST(_END_OF_ARGUMENTS_ V)())
+#define HAS_ARGS(...) _BOOL(FIRST(_END_OF_ARGUMENTS_ ##__VA_ARGS__)())
 #define _END_OF_ARGUMENTS_() 0
 
 // Simple Inline IF Macros, friendly to use in other macro definitions
