@@ -1,4 +1,7 @@
 // MarlinCore.cpp
+
+#define __AVR__
+
 #include "MarlinCore.h"
 //#include "HAL/shared/Delay.h"
 //#include "HAL/shared/esp_wifi.h"

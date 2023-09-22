@@ -18,7 +18,16 @@
     <ClInclude Include="pch.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Marlin\src\MarlinCore.h">
+    <ClInclude Include="Marlin\src\core\boards.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\core\macros.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\HAL\platforms.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\inc\Conditionals_LCD.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Marlin\src\inc\MarlinConfig.h">
@@ -27,22 +36,25 @@
     <ClInclude Include="Marlin\src\inc\MarlinConfigPre.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Marlin\src\HAL\platforms.h">
+    <ClInclude Include="Marlin\src\inc\Version.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Marlin\src\core\macros.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Marlin\src\core\boards.h">
+    <ClInclude Include="Marlin\src\MarlinCore.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Marlin\Configuration.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Marlin\src\inc\Version.h">
+    <ClInclude Include="Marlin\src\HAL\AVR\inc\Conditionals_LCD.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Marlin\src\inc\Conditionals_LCD.h">
+    <ClInclude Include="Marlin\src\core\drivers.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\Configuration_adv.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\inc\Conditionals_avd.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,7 +1,10 @@
 #pragma once
 
-/*
-#define XSTR(V...) #V
+// windows simulation
+#define __AVR__
+
+
+#define XSTR(...) #__VA_ARGS__
 
 #ifdef __AVR__
 #define HAL_PATH(PATH, NAME) XSTR(PATH/HAL/AVR/NAME)
@@ -35,4 +38,3 @@
 #else
 #error "Unsupported Platform!"
 #endif
-*/

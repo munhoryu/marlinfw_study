@@ -22,7 +22,6 @@
 #include "Version.h"
 
 #include "Conditionals_LCD.h"
-/*
 #ifndef __MARLIN_DEPS__
 #include HAL_PATH(.., inc/Conditionals_LCD.h)
 #endif
@@ -35,4 +34,3 @@
 #ifndef __MARLIN_DEPS__
 #include HAL_PATH(.., inc/Conditionals_adv.h)
 #endif
-*/

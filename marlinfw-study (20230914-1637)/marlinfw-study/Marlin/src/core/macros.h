@@ -248,12 +248,12 @@ template <class V, class N1, class N2> static constexpr void LIMIT(V& v, const N
 #define IF_ENABLED          TERN_
 #define IF_DISABLED(O,A)    TERN(O,,A)
 
-#define ANY(V,...)          !DISABLED(V)
-#define NONE(V,...)          DISABLED(V)
-#define ALL(V,...)           ENABLED(V)
+#define ANY(...)          !DISABLED(##__VA_ARGS__)
+#define NONE(...)          DISABLED(##__VA_ARGS__)
+#define ALL(...)           ENABLED(##__VA_ARGS__)
 #define BOTH(V1,V2)         ALL(V1,V2)
 #define EITHER(V1,V2)       ANY(V1,V2)
-#define MANY(V,...)          (COUNT_ENABLED(V) > 1)
+#define MANY(...)          (COUNT_ENABLED(##__VA_ARGS__) > 1)
 
 // Macros to support pins/buttons exist testing
 #define PIN_EXISTS(PN)      (defined(PN##_PIN) && PN##_PIN >= 0)
