@@ -505,4 +505,4 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(710,1): message : 매크로 'RREPEAT2'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(709,1): message : 매크로 'RREPEAT2_S'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(628,1): message : 매크로 'EVAL1024'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_adv.h(1141,216): fatal  error C1012: 괄호가 짝이 맞지 않습니다. '('이(가) 없습니다.
+  marlinfw-study.vcxproj -> C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\Debug\marlinfw-study.exe
