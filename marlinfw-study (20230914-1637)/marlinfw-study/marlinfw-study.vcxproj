@@ -157,9 +157,10 @@
     <ClInclude Include="Marlin\src\core\boards.h" />
     <ClInclude Include="Marlin\src\core\drivers.h" />
     <ClInclude Include="Marlin\src\core\macros.h" />
+    <ClInclude Include="Marlin\src\HAL\AVR\inc\Conditionals_adv.h" />
     <ClInclude Include="Marlin\src\HAL\AVR\inc\Conditionals_LCD.h" />
     <ClInclude Include="Marlin\src\HAL\platforms.h" />
-    <ClInclude Include="Marlin\src\inc\Conditionals_avd.h" />
+    <ClInclude Include="Marlin\src\inc\Conditionals_adv.h" />
     <ClInclude Include="Marlin\src\inc\Conditionals_LCD.h" />
     <ClInclude Include="Marlin\src\inc\MarlinConfig.h" />
     <ClInclude Include="Marlin\src\inc\MarlinConfigPre.h" />

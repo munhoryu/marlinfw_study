@@ -54,7 +54,10 @@
     <ClInclude Include="Marlin\Configuration_adv.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Marlin\src\inc\Conditionals_avd.h">
+    <ClInclude Include="Marlin\src\inc\Conditionals_adv.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\HAL\AVR\inc\Conditionals_adv.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

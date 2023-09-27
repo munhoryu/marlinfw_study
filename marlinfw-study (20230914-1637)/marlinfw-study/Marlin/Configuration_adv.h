@@ -172,7 +172,8 @@
   * https://store.bq.com/en/heated-bed-kit-hephestos2
   */
   //#define HEPHESTOS2_HEATED_BED_KIT
-#if ENABLED(HEPHESTOS2_HEATED_BED_KIT)
+//#if ENABLED(HEPHESTOS2_HEATED_BED_KIT)
+#if defined(HEPHESTOS2_HEATED_BED_KIT)
 #undef TEMP_SENSOR_BED
 #define TEMP_SENSOR_BED 70
 #define HEATER_BED_INVERTING true
@@ -181,9 +182,11 @@
 //
 // Heated Bed Bang-Bang options
 //
-#if DISABLED(PIDTEMPBED)
+//#if DISABLED(PIDTEMPBED)
+#if !defined(PIDTEMPBED)
 #define BED_CHECK_INTERVAL 5000   // (ms) Interval between checks in bang-bang control
-#if ENABLED(BED_LIMIT_SWITCHING)
+//#if ENABLED(BED_LIMIT_SWITCHING)
+#if defined(BED_LIMIT_SWITCHING)
 #define BED_HYSTERESIS 2        // (¡ÆC) Only set the relevant heater state when ABS(T-target) > BED_HYSTERESIS
 #endif
 #endif
@@ -191,9 +194,11 @@
 //
 // Heated Chamber options
 //
-#if DISABLED(PIDTEMPCHAMBER)
+//#if DISABLED(PIDTEMPCHAMBER)
+#if !defined(PIDTEMPCHAMBER)
 #define CHAMBER_CHECK_INTERVAL 5000   // (ms) Interval between checks in bang-bang control
-#if ENABLED(CHAMBER_LIMIT_SWITCHING)
+//#if ENABLED(CHAMBER_LIMIT_SWITCHING)
+#if !defined(CHAMBER_LIMIT_SWITCHING)
 #define CHAMBER_HYSTERESIS 2        // (¡ÆC) Only set the relevant heater state when ABS(T-target) > CHAMBER_HYSTERESIS
 #endif
 #endif
@@ -278,12 +283,14 @@
  * If you get false positives for "Thermal Runaway", increase
  * THERMAL_PROTECTION_HYSTERESIS and/or THERMAL_PROTECTION_PERIOD
  */
-#if ENABLED(THERMAL_PROTECTION_HOTENDS)
+//#if ENABLED(THERMAL_PROTECTION_HOTENDS)
+#if defined(THERMAL_PROTECTION_HOTENDS)
 #define THERMAL_PROTECTION_PERIOD 40        // Seconds
 #define THERMAL_PROTECTION_HYSTERESIS 4     // Degrees Celsius
 
  //#define ADAPTIVE_FAN_SLOWING              // Slow part cooling fan if temperature drops
-#if BOTH(ADAPTIVE_FAN_SLOWING, PIDTEMP)
+//#if BOTH(ADAPTIVE_FAN_SLOWING, PIDTEMP)
+#if defined(ADAPTIVE_FAN_SLOWING) && defined(PIDTEMP)
   //#define NO_FAN_SLOWING_IN_PID_TUNING    // Don't slow fan speed during M303
 #endif
 
@@ -306,7 +313,8 @@
  /**
   * Thermal Protection parameters for the bed are just as above for hotends.
   */
-#if ENABLED(THERMAL_PROTECTION_BED)
+//#if ENABLED(THERMAL_PROTECTION_BED)
+#if defined(THERMAL_PROTECTION_BED)
 #define THERMAL_PROTECTION_BED_PERIOD        20 // Seconds
 #define THERMAL_PROTECTION_BED_HYSTERESIS     2 // Degrees Celsius
 
@@ -320,7 +328,8 @@
    /**
     * Thermal Protection parameters for the heated chamber.
     */
-#if ENABLED(THERMAL_PROTECTION_CHAMBER)
+//#if ENABLED(THERMAL_PROTECTION_CHAMBER)
+#if defined(THERMAL_PROTECTION_CHAMBER)
 #define THERMAL_PROTECTION_CHAMBER_PERIOD    20 // Seconds
 #define THERMAL_PROTECTION_CHAMBER_HYSTERESIS 2 // Degrees Celsius
 
@@ -334,7 +343,8 @@
      /**
       * Thermal Protection parameters for the laser cooler.
       */
-#if ENABLED(THERMAL_PROTECTION_COOLER)
+//#if ENABLED(THERMAL_PROTECTION_COOLER)
+#if defined(THERMAL_PROTECTION_COOLER)
 #define THERMAL_PROTECTION_COOLER_PERIOD     10 // Seconds
 #define THERMAL_PROTECTION_COOLER_HYSTERESIS  3 // Degrees Celsius
 
@@ -345,7 +355,8 @@
 #define WATCH_COOLER_TEMP_INCREASE            3 // Degrees Celsius
 #endif
 
-#if ANY(THERMAL_PROTECTION_HOTENDS, THERMAL_PROTECTION_BED, THERMAL_PROTECTION_CHAMBER, THERMAL_PROTECTION_COOLER)
+//#if ANY(THERMAL_PROTECTION_HOTENDS, THERMAL_PROTECTION_BED, THERMAL_PROTECTION_CHAMBER, THERMAL_PROTECTION_COOLER)
+#if defined(THERMAL_PROTECTION_HOTENDS) || defined(THERMAL_PROTECTION_BED) || defined(THERMAL_PROTECTION_CHAMBER) || defined(THERMAL_PROTECTION_COOLER)
        /**
         * Thermal Protection Variance Monitor - EXPERIMENTAL.
         * Kill the machine on a stuck temperature sensor. Disable if you get false positives.
@@ -353,11 +364,13 @@
         //#define THERMAL_PROTECTION_VARIANCE_MONITOR   // Detect a sensor malfunction preventing temperature updates
 #endif
 
-#if ENABLED(PIDTEMP)
+//#if ENABLED(PIDTEMP)
+#if defined(PIDTEMP)
   // Add an experimental additional term to the heater power, proportional to the extrusion speed.
   // A well-chosen Kc value should add just enough power to melt the increased material volume.
   //#define PID_EXTRUSION_SCALING
-#if ENABLED(PID_EXTRUSION_SCALING)
+//#if ENABLED(PID_EXTRUSION_SCALING)
+#if defined(PID_EXTRUSION_SCALING)
 #define DEFAULT_Kc (100) // heating power = Kc * e_speed
 #define LPQ_MAX_LEN 50
 #endif
@@ -391,7 +404,8 @@
  *    PID_FAN_SCALING_AT_FULL_SPEED and PID_FAN_SCALING_AT_MIN_SPEED. Enter the minimum speed in PID_FAN_SCALING_MIN_SPEED
  */
  //#define PID_FAN_SCALING
-#if ENABLED(PID_FAN_SCALING)
+//#if ENABLED(PID_FAN_SCALING)
+#if defined(PID_FAN_SCALING)
   //#define PID_FAN_SCALING_ALTERNATIVE_DEFINITION
 #if ENABLED(PID_FAN_SCALING_ALTERNATIVE_DEFINITION)
   // The alternative definition is used for an easier configuration.
@@ -427,11 +441,13 @@
  * Disable by sending M104/M109 with no F parameter (or F0 with AUTOTEMP_PROPORTIONAL).
  */
 #define AUTOTEMP
-#if ENABLED(AUTOTEMP)
+//#if ENABLED(AUTOTEMP)
+#if defined(AUTOTEMP)
 #define AUTOTEMP_OLDWEIGHT    0.98  // Factor used to weight previous readings (0.0 < value < 1.0)
  // Turn on AUTOTEMP on M104/M109 by default using proportions set here
  //#define AUTOTEMP_PROPORTIONAL
-#if ENABLED(AUTOTEMP_PROPORTIONAL)
+//#if ENABLED(AUTOTEMP_PROPORTIONAL)
+#if defined(AUTOTEMP_PROPORTIONAL)
 #define AUTOTEMP_MIN_P      0 // (¡ÆC) Added to the target temperature
 #define AUTOTEMP_MAX_P      5 // (¡ÆC) Added to the target temperature
 #define AUTOTEMP_FACTOR_P   1 // Apply this F parameter by default (overridden by M104/M109 F)
@@ -479,7 +495,8 @@
    * then extrude some filament every couple of SECONDS.
    */
    //#define EXTRUDER_RUNOUT_PREVENT
-#if ENABLED(EXTRUDER_RUNOUT_PREVENT)
+//#if ENABLED(EXTRUDER_RUNOUT_PREVENT)
+#if defined(EXTRUDER_RUNOUT_PREVENT)
 #define EXTRUDER_RUNOUT_MINTEMP 190
 #define EXTRUDER_RUNOUT_SECONDS 30
 #define EXTRUDER_RUNOUT_SPEED 1500  // (mm/min)
@@ -491,7 +508,8 @@
  * Prevent filament in the nozzle from charring and causing a critical jam.
  */
  //#define HOTEND_IDLE_TIMEOUT
-#if ENABLED(HOTEND_IDLE_TIMEOUT)
+//#if ENABLED(HOTEND_IDLE_TIMEOUT)
+#if defined(HOTEND_IDLE_TIMEOUT)
 #define HOTEND_IDLE_TIMEOUT_SEC (5*60)    // (seconds) Time without extruder movement to trigger protection
 #define HOTEND_IDLE_MIN_TRIGGER   180     // (¡ÆC) Minimum temperature to enable hotend protection
 #define HOTEND_IDLE_NOZZLE_TARGET   0     // (¡ÆC) Safe temperature for the nozzle after timeout
@@ -515,7 +533,8 @@
  * off (or reduces to idle speed) shortly after drivers are turned off.
  */
  //#define USE_CONTROLLER_FAN
-#if ENABLED(USE_CONTROLLER_FAN)
+//#if ENABLED(USE_CONTROLLER_FAN)
+#if defined(USE_CONTROLLER_FAN)
   //#define CONTROLLER_FAN_PIN -1           // Set a custom pin for the controller fan
   //#define CONTROLLER_FAN2_PIN -1          // Set a custom pin for second controller fan
   //#define CONTROLLER_FAN_USE_Z_ONLY       // With this option only the Z axis is considered
@@ -587,7 +606,8 @@
    *   USE_OCR2A_AS_TOP sacrifices duty cycle control resolution to achieve this broader range of frequencies.
    */
    //#define FAST_PWM_FAN    // Increase the fan PWM frequency. Removes the PWM noise but increases heating in the FET/Arduino
-#if ENABLED(FAST_PWM_FAN)
+//#if ENABLED(FAST_PWM_FAN)
+#if defined(FAST_PWM_FAN)
   //#define FAST_PWM_FAN_FREQUENCY 31400  // Define here to override the defaults below
   //#define USE_OCR2A_AS_TOP
 #ifndef FAST_PWM_FAN_FREQUENCY
@@ -685,7 +705,8 @@
      * M355 Case Light on-off / brightness
      */
      //#define CASE_LIGHT_ENABLE
-#if ENABLED(CASE_LIGHT_ENABLE)
+//#if ENABLED(CASE_LIGHT_ENABLE)
+#if defined(CASE_LIGHT_ENABLE)
   //#define CASE_LIGHT_PIN 4                  // Override the default pin if needed
 #define INVERT_CASE_LIGHT false             // Set true if Case Light is ON when pin is LOW
 #define CASE_LIGHT_DEFAULT_ON true          // Set default power-up state on
@@ -716,7 +737,8 @@
 
 // Employ an external closed loop controller. Override pins here if needed.
 //#define EXTERNAL_CLOSED_LOOP_CONTROLLER
-#if ENABLED(EXTERNAL_CLOSED_LOOP_CONTROLLER)
+//#if ENABLED(EXTERNAL_CLOSED_LOOP_CONTROLLER)
+#if defined(EXTERNAL_CLOSED_LOOP_CONTROLLER)
   //#define CLOSED_LOOP_ENABLE_PIN        -1
   //#define CLOSED_LOOP_MOVE_COMPLETE_PIN -1
 #endif
@@ -750,7 +772,8 @@
  *       follow with M605 S3 to initiate mirrored movement.
  */
  //#define DUAL_X_CARRIAGE
-#if ENABLED(DUAL_X_CARRIAGE)
+//#if ENABLED(DUAL_X_CARRIAGE)
+#if defined(DUAL_X_CARRIAGE)
 #define X1_MIN_POS X_MIN_POS    // Set to X_MIN_POS
 #define X1_MAX_POS X_BED_SIZE   // A max coordinate so the X1 carriage can't hit the parked X2 carriage
 #define X2_MIN_POS    80        // A min coordinate so the X2 carriage can't hit the parked X1 carriage
@@ -791,7 +814,8 @@
  *
  *   - Use X2_USE_ENDSTOP to set the endstop plug by name. (_XMIN_, _XMAX_, _YMIN_, _YMAX_, _ZMIN_, _ZMAX_)
  */
-#if HAS_X2_STEPPER && DISABLED(DUAL_X_CARRIAGE)
+//#if HAS_X2_STEPPER && DISABLED(DUAL_X_CARRIAGE)
+#if HAS_X2_STEPPER && !defined(DUAL_X_CARRIAGE)
  //#define INVERT_X2_VS_X_DIR        // X2 direction signal is the opposite of X
  //#define X_DUAL_ENDSTOPS           // X2 has its own endstop
 #if ENABLED(X_DUAL_ENDSTOPS)
@@ -838,7 +862,8 @@
 
 // Drive the E axis with two synchronized steppers
 //#define E_DUAL_STEPPER_DRIVERS
-#if ENABLED(E_DUAL_STEPPER_DRIVERS)
+//#if ENABLED(E_DUAL_STEPPER_DRIVERS)
+#if defined(E_DUAL_STEPPER_DRIVERS)
   //#define INVERT_E1_VS_E0_DIR       // E direction signals are opposites
 #endif
 
@@ -869,7 +894,8 @@
 
 // @section bltouch
 
-#if ENABLED(BLTOUCH)
+//#if ENABLED(BLTOUCH)
+#if defined(BLTOUCH)
   /**
    * Either: Use the defaults (recommended) or: For special purposes, use the following DEFINES
    * Do not activate settings that the probe might not understand. Clones might misunderstand
@@ -945,7 +971,8 @@
  * Add the G34 command to align multiple Z steppers using a bed probe.
  */
  //#define Z_STEPPER_AUTO_ALIGN
-#if ENABLED(Z_STEPPER_AUTO_ALIGN)
+//#if ENABLED(Z_STEPPER_AUTO_ALIGN)
+#if defined(Z_STEPPER_AUTO_ALIGN)
   /**
    * Define probe X and Y positions for Z1, Z2 [, Z3 [, Z4]]
    * These positions are machine-relative and do not shift with the M206 home offset!
@@ -1007,7 +1034,8 @@
 // Add the G35 command to read bed corners to help adjust screws. Requires a bed probe.
 //
 //#define ASSISTED_TRAMMING
-#if ENABLED(ASSISTED_TRAMMING)
+//#if ENABLED(ASSISTED_TRAMMING)
+#if defined(ASSISTED_TRAMMING)
 
   // Define positions for probe points.
 #define TRAMMING_POINT_XY { {  20, 20 }, { 180,  20 }, { 180, 180 }, { 20, 180 } }
@@ -1060,7 +1088,8 @@
   */
   //#define INPUT_SHAPING_X
   //#define INPUT_SHAPING_Y
-#if EITHER(INPUT_SHAPING_X, INPUT_SHAPING_Y)
+//#if EITHER(INPUT_SHAPING_X, INPUT_SHAPING_Y)
+#if defined(INPUT_SHAPING_X) || defined(INPUT_SHAPING_Y)
 #if ENABLED(INPUT_SHAPING_X)
 #define SHAPING_FREQ_X  40          // (Hz) The default dominant resonant frequency on the X axis.
 #define SHAPING_ZETA_X  0.15f       // Damping ratio of the X axis (range: 0.0 = no damping to 1.0 = critical damping).
@@ -1118,7 +1147,8 @@
 // Slow down the machine if the lookahead buffer is (by default) half full.
 // Increase the slowdown divisor for larger buffer sizes.
 #define SLOWDOWN
-#if ENABLED(SLOWDOWN)
+//#if ENABLED(SLOWDOWN)
+#if defined(SLOWDOWN)
 #define SLOWDOWN_DIVISOR 2
 #endif
 
@@ -1143,7 +1173,8 @@
 // Adds extra movement to axes on direction-changes to account for backlash.
 //
 //#define BACKLASH_COMPENSATION
-#if ENABLED(BACKLASH_COMPENSATION)
+//#if ENABLED(BACKLASH_COMPENSATION)
+#if defined(BACKLASH_COMPENSATION)
   // Define values for backlash distance and correction.
   // If BACKLASH_GCODE is enabled these values are the defaults.
 #define BACKLASH_DISTANCE_MM { 0, 0, 0 } // (linear=mm, rotational=¡Æ) One value for each linear axis
@@ -1188,7 +1219,8 @@
  *       ¡¾5mm of true values for G425 to succeed.
  */
  //#define CALIBRATION_GCODE
-#if ENABLED(CALIBRATION_GCODE)
+//#if ENABLED(CALIBRATION_GCODE)
+#if defined(CALIBRATION_GCODE)
 
   //#define CALIBRATION_SCRIPT_PRE  "M117 Starting Auto-Calibration\nT0\nG28\nG12\nM117 Calibrating..."
   //#define CALIBRATION_SCRIPT_POST "M500\nM117 Calibration data saved"
@@ -1294,7 +1326,8 @@
   */
   //#define DIGIPOT_MCP4018             // Requires https://github.com/felias-fogg/SlowSoftI2CMaster
   //#define DIGIPOT_MCP4451
-#if EITHER(DIGIPOT_MCP4018, DIGIPOT_MCP4451)
+//#if EITHER(DIGIPOT_MCP4018, DIGIPOT_MCP4451)
+#if defined(DIGIPOT_MCP4018) || defined(DIGIPOT_MCP4451)
 #define DIGIPOT_I2C_NUM_CHANNELS 8  // 5DPRINT:4   AZTEEG_X3_PRO:8   MKS_SBASE:5   MIGHTYBOARD_REVE:5
 
 // Actual motor currents in Amps. The number of entries must match DIGIPOT_I2C_NUM_CHANNELS.
@@ -1334,14 +1367,16 @@
 
 // Change values more rapidly when the encoder is rotated faster
 #define ENCODER_RATE_MULTIPLIER
-#if ENABLED(ENCODER_RATE_MULTIPLIER)
+//#if ENABLED(ENCODER_RATE_MULTIPLIER)
+#if defined(ENCODER_RATE_MULTIPLIER)
 #define ENCODER_10X_STEPS_PER_SEC   30  // (steps/s) Encoder rate for 10x speed
 #define ENCODER_100X_STEPS_PER_SEC  80  // (steps/s) Encoder rate for 100x speed
 #endif
 
 // Play a beep when the feedrate is changed from the Status Screen
 //#define BEEP_ON_FEEDRATE_CHANGE
-#if ENABLED(BEEP_ON_FEEDRATE_CHANGE)
+//#if ENABLED(BEEP_ON_FEEDRATE_CHANGE)
+#if defined(BEEP_ON_FEEDRATE_CHANGE)
 #define FEEDRATE_CHANGE_BEEP_DURATION   10
 #define FEEDRATE_CHANGE_BEEP_FREQUENCY 440
 #endif
@@ -1351,7 +1386,8 @@
 //
 //#define LCD_BACKLIGHT_TIMEOUT_MINS 1  // (minutes) Timeout before turning off the backlight
 
-#if HAS_BED_PROBE && EITHER(HAS_MARLINUI_MENU, HAS_TFT_LVGL_UI)
+//#if HAS_BED_PROBE && EITHER(HAS_MARLINUI_MENU, HAS_TFT_LVGL_UI)
+#if defined(HAS_BED_PROBE) && (defined(HAS_MARLINUI_MENU) || defined(HAS_TFT_LVGL_UI))
   //#define PROBE_OFFSET_WIZARD       // Add a Probe Z Offset calibration option to the LCD menu
 #if ENABLED(PROBE_OFFSET_WIZARD)
   /**
@@ -1401,12 +1437,14 @@
 
 #endif // HAS_MARLINUI_MENU
 
-#if ANY(HAS_DISPLAY, DWIN_LCD_PROUI, DWIN_CREALITY_LCD_JYERSUI)
+//#if ANY(HAS_DISPLAY, DWIN_LCD_PROUI, DWIN_CREALITY_LCD_JYERSUI)
+#if defined(HAS_DISPLAY) || defined(DWIN_LCD_PROUI) || defined(DWIN_CREALITY_LCD_JYERSUI)
   //#define SOUND_MENU_ITEM   // Add a mute option to the LCD menu
 #define SOUND_ON_DEFAULT    // Buzzer/speaker default enabled state
 #endif
 
-#if EITHER(HAS_DISPLAY, DWIN_LCD_PROUI)
+//#if EITHER(HAS_DISPLAY, DWIN_LCD_PROUI)
+#if defined(HAS_DISPLAY) || defined(DWIN_LCD_PROUI)
   // The timeout to return to the status screen from sub-menus
   //#define LCD_TIMEOUT_TO_STATUS 15000   // (ms)
 
@@ -1459,7 +1497,8 @@
 
 // Add 'M73' to set print job progress, overrides Marlin's built-in estimate
 //#define SET_PROGRESS_MANUALLY
-#if ENABLED(SET_PROGRESS_MANUALLY)
+//#if ENABLED(SET_PROGRESS_MANUALLY)
+#if defined(SET_PROGRESS_MANUALLY)
 #define SET_PROGRESS_PERCENT            // Add 'P' parameter to set percentage done
 #define SET_REMAINING_TIME              // Add 'R' parameter to set remaining time
 //#define SET_INTERACTION_TIME          // Add 'C' parameter to set time until next filament change or other user interaction
@@ -1470,7 +1509,8 @@
 #endif
 
 // LCD Print Progress options. Multiple times may be displayed in turn.
-#if HAS_DISPLAY && EITHER(SDSUPPORT, SET_PROGRESS_MANUALLY)
+//#if HAS_DISPLAY && EITHER(SDSUPPORT, SET_PROGRESS_MANUALLY)
+#if defined(HAS_DISPLAY) && (defined(SDSUPPORT) || defined(SET_PROGRESS_MANUALLY))
 #define SHOW_PROGRESS_PERCENT           // Show print progress percentage (doesn't affect progress bar)
 #define SHOW_ELAPSED_TIME               // Display elapsed printing time (prefix 'E')
 //#define SHOW_REMAINING_TIME           // Display estimated time to completion (prefix 'R')
@@ -1491,7 +1531,8 @@
 #endif
 #endif
 
-#if ENABLED(SDSUPPORT)
+//#if ENABLED(SDSUPPORT)
+#if defined(SDSUPPORT)
   /**
    * SD Card SPI Speed
    * May be required to resolve "volume init" errors.
@@ -1870,7 +1911,8 @@
 //
 // Additional options for AnyCubic Chiron TFT displays
 //
-#if ENABLED(ANYCUBIC_LCD_CHIRON)
+//#if ENABLED(ANYCUBIC_LCD_CHIRON)
+#if defined(ANYCUBIC_LCD_CHIRON)
   // By default the type of panel is automatically detected.
   // Enable one of these options if you know the panel type.
   //#define CHIRON_TFT_STANDARD
@@ -1895,7 +1937,8 @@
    //
    // Specify additional languages for the UI. Default specified by LCD_LANGUAGE.
    //
-#if ANY(DOGLCD, TFT_COLOR_UI, TOUCH_UI_FTDI_EVE, IS_DWIN_MARLINUI)
+//#if ANY(DOGLCD, TFT_COLOR_UI, TOUCH_UI_FTDI_EVE, IS_DWIN_MARLINUI)
+#if defined(DOGLCD) || defined(TFT_COLOR_UI) || defined(TOUCH_UI_FTDI_EVE) || defined(IS_DWIN_MARLINUI)
   //#define LCD_LANGUAGE_2 fr
   //#define LCD_LANGUAGE_3 de
   //#define LCD_LANGUAGE_4 es
@@ -1908,7 +1951,8 @@
 //
 // Touch UI for the FTDI Embedded Video Engine (EVE)
 //
-#if ENABLED(TOUCH_UI_FTDI_EVE)
+//#if ENABLED(TOUCH_UI_FTDI_EVE)
+#if defined(TOUCH_UI_FTDI_EVE)
   // Display board used
   //#define LCD_FTDI_VM800B35A        // FTDI 3.5" with FT800 (320x240)
   //#define LCD_4DSYSTEMS_4DLCD_FT843 // 4D Systems 4.3" (480x272)
@@ -2024,7 +2068,8 @@
  * interrupts are enabled.
  */
 #define USE_WATCHDOG
-#if ENABLED(USE_WATCHDOG)
+//#if ENABLED(USE_WATCHDOG)
+#if defined(USE_WATCHDOG)
  //#define WATCHDOG_RESET_MANUAL
 #endif
 
@@ -2038,7 +2083,8 @@
  * Warning: Does not respect endstops!
  */
  //#define BABYSTEPPING
-#if ENABLED(BABYSTEPPING)
+//#if ENABLED(BABYSTEPPING)
+#if defined(BABYSTEPPING)
   //#define INTEGRATED_BABYSTEPPING         // EXPERIMENTAL integration of babystepping into the Stepper ISR
   //#define BABYSTEP_WITHOUT_HOMING
   //#define BABYSTEP_ALWAYS_AVAILABLE       // Allow babystepping at all times (not just during movement).
@@ -2085,7 +2131,8 @@
  * See https://marlinfw.org/docs/features/lin_advance.html for full instructions.
  */
  //#define LIN_ADVANCE
-#if ENABLED(LIN_ADVANCE)
+//#if ENABLED(LIN_ADVANCE)
+#if defined(LIN_ADVANCE)
 #if ENABLED(DISTINCT_E_FACTORS)
 #define ADVANCE_K { 0.22 }    // (mm) Compression length per 1mm/s extruder speed, per extruder
 #else
@@ -2119,7 +2166,8 @@
   * Points to probe for all 3-point Leveling procedures.
   * Override if the automatically selected points are inadequate.
   */
-#if EITHER(AUTO_BED_LEVELING_3POINT, AUTO_BED_LEVELING_UBL)
+//#if EITHER(AUTO_BED_LEVELING_3POINT, AUTO_BED_LEVELING_UBL)
+#if defined(AUTO_BED_LEVELING_3POINT) || defined(AUTO_BED_LEVELING_UBL)
   //#define PROBE_PT_1_X 15
   //#define PROBE_PT_1_Y 180
   //#define PROBE_PT_2_X 15
@@ -2154,7 +2202,8 @@
  //#define PROBING_MARGIN_BACK PROBING_MARGIN
 #endif
 
-#if EITHER(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL)
+//#if EITHER(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL)
+#if defined(MESH_BED_LEVELING) || defined(AUTO_BED_LEVELING_UBL)
   // Override the mesh area if the automatic (max) area is too large
   //#define MESH_MIN_X MESH_INSET
   //#define MESH_MIN_Y MESH_INSET
@@ -2162,7 +2211,8 @@
   //#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)
 #endif
 
-#if BOTH(AUTO_BED_LEVELING_UBL, EEPROM_SETTINGS)
+//#if BOTH(AUTO_BED_LEVELING_UBL, EEPROM_SETTINGS)
+#if defined(AUTO_BED_LEVELING_UBL) && defined(EEPROM_SETTINGS)
   //#define OPTIMIZED_MESH_STORAGE  // Store mesh with less precision to save EEPROM space
 #endif
 
@@ -2171,7 +2221,8 @@
  * Stop after G29_MAX_RETRIES attempts.
  */
  //#define G29_RETRY_AND_RECOVER
-#if ENABLED(G29_RETRY_AND_RECOVER)
+//#if ENABLED(G29_RETRY_AND_RECOVER)
+#if defined(G29_RETRY_AND_RECOVER)
 #define G29_MAX_RETRIES 3
 #define G29_HALT_ON_FAILURE
 /**
@@ -2198,7 +2249,8 @@
   //#define PTC_BED      // Compensate based on bed temperature
   //#define PTC_HOTEND   // Compensate based on hotend temperature
 
-#if ANY(PTC_PROBE, PTC_BED, PTC_HOTEND)
+//#if ANY(PTC_PROBE, PTC_BED, PTC_HOTEND)
+#if defined(PTC_PROBE) || defined(PTC_BED) || defined(PTC_HOTEND)
   /**
    * If the probe is outside the defined range, use linear extrapolation with the closest
    * point and the point with index PTC_LINEAR_EXTRAPOLATION. e.g., If set to 4 it will use the
@@ -2261,7 +2313,8 @@
 // G2/G3 Arc Support
 //
 #define ARC_SUPPORT                   // Requires ~3226 bytes
-#if ENABLED(ARC_SUPPORT)
+//#if ENABLED(ARC_SUPPORT)
+#if defined(ARC_SUPPORT)
 #define MIN_ARC_SEGMENT_MM      0.1 // (mm) Minimum length of each arc segment
 #define MAX_ARC_SEGMENT_MM      1.0 // (mm) Maximum length of each arc segment
 #define MIN_CIRCLE_SEGMENTS    72   // Minimum number of segments in a complete circle
@@ -2274,7 +2327,8 @@
 // G5 B?zier Curve Support with XYZE destination and IJPQ offsets
 //#define BEZIER_CURVE_SUPPORT        // Requires ~2666 bytes
 
-#if EITHER(ARC_SUPPORT, BEZIER_CURVE_SUPPORT)
+//#if EITHER(ARC_SUPPORT, BEZIER_CURVE_SUPPORT)
+#if defined(ARC_SUPPORT) || defined(BEZIER_CURVE_SUPPORT)
   //#define CNC_WORKSPACE_PLANES      // Allow G2/G3/G5 to operate in XY, ZX, or YZ planes
 #endif
 
@@ -2296,7 +2350,8 @@
   * Set MULTIPLE_PROBING for G38 to probe more than once.
   */
   //#define G38_PROBE_TARGET
-#if ENABLED(G38_PROBE_TARGET)
+//#if ENABLED(G38_PROBE_TARGET)
+#if defined(G38_PROBE_TARGET)
   //#define G38_PROBE_AWAY        // Include G38.4 and G38.5 to probe away from target
 #define G38_MINIMUM_MOVE 0.0275 // (mm) Minimum distance that will produce a move.
 #endif
@@ -2360,9 +2415,11 @@
 
    // The number of linear moves that can be in the planner at once.
    // The value of BLOCK_BUFFER_SIZE must be a power of 2 (e.g., 8, 16, 32)
-#if BOTH(SDSUPPORT, DIRECT_STEPPING)
+//#if BOTH(SDSUPPORT, DIRECT_STEPPING)
+#if defined(SDSUPPORT) && defined(DIRECT_STEPPING)
 #define BLOCK_BUFFER_SIZE  8
-#elif ENABLED(SDSUPPORT)
+//#elif ENABLED(SDSUPPORT)
+#elif defined(SDSUPPORT)
 #define BLOCK_BUFFER_SIZE 16
 #else
 #define BLOCK_BUFFER_SIZE 16
@@ -2395,7 +2452,8 @@
   //#define SERIAL_XON_XOFF
 #endif
 
-#if ENABLED(SDSUPPORT)
+//#if ENABLED(SDSUPPORT)
+#if defined(SDSUPPORT)
   // Enable this option to collect and display the maximum
   // RX queue usage after transferring a file to SD.
   //#define SERIAL_STATS_MAX_RX_QUEUED
@@ -2437,7 +2495,8 @@
   * - Enable NANODLP_Z_SYNC and NANODLP_ALL_AXIS for move command end-state reports.
   */
   //#define REALTIME_REPORTING_COMMANDS
-#if ENABLED(REALTIME_REPORTING_COMMANDS)
+//#if ENABLED(REALTIME_REPORTING_COMMANDS)
+#if defined(REALTIME_REPORTING_COMMANDS)
   //#define FULL_REPORT_TO_HOST_FEATURE   // Auto-report the machine status like Grbl CNC
 #endif
 
@@ -2492,7 +2551,8 @@
    * Note that M207 / M208 / M209 settings are saved to EEPROM.
    */
    //#define FWRETRACT
-#if ENABLED(FWRETRACT)
+//#if ENABLED(FWRETRACT)
+#if defined(FWRETRACT)
 #define FWRETRACT_AUTORETRACT             // Override slicer retractions
 #if ENABLED(FWRETRACT_AUTORETRACT)
 #define MIN_AUTORETRACT             0.1 // (mm) Don't convert E moves under this length
@@ -2613,7 +2673,8 @@
  * Enable PARK_HEAD_ON_PAUSE to add the G-code M125 Pause and Park.
  */
  //#define ADVANCED_PAUSE_FEATURE
-#if ENABLED(ADVANCED_PAUSE_FEATURE)
+//#if ENABLED(ADVANCED_PAUSE_FEATURE)
+#if defined(ADVANCED_PAUSE_FEATURE)
 #define PAUSE_PARK_RETRACT_FEEDRATE         60  // (mm/s) Initial retract feedrate.
 #define PAUSE_PARK_RETRACT_LENGTH            2  // (mm) Initial retract.
                                                 // This short retract is done immediately, before parking the nozzle.
@@ -3232,7 +3293,8 @@
     */
 
     //#define EXPERIMENTAL_I2CBUS
-#if ENABLED(EXPERIMENTAL_I2CBUS)
+//#if ENABLED(EXPERIMENTAL_I2CBUS)
+#if defined(EXPERIMENTAL_I2CBUS)
 #define I2C_SLAVE_ADDRESS  0  // Set a value from 8 to 127 to act as a slave
 #endif
 
@@ -3244,7 +3306,8 @@
  * The photo can be triggered by a digital pin or a physical movement.
  */
  //#define PHOTO_GCODE
-#if ENABLED(PHOTO_GCODE)
+//#if ENABLED(PHOTO_GCODE)
+#if defined(PHOTO_GCODE)
   // A position to move to (and raise Z) before taking the photo
   //#define PHOTO_POSITION { X_MAX_POS - 5, Y_MAX_POS, 0 }  // { xpos, ypos, zraise } (M240 X Y Z)
   //#define PHOTO_DELAY_MS   100                            // (ms) Duration to pause before moving back (M240 P)
@@ -3298,7 +3361,8 @@
  */
  //#define SPINDLE_FEATURE
  //#define LASER_FEATURE
-#if EITHER(SPINDLE_FEATURE, LASER_FEATURE)
+//#if EITHER(SPINDLE_FEATURE, LASER_FEATURE)
+#if defined(SPINDLE_FEATURE) || defined(LASER_FEATURE)
 #define SPINDLE_LASER_ACTIVE_STATE    LOW    // Set to "HIGH" if SPINDLE_LASER_ENA_PIN is active HIGH
 
 #define SPINDLE_LASER_USE_PWM                // Enable if your controller supports setting the speed/power
@@ -3477,7 +3541,8 @@
   * Note: COOLANT_MIST_PIN and/or COOLANT_FLOOD_PIN must also be defined.
   */
   //#define COOLANT_CONTROL
-#if ENABLED(COOLANT_CONTROL)
+//#if ENABLED(COOLANT_CONTROL)
+#if defined(COOLANT_CONTROL)
 #define COOLANT_MIST                // Enable if mist coolant is present
 #define COOLANT_FLOOD               // Enable if flood coolant is present
 #define COOLANT_MIST_INVERT  false  // Set "true" if the on/off function is reversed
@@ -3506,7 +3571,8 @@
  */
  //#define FILAMENT_WIDTH_SENSOR
 
-#if ENABLED(FILAMENT_WIDTH_SENSOR)
+//#if ENABLED(FILAMENT_WIDTH_SENSOR)
+#if defined(FILAMENT_WIDTH_SENSOR)
 #define FILAMENT_SENSOR_EXTRUDER_NUM 0    // Index of the extruder that has the filament sensor. :[0,1,2,3,4]
 #define MEASUREMENT_DELAY_CM        14    // (cm) The distance from the filament sensor to the melting chamber
 
@@ -3533,13 +3599,15 @@
  //#define POWER_MONITOR_CURRENT   // Monitor the system current
  //#define POWER_MONITOR_VOLTAGE   // Monitor the system voltage
 
-#if ENABLED(POWER_MONITOR_CURRENT)
+//#if ENABLED(POWER_MONITOR_CURRENT)
+#if defined(POWER_MONITOR_CURRENT)
 #define POWER_MONITOR_VOLTS_PER_AMP    0.05000  // Input voltage to the MCU analog pin per amp  - DO NOT apply more than ADC_VREF!
 #define POWER_MONITOR_CURRENT_OFFSET   0        // Offset (in amps) applied to the calculated current
 #define POWER_MONITOR_FIXED_VOLTAGE   13.6      // Voltage for a current sensor with no voltage sensor (for power display)
 #endif
 
-#if ENABLED(POWER_MONITOR_VOLTAGE)
+//#if ENABLED(POWER_MONITOR_VOLTAGE)
+#if defined(POWER_MONITOR_VOLTAGE)
 #define POWER_MONITOR_VOLTS_PER_VOLT  0.077933  // Input voltage to the MCU analog pin per volt - DO NOT apply more than ADC_VREF!
 #define POWER_MONITOR_VOLTAGE_OFFSET  0         // Offset (in volts) applied to the calculated voltage
 #endif
@@ -3577,7 +3645,8 @@
     * Auto-report temperatures with M155 S<seconds>
     */
 #define AUTO_REPORT_TEMPERATURES
-#if ENABLED(AUTO_REPORT_TEMPERATURES) && TEMP_SENSOR_REDUNDANT
+//#if ENABLED(AUTO_REPORT_TEMPERATURES) && TEMP_SENSOR_REDUNDANT
+#if defined(AUTO_REPORT_TEMPERATURES) && TEMP_SENSOR_REDUNDANT
     //#define AUTO_REPORT_REDUNDANT // Include the "R" sensor in the auto-report
 #endif
 
@@ -3590,7 +3659,8 @@
   * Include capabilities in M115 output
   */
 #define EXTENDED_CAPABILITIES_REPORT
-#if ENABLED(EXTENDED_CAPABILITIES_REPORT)
+//#if ENABLED(EXTENDED_CAPABILITIES_REPORT)
+#if defined(EXTENDED_CAPABILITIES_REPORT)
   //#define M115_GEOMETRY_REPORT
 #endif
 
@@ -3610,7 +3680,8 @@
   */
   //#define NO_VOLUMETRICS
 
-#if DISABLED(NO_VOLUMETRICS)
+//#if DISABLED(NO_VOLUMETRICS)
+#if !defined(NO_VOLUMETRICS)
   /**
    * Volumetric extrusion default state
    * Activate to make volumetric extrusion the default method,
@@ -3622,7 +3693,8 @@
    //#define VOLUMETRIC_DEFAULT_ON
 
    //#define VOLUMETRIC_EXTRUDER_LIMIT
-#if ENABLED(VOLUMETRIC_EXTRUDER_LIMIT)
+//#if ENABLED(VOLUMETRIC_EXTRUDER_LIMIT)
+#if defined(VOLUMETRIC_EXTRUDER_LIMIT)
   /**
    * Default volumetric extrusion limit in cubic mm per second (mm^3/sec).
    * This factory setting applies to all extruders.
@@ -3649,7 +3721,8 @@
     */
 #define FASTER_GCODE_PARSER
 
-#if ENABLED(FASTER_GCODE_PARSER)
+//#if ENABLED(FASTER_GCODE_PARSER)
+#if defined(FASTER_GCODE_PARSER)
     //#define GCODE_QUOTED_STRINGS  // Support for quoted string parameters
 #endif
 
@@ -3701,7 +3774,8 @@
   * Macros are not saved to EEPROM.
   */
   //#define GCODE_MACROS
-#if ENABLED(GCODE_MACROS)
+//#if ENABLED(GCODE_MACROS)
+#if defined(GCODE_MACROS)
 #define GCODE_MACROS_SLOTS       5  // Up to 10 may be used
 #define GCODE_MACROS_SLOT_SIZE  50  // Maximum length of a single macro
 #endif
@@ -3715,7 +3789,8 @@
 
  // Custom Menu: Main Menu
  //#define CUSTOM_MENU_MAIN
-#if ENABLED(CUSTOM_MENU_MAIN)
+//#if ENABLED(CUSTOM_MENU_MAIN)
+#if defined(CUSTOM_MENU_MAIN)
   //#define CUSTOM_MENU_MAIN_TITLE "Custom Commands"
 #define CUSTOM_MENU_MAIN_SCRIPT_DONE "M117 User Script Done"
 #define CUSTOM_MENU_MAIN_SCRIPT_AUDIBLE_FEEDBACK
@@ -3747,7 +3822,8 @@
 
 // Custom Menu: Configuration Menu
 //#define CUSTOM_MENU_CONFIG
-#if ENABLED(CUSTOM_MENU_CONFIG)
+//#if ENABLED(CUSTOM_MENU_CONFIG)
+#if defined(CUSTOM_MENU_CONFIG)
   //#define CUSTOM_MENU_CONFIG_TITLE "Custom Commands"
 #define CUSTOM_MENU_CONFIG_SCRIPT_DONE "M117 Wireless Script Done"
 #define CUSTOM_MENU_CONFIG_SCRIPT_AUDIBLE_FEEDBACK
@@ -3782,7 +3858,8 @@
  * Up to 25 may be defined.
  */
  //#define CUSTOM_USER_BUTTONS
-#if ENABLED(CUSTOM_USER_BUTTONS)
+//#if ENABLED(CUSTOM_USER_BUTTONS)
+#if defined(CUSTOM_USER_BUTTONS)
   //#define BUTTON1_PIN -1
 #if PIN_EXISTS(BUTTON1)
 #define BUTTON1_HIT_STATE     LOW       // State of the triggered button. NC=LOW. NO=HIGH.
@@ -3825,7 +3902,8 @@
  * filament runout and other processes can be managed from the host side.
  */
  //#define HOST_ACTION_COMMANDS
-#if ENABLED(HOST_ACTION_COMMANDS)
+//#if ENABLED(HOST_ACTION_COMMANDS)
+#if defined(HOST_ACTION_COMMANDS)
   //#define HOST_PAUSE_M76                // Tell the host to pause in response to M76
   //#define HOST_PROMPT_SUPPORT           // Initiate host prompts to get user feedback
 #if ENABLED(HOST_PROMPT_SUPPORT)
@@ -3843,7 +3921,8 @@
  * Implement M486 to allow Marlin to skip objects
  */
  //#define CANCEL_OBJECTS
-#if ENABLED(CANCEL_OBJECTS)
+//#if ENABLED(CANCEL_OBJECTS)
+#if defined(CANCEL_OBJECTS)
 #define CANCEL_OBJECTS_REPORTING // Emit the current object as a status message
 #endif
 
@@ -3862,7 +3941,8 @@
  */
 
  //#define I2C_POSITION_ENCODERS
-#if ENABLED(I2C_POSITION_ENCODERS)
+//#if ENABLED(I2C_POSITION_ENCODERS)
+#if defined(I2C_POSITION_ENCODERS)
 
 #define I2CPE_ENCODER_CNT         1                       // The number of encoders installed; max of 5
                                                           // encoders supported currently.
@@ -3933,7 +4013,8 @@
  * @section joystick
  */
  //#define JOYSTICK
-#if ENABLED(JOYSTICK)
+//#if ENABLED(JOYSTICK)
+#if defined(JOYSTICK)
 #define JOY_X_PIN    5  // RAMPS: Suggested pin A5  on AUX2
 #define JOY_Y_PIN   10  // RAMPS: Suggested pin A10 on AUX2
 #define JOY_Z_PIN   12  // RAMPS: Suggested pin A12 on AUX2
@@ -3958,7 +4039,8 @@
  * @section calibrate
  */
  //#define MECHANICAL_GANTRY_CALIBRATION
-#if ENABLED(MECHANICAL_GANTRY_CALIBRATION)
+//#if ENABLED(MECHANICAL_GANTRY_CALIBRATION)
+#if defined(MECHANICAL_GANTRY_CALIBRATION)
 #define GANTRY_CALIBRATION_CURRENT          600     // Default calibration current in ma
 #define GANTRY_CALIBRATION_EXTRA_HEIGHT      15     // Extra distance in mm past Z_###_POS to move
 #define GANTRY_CALIBRATION_FEEDRATE         500     // Feedrate for correction move
@@ -3976,7 +4058,8 @@
  * @section interface
  */
  //#define FREEZE_FEATURE
-#if ENABLED(FREEZE_FEATURE)
+//#if ENABLED(FREEZE_FEATURE)
+#if defined(FREEZE_FEATURE)
   //#define FREEZE_PIN 41   // Override the default (KILL) pin here
 #define FREEZE_STATE LOW  // State of pin indicating freeze
 #endif
@@ -3989,7 +4072,8 @@
  * @section debug matrix
  */
  //#define MAX7219_DEBUG
-#if ENABLED(MAX7219_DEBUG)
+//#if ENABLED(MAX7219_DEBUG)
+#if defined(MAX7219_DEBUG)
 #define MAX7219_CLK_PIN   64
 #define MAX7219_DIN_PIN   57
 #define MAX7219_LOAD_PIN  44
@@ -4028,7 +4112,8 @@
  * @section nanodlp
  */
  //#define NANODLP_Z_SYNC
-#if ENABLED(NANODLP_Z_SYNC)
+//#if ENABLED(NANODLP_Z_SYNC)
+#if defined(NANODLP_Z_SYNC)
   //#define NANODLP_ALL_AXIS  // Send a "Z_move_comp" report for any axis move (not just Z).
 #endif
 
@@ -4046,7 +4131,8 @@
   //#define WIFISUPPORT         // Marlin embedded WiFi management
   //#define ESP3D_WIFISUPPORT   // ESP3D Library WiFi management (https://github.com/luc-github/ESP3DLib)
 
-#if EITHER(WIFISUPPORT, ESP3D_WIFISUPPORT)
+//#if EITHER(WIFISUPPORT, ESP3D_WIFISUPPORT)
+#if defined(WIFISUPPORT) || defined(ESP3D_WIFISUPPORT)
   //#define WEBSUPPORT          // Start a webserver (which may include auto-discovery)
   //#define OTASUPPORT          // Support over-the-air firmware updates
   //#define WIFI_CUSTOM_COMMAND // Accept feature config commands (e.g., WiFi ESP3D) from the host
@@ -4171,7 +4257,8 @@
  * Advanced Print Counter settings
  * @section stats
  */
-#if ENABLED(PRINTCOUNTER)
+//#if ENABLED(PRINTCOUNTER)
+#if defined(PRINTCOUNTER)
 #define SERVICE_WARNING_BUZZES  3
  // Activate up to 3 service interval watchdogs
  //#define SERVICE_NAME_1      "Service S"
@@ -4205,7 +4292,8 @@
 // Enable Marlin dev mode which adds some special commands
 //#define MARLIN_DEV_MODE
 
-#if ENABLED(MARLIN_DEV_MODE)
+//#if ENABLED(MARLIN_DEV_MODE)
+#if defined(MARLIN_DEV_MODE)
   /**
    * D576 - Buffer Monitoring
    * To help diagnose print quality issues stemming from empty command buffers.

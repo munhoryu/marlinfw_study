@@ -219,8 +219,8 @@ template <class V, class N1, class N2> static constexpr void LIMIT(V& v, const N
 
 #define _ENA_1(O)           _ISENA(CAT(_IS,CAT(ENA_, O)))
 #define _DIS_1(O)           NOT(_ENA_1(O))
-#define ENABLED(...)       DO(ENA,&&,##__VA_ARGS__)
-#define DISABLED(...)      DO(DIS,&&,##__VA_ARGS__)
+//#define ENABLED(...)       DO(ENA,&&,##__VA_ARGS__)
+//#define DISABLED(...)      DO(DIS,&&,##__VA_ARGS__)
 #define COUNT_ENABLED(...) DO(ENA,+,##__VA_ARGS__)
 
 #define TERN(O,A,B)         _TERN(_ENA_1(O),B,A)    // OPTION ? 'A' : 'B'
@@ -248,12 +248,12 @@ template <class V, class N1, class N2> static constexpr void LIMIT(V& v, const N
 #define IF_ENABLED          TERN_
 #define IF_DISABLED(O,A)    TERN(O,,A)
 
-#define ANY(...)          !DISABLED(##__VA_ARGS__)
-#define NONE(...)          DISABLED(##__VA_ARGS__)
-#define ALL(...)           ENABLED(##__VA_ARGS__)
-#define BOTH(V1,V2)         ALL(V1,V2)
-#define EITHER(V1,V2)       ANY(V1,V2)
-#define MANY(...)          (COUNT_ENABLED(##__VA_ARGS__) > 1)
+//#define ANY(...)          !DISABLED(##__VA_ARGS__)
+//#define NONE(...)          DISABLED(##__VA_ARGS__)
+//#define ALL(...)           ENABLED(##__VA_ARGS__)
+//#define BOTH(V1,V2)         ALL(V1,V2)
+//#define EITHER(V1,V2)       ANY(V1,V2)
+//#define MANY(...)          (COUNT_ENABLED(##__VA_ARGS__) > 1)
 
 // Macros to support pins/buttons exist testing
 #define PIN_EXISTS(PN)      (defined(PN##_PIN) && PN##_PIN >= 0)
