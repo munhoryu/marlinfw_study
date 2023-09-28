@@ -5,10 +5,10 @@
 //
 
 #include "MarlinConfigPre.h"
-/*
 #ifndef __MARLIN_DEPS__
 #include "../HAL/HAL.h"
 #endif
+/*
 
 #include "../pins/pins.h"
 

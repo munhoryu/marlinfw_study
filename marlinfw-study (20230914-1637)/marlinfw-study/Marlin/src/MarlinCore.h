@@ -1,11 +1,19 @@
 #pragma once
-#include "inc/MarlinConfig.h"
 
-/*
+#define __AVR__
+#define SERIAL_XON_XOFF false
+#define EMERGENCY_PARSER false
+#define SERIAL_STATS_DROPPED_RX false
+#define SERIAL_STATS_RX_BUFFER_OVERRUNS false
+#define SERIAL_STATS_RX_FRAMING_ERRORS false
+#define SERIAL_STATS_MAX_RX_QUEUED false
+
+#include "inc/MarlinConfig.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
 void stop();
 
 // Pass true to keep steppers from timing out

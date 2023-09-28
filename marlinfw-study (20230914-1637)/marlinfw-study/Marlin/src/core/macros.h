@@ -59,9 +59,12 @@
 #define _E6DIAG_ 0xE6
 #define _E7DIAG_ 0xE7
 
-#define _FORCE_INLINE_ __attribute__((__always_inline__)) __inline__
-#define  FORCE_INLINE  __attribute__((always_inline)) inline
-#define NO_INLINE      __attribute__((noinline))
+//#define _FORCE_INLINE_ __attribute__((__always_inline__)) __inline__
+//#define  FORCE_INLINE  __attribute__((always_inline)) inline
+//#define NO_INLINE      __attribute__((noinline))
+#define _FORCE_INLINE_
+#define  FORCE_INLINE
+#define NO_INLINE
 #define _UNUSED      __attribute__((unused))
 #define __O0         __attribute__((optimize("O0")))
 #define __Os         __attribute__((optimize("Os")))
@@ -227,9 +230,12 @@ template <class V, class N1, class N2> static constexpr void LIMIT(V& v, const N
 #define TERN0(O,A)          _TERN(_ENA_1(O),0,A)    // OPTION ? 'A' : '0'
 #define TERN1(O,A)          _TERN(_ENA_1(O),1,A)    // OPTION ? 'A' : '1'
 #define TERN_(O,A)          _TERN(_ENA_1(O),,A)     // OPTION ? 'A' : '<nul>'
-#define _TERN(E,V,...)       __TERN(_CAT(T_,E),V)    // Prepend 'T_' to get 'T_0' or 'T_1'
-#define __TERN(T,V,...)      ___TERN(_CAT(_NO,T),V)  // Prepend '_NO' to get '_NOT_0' or '_NOT_1'
-#define ___TERN(P,V,...)     THIRD(P,V)              // If first argument has a comma, A. Else B.
+//#define _TERN(E,V...)       __TERN(_CAT(T_,E),V)    // Prepend 'T_' to get 'T_0' or 'T_1'
+//#define __TERN(T,V...)      ___TERN(_CAT(_NO,T),V)  // Prepend '_NO' to get '_NOT_0' or '_NOT_1'
+//#define ___TERN(P,V...)     THIRD(P,V)              // If first argument has a comma, A. Else B.
+#define _TERN(E,...)       __TERN(_CAT(T_,E),##__VA_ARGS__)    // Prepend 'T_' to get 'T_0' or 'T_1'
+#define __TERN(T,...)      ___TERN(_CAT(_NO,T),##__VA_ARGS__)  // Prepend '_NO' to get '_NOT_0' or '_NOT_1'
+#define ___TERN(P,...)     THIRD(P,##__VA_ARGS__)              // If first argument has a comma, A. Else B.
 
 #define _OPTITEM(A,...)      A,
 #define OPTITEM(O,A,...)     TERN_(O,DEFER4(_OPTITEM)(A))
@@ -647,7 +653,7 @@ inline const char* gtn(T*) {
 #define IF_ELSE(TF) _IF_ELSE(_BOOL(TF))
 #define _IF_ELSE(TF) _CAT(_IF_, TF)
 
-#define _IF_1(...) __VA_ARGS__ _IF_1_ELSE
+#define _IF_1(...) (##__VA_ARGS__) _IF_1_ELSE
 #define _IF_0(...)    _IF_0_ELSE
 
 #define _IF_1_ELSE(...)

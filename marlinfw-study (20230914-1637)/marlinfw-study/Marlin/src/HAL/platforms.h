@@ -1,7 +1,7 @@
 #pragma once
 
 // windows simulation
-#define __AVR__
+//#define __AVR__
 
 
 #define XSTR(...) #__VA_ARGS__
@@ -36,5 +36,6 @@
 #elif defined(__SAMD21__)
 #define HAL_PATH(PATH, NAME) XSTR(PATH/HAL/SAMD21/NAME)
 #else
-#error "Unsupported Platform!"
+//#error "Unsupported Platform!"
+#pragma "Unsupported Platform!"
 #endif

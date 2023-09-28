@@ -92,6 +92,8 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <UseStandardPreprocessor>true</UseStandardPreprocessor>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -154,12 +156,44 @@
   <ItemGroup>
     <ClInclude Include="Marlin\Configuration.h" />
     <ClInclude Include="Marlin\Configuration_adv.h" />
+    <ClInclude Include="Marlin\src\arduino-core\Arduino.h" />
+    <ClInclude Include="Marlin\src\arduino-core\avr\common.h" />
+    <ClInclude Include="Marlin\src\arduino-core\avr\delay.h" />
+    <ClInclude Include="Marlin\src\arduino-core\avr\delay_basic.h" />
+    <ClInclude Include="Marlin\src\arduino-core\avr\eeprom.h" />
+    <ClInclude Include="Marlin\src\arduino-core\avr\fuse.h" />
+    <ClInclude Include="Marlin\src\arduino-core\avr\interrupt.h" />
+    <ClInclude Include="Marlin\src\arduino-core\avr\inttypes.h" />
+    <ClInclude Include="Marlin\src\arduino-core\avr\io.h" />
+    <ClInclude Include="Marlin\src\arduino-core\avr\lock.h" />
+    <ClInclude Include="Marlin\src\arduino-core\avr\pgmspace.h" />
+    <ClInclude Include="Marlin\src\arduino-core\avr\portpins.h" />
+    <ClInclude Include="Marlin\src\arduino-core\avr\sfr_defs.h" />
+    <ClInclude Include="Marlin\src\arduino-core\avr\version.h" />
+    <ClInclude Include="Marlin\src\arduino-core\binary.h" />
+    <ClInclude Include="Marlin\src\arduino-core\HardwareSerial.h" />
+    <ClInclude Include="Marlin\src\arduino-core\pins_arduino.h" />
+    <ClInclude Include="Marlin\src\arduino-core\Print.h" />
+    <ClInclude Include="Marlin\src\arduino-core\Printable.h" />
+    <ClInclude Include="Marlin\src\arduino-core\Stream.h" />
+    <ClInclude Include="Marlin\src\arduino-core\USBAPI.h" />
+    <ClInclude Include="Marlin\src\arduino-core\WCharacter.h" />
+    <ClInclude Include="Marlin\src\arduino-core\WString.h" />
     <ClInclude Include="Marlin\src\core\boards.h" />
     <ClInclude Include="Marlin\src\core\drivers.h" />
     <ClInclude Include="Marlin\src\core\macros.h" />
+    <ClInclude Include="Marlin\src\core\serial_base.h" />
+    <ClInclude Include="Marlin\src\core\serial_hook.h" />
+    <ClInclude Include="Marlin\src\HAL\AVR\fastio.h" />
+    <ClInclude Include="Marlin\src\HAL\AVR\HAL.h" />
     <ClInclude Include="Marlin\src\HAL\AVR\inc\Conditionals_adv.h" />
     <ClInclude Include="Marlin\src\HAL\AVR\inc\Conditionals_LCD.h" />
+    <ClInclude Include="Marlin\src\HAL\AVR\MarlinSerial.h" />
+    <ClInclude Include="Marlin\src\HAL\HAL.h" />
     <ClInclude Include="Marlin\src\HAL\platforms.h" />
+    <ClInclude Include="Marlin\src\HAL\shared\HAL_SPI.h" />
+    <ClInclude Include="Marlin\src\HAL\shared\Marduino.h" />
+    <ClInclude Include="Marlin\src\HAL\shared\progmem.h" />
     <ClInclude Include="Marlin\src\inc\Conditionals_adv.h" />
     <ClInclude Include="Marlin\src\inc\Conditionals_LCD.h" />
     <ClInclude Include="Marlin\src\inc\MarlinConfig.h" />
@@ -177,6 +211,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
