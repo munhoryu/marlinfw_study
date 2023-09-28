@@ -8,10 +8,10 @@
 #ifndef __MARLIN_DEPS__
 #include "../HAL/HAL.h"
 #endif
-/*
 
 #include "../pins/pins.h"
 
+/*
 #ifndef __MARLIN_DEPS__
 #include HAL_PATH(.., timers.h)
 #include HAL_PATH(.., spi_pins.h)

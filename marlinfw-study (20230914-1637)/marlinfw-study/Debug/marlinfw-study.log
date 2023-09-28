@@ -535,7 +535,37 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'IF_DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(229,1): message : 매크로 'TERN'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(236,1): message : 매크로 '_TERN'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\serial_base.h(67): warning C4717: 'operator|=': 모든 제어 경로에서 재귀적입니다. 함수로 인해 런타임 스택 오버플로가 발생합니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\serial_base.h(67): warning C4717: 'operator&=': 모든 제어 경로에서 재귀적입니다. 함수로 인해 런타임 스택 오버플로가 발생합니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\serial_base.h(67): warning C4717: 'operator^=': 모든 제어 경로에서 재귀적입니다. 함수로 인해 런타임 스택 오버플로가 발생합니다.
-  marlinfw-study.vcxproj -> C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\Debug\marlinfw-study.exe
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(42,7): warning C5103: '(' 및 'RAMPS_13_EFB' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\boards.h(484,1): message : 매크로 'MB'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(209,1): message : 매크로 'DO'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(42,7): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(44,7): warning C5103: '(' 및 'RAMPS_13_EEB' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\boards.h(484,1): message : 매크로 'MB'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(209,1): message : 매크로 'DO'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(44,7): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(46,7): warning C5103: '(' 및 'RAMPS_13_EFF' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\boards.h(484,1): message : 매크로 'MB'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(209,1): message : 매크로 'DO'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(46,7): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(48,7): warning C5103: '(' 및 'RAMPS_13_EEF' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\boards.h(484,1): message : 매크로 'MB'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(209,1): message : 매크로 'DO'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(48,7): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(50,7): warning C5103: '(' 및 'RAMPS_13_SF' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\boards.h(484,1): message : 매크로 'MB'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(209,1): message : 매크로 'DO'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(50,7): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(82,5): warning C5103: '(' 및 'RAMPS_OLD' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\boards.h(484,1): message : 매크로 'MB'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(209,1): message : 매크로 'DO'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(82,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(84,7): warning C5103: '(' 및 'RAMPS_13_EFB' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\boards.h(484,1): message : 매크로 'MB'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(209,1): message : 매크로 'DO'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(84,7): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(86,7): warning C5103: '(' 및 'RAMPS_14_EFB' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\boards.h(484,1): message : 매크로 'MB'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(209,1): message : 매크로 'DO'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(86,7): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\ramps\pins_RAMPS.h(49,12): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\ramps\pins_RAMPS.h(53,1): fatal  error C1083: 포함 파일을 열 수 없습니다. 'env_validate.h': No such file or directory

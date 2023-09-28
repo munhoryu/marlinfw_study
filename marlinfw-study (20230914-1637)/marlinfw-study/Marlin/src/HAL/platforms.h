@@ -1,7 +1,7 @@
 #pragma once
 
 // windows simulation
-//#define __AVR__
+#define __AVR__
 
 
 #define XSTR(...) #__VA_ARGS__
