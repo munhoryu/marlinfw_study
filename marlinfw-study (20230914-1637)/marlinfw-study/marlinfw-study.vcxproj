@@ -187,6 +187,7 @@
     <ClInclude Include="Marlin\src\HAL\AVR\spi_pins.h" />
     <ClInclude Include="Marlin\src\HAL\AVR\timers.h" />
     <ClInclude Include="Marlin\src\inc\conditionals_post.h" />
+    <ClInclude Include="Marlin\src\inc\SanityCheck.h" />
     <ClInclude Include="Marlin\src\pins\pins.h" />
     <ClInclude Include="Marlin\src\pins\pins_postprocess.h" />
     <ClInclude Include="Marlin\src\core\serial_base.h" />
