@@ -11,7 +11,6 @@
 
 #include "../pins/pins.h"
 
-/*
 #ifndef __MARLIN_DEPS__
 #include HAL_PATH(.., timers.h)
 #include HAL_PATH(.., spi_pins.h)
@@ -35,5 +34,6 @@
 
 #endif
 
+/*
 #include "../core/multi_language.h"
 */

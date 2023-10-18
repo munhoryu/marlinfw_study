@@ -182,6 +182,11 @@
     <ClInclude Include="Marlin\src\core\boards.h" />
     <ClInclude Include="Marlin\src\core\drivers.h" />
     <ClInclude Include="Marlin\src\core\macros.h" />
+    <ClInclude Include="Marlin\src\core\types.h" />
+    <ClInclude Include="Marlin\src\HAL\AVR\inc\Conditionals_post.h" />
+    <ClInclude Include="Marlin\src\HAL\AVR\spi_pins.h" />
+    <ClInclude Include="Marlin\src\HAL\AVR\timers.h" />
+    <ClInclude Include="Marlin\src\inc\conditionals_post.h" />
     <ClInclude Include="Marlin\src\pins\pins.h" />
     <ClInclude Include="Marlin\src\pins\pins_postprocess.h" />
     <ClInclude Include="Marlin\src\core\serial_base.h" />
@@ -202,6 +207,7 @@
     <ClInclude Include="Marlin\src\inc\MarlinConfigPre.h" />
     <ClInclude Include="Marlin\src\inc\Version.h" />
     <ClInclude Include="Marlin\src\MarlinCore.h" />
+    <ClInclude Include="Marlin\src\pins\ramps\env_validate.h" />
     <ClInclude Include="Marlin\src\pins\ramps\pins_RAMPS.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>

@@ -165,6 +165,24 @@
     <ClInclude Include="Marlin\src\pins\ramps\pins_RAMPS.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Marlin\src\pins\ramps\env_validate.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\HAL\AVR\timers.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\HAL\AVR\spi_pins.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\inc\conditionals_post.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\HAL\AVR\inc\Conditionals_post.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\core\types.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
