@@ -38,10 +38,18 @@ struct IF<true, L, R> { typedef L type; };
 
 #define ALL_AXIS_NAMES X, X2, Y, Y2, Z, Z2, Z3, Z4, I, J, K, U, V, W, E0, E1, E2, E3, E4, E5, E6, E7
 
+/*
 #define NUM_AXIS_GANG(V...) GANG_N(NUM_AXES, V)
 #define NUM_AXIS_CODE(V...) CODE_N(NUM_AXES, V)
 #define NUM_AXIS_LIST(V...) LIST_N(NUM_AXES, V)
 #define NUM_AXIS_LIST_1(V)  LIST_N_1(NUM_AXES, V)
+*/
+#define NUM_AXIS_GANG(...) GANG_N(NUM_AXES, ##__VA_ARGS__)
+#define NUM_AXIS_CODE(...) CODE_N(NUM_AXES, ##__VA_ARGS__)
+#define NUM_AXIS_LIST(...) LIST_N(NUM_AXES, ##__VA_ARGS__)
+#define NUM_AXIS_LIST_1(V)  LIST_N_1(NUM_AXES, V)
+
+/*
 #define NUM_AXIS_ARRAY(V...) { NUM_AXIS_LIST(V) }
 #define NUM_AXIS_ARRAY_1(V)  { NUM_AXIS_LIST_1(V) }
 #define NUM_AXIS_ARGS(T...) NUM_AXIS_LIST(T x, T y, T z, T i, T j, T k, T u, T v, T w)
@@ -50,25 +58,42 @@ struct IF<true, L, R> { typedef L type; };
 #define MAIN_AXIS_NAMES     NUM_AXIS_LIST(X, Y, Z, I, J, K, U, V, W)
 #define MAIN_AXIS_MAP(F)    MAP(F, MAIN_AXIS_NAMES)
 #define STR_AXES_MAIN       NUM_AXIS_GANG("X", "Y", "Z", STR_I, STR_J, STR_K, STR_U, STR_V, STR_W)
+*/
 
+/*
 #define LOGICAL_AXIS_GANG(E,V...) NUM_AXIS_GANG(V) GANG_ITEM_E(E)
 #define LOGICAL_AXIS_CODE(E,V...) NUM_AXIS_CODE(V) CODE_ITEM_E(E)
 #define LOGICAL_AXIS_LIST(E,V...) NUM_AXIS_LIST(V) LIST_ITEM_E(E)
 #define LOGICAL_AXIS_LIST_1(V)    NUM_AXIS_LIST_1(V) LIST_ITEM_E(V)
-#define LOGICAL_AXIS_ARRAY(E,V...) { LOGICAL_AXIS_LIST(E,V) }
-#define LOGICAL_AXIS_ARRAY_1(V)    { LOGICAL_AXIS_LIST_1(V) }
-#define LOGICAL_AXIS_ARGS(T...) LOGICAL_AXIS_LIST(T e, T x, T y, T z, T i, T j, T k, T u, T v, T w)
+*/
+#define LOGICAL_AXIS_GANG(E,...) NUM_AXIS_GANG(##__VA_ARGS__) GANG_ITEM_E(E)
+#define LOGICAL_AXIS_CODE(E,...) NUM_AXIS_CODE(##__VA_ARGS__) CODE_ITEM_E(E)
+#define LOGICAL_AXIS_LIST(E,...) NUM_AXIS_LIST(##__VA_ARGS__) LIST_ITEM_E(E)
+#define LOGICAL_AXIS_LIST_1(V)    NUM_AXIS_LIST_1(V) LIST_ITEM_E(V)
+
+
+//#define LOGICAL_AXIS_ARRAY(E,V...) { LOGICAL_AXIS_LIST(E,V) }
+//#define LOGICAL_AXIS_ARRAY_1(V)    { LOGICAL_AXIS_LIST_1(V) }
+//#define LOGICAL_AXIS_ARGS(T...) LOGICAL_AXIS_LIST(T e, T x, T y, T z, T i, T j, T k, T u, T v, T w)
 #define LOGICAL_AXIS_ELEM(O)    LOGICAL_AXIS_LIST(O.e, O.x, O.y, O.z, O.i, O.j, O.k, O.u, O.v, O.w)
 #define LOGICAL_AXIS_DECL(T,V)  LOGICAL_AXIS_LIST(T e=V, T x=V, T y=V, T z=V, T i=V, T j=V, T k=V, T u=V, T v=V, T w=V)
 #define LOGICAL_AXIS_NAMES      LOGICAL_AXIS_LIST(E, X, Y, Z, I, J, K, U, V, W)
 #define LOGICAL_AXIS_MAP(F)     MAP(F, LOGICAL_AXIS_NAMES)
 #define STR_AXES_LOGICAL     LOGICAL_AXIS_GANG("E", "X", "Y", "Z", STR_I, STR_J, STR_K, STR_U, STR_V, STR_W)
 
+/*
 #define XYZ_GANG(V...) GANG_N(PRIMARY_LINEAR_AXES, V)
 #define XYZ_CODE(V...) CODE_N(PRIMARY_LINEAR_AXES, V)
+*/
+#define XYZ_GANG(...) GANG_N(PRIMARY_LINEAR_AXES, ##__VA_ARGS__)
+#define XYZ_CODE(...) CODE_N(PRIMARY_LINEAR_AXES, ##__VA_ARGS__)
 
+/*
 #define SECONDARY_AXIS_GANG(V...) GANG_N(SECONDARY_AXES, V)
 #define SECONDARY_AXIS_CODE(V...) CODE_N(SECONDARY_AXES, V)
+*/
+#define SECONDARY_AXIS_GANG(...) GANG_N(SECONDARY_AXES, ##__VA_ARGS__)
+#define SECONDARY_AXIS_CODE(...) CODE_N(SECONDARY_AXES, ##__VA_ARGS__)
 
 #if HAS_ROTATIONAL_AXES
 #define ROTATIONAL_AXIS_GANG(V...) GANG_N(ROTATIONAL_AXES, V)
@@ -153,11 +178,13 @@ enum AxisEnum : uint8_t {
 
     // Extruder axes may be considered distinctly
 #define _EN_ITEM(N) , E##N##_AXIS
-    REPEAT(EXTRUDERS, _EN_ITEM)
+    //REPEAT(EXTRUDERS, _EN_ITEM)
+    , E0_AXIS
 #undef _EN_ITEM
 
     // Core also keeps toolhead directions
-#if ANY(IS_CORE, MARKFORGED_XY, MARKFORGED_YX)
+//#if ANY(IS_CORE, MARKFORGED_XY, MARKFORGED_YX)
+#if defined(IS_CORE) || defined(MARKFORGED_XY) || defined(MARKFORGED_YX)
     , X_HEAD, Y_HEAD, Z_HEAD
 #endif
 
@@ -284,25 +311,25 @@ typedef struct XYval<feedRate_t>     xy_feedrate_t;
 typedef struct XYZval<feedRate_t>   xyz_feedrate_t;
 typedef struct XYZEval<feedRate_t> xyze_feedrate_t;
 
-typedef xy_uint8_t xy_byte_t;
-typedef xyz_uint8_t xyz_byte_t;
+typedef xy_uint8_t     xy_byte_t;
+typedef xyz_uint8_t   xyz_byte_t;
 typedef xyze_uint8_t xyze_byte_t;
 
-typedef xyz_long_t abc_long_t;
-typedef xyze_long_t abce_long_t;
-typedef xyz_ulong_t abc_ulong_t;
+typedef xyz_long_t    abc_long_t;
+typedef xyze_long_t   abce_long_t;
+typedef xyz_ulong_t   abc_ulong_t;
 typedef xyze_ulong_t abce_ulong_t;
 
-typedef xy_float_t xy_pos_t;
-typedef xyz_float_t xyz_pos_t;
+typedef xy_float_t     xy_pos_t;
+typedef xyz_float_t   xyz_pos_t;
 typedef xyze_float_t xyze_pos_t;
 
-typedef xy_float_t ab_float_t;
-typedef xyz_float_t abc_float_t;
+typedef xy_float_t     ab_float_t;
+typedef xyz_float_t   abc_float_t;
 typedef xyze_float_t abce_float_t;
 
-typedef ab_float_t ab_pos_t;
-typedef abc_float_t abc_pos_t;
+typedef ab_float_t     ab_pos_t;
+typedef abc_float_t   abc_pos_t;
 typedef abce_float_t abce_pos_t;
 
 // External conversion methods

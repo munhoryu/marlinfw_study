@@ -356,8 +356,10 @@ template <class V, class N1, class N2> static constexpr void LIMIT(V& v, const N
 #define LIST_1( A,...) A
 #define LIST_0(...)
 
-#define _LIST_N(N,V,...) LIST_##N(V)
-#define LIST_N(N,V,...) _LIST_N(N,V)
+//#define _LIST_N(N,V,...) LIST_##N(V)
+#define _LIST_N(N,...) LIST_##N(##__VA_ARGS__)
+//#define LIST_N(N,V,...) _LIST_N(N,V)
+#define LIST_N(N,...) _LIST_N(N,##__VA_ARGS__)
 #define LIST_N_1(N,K) _LIST_N(N,K,K,K,K,K,K,K,K,K,K,K,K,K,K,K,K,K,K,K,K)
 #define ARRAY_N(N,V,...) { _LIST_N(N,V) }
 #define ARRAY_N_1(N,K)  { LIST_N_1(N,K) }
@@ -628,6 +630,7 @@ inline const char* gtn(T*) {
 #define DEFER4(M) M EMPTY EMPTY EMPTY EMPTY()()()()
 
 // Force define expansion
+/*
 #define EVAL           EVAL16
 #define EVAL4096(V,...) EVAL2048(EVAL2048(V))
 #define EVAL2048(V,...) EVAL1024(EVAL1024(V))
@@ -642,6 +645,22 @@ inline const char* gtn(T*) {
 #define EVAL4(V,...)    EVAL2(EVAL2(V))
 #define EVAL2(V,...)    EVAL1(EVAL1(V))
 #define EVAL1(V,...)    V
+*/
+#define EVAL          EVAL16
+#define EVAL4096(...) EVAL2048(EVAL2048(##__VA_ARGS__))
+#define EVAL2048(...) EVAL1024(EVAL1024(##__VA_ARGS__))
+#define EVAL1024(...) EVAL512(EVAL512(##__VA_ARGS__))
+#define EVAL512(...)  EVAL256(EVAL256(##__VA_ARGS__))
+#define EVAL256(...)  EVAL128(EVAL128(##__VA_ARGS__))
+#define EVAL128(...)  EVAL64(EVAL64(##__VA_ARGS__))
+#define EVAL64(...)   EVAL32(EVAL32(##__VA_ARGS__))
+#define EVAL32(...)   EVAL16(EVAL16(##__VA_ARGS__))
+#define EVAL16(...)	  EVAL8(EVAL8(##__VA_ARGS__))
+#define EVAL8(...)    EVAL4(EVAL4(##__VA_ARGS__))
+#define EVAL4(...)    EVAL2(EVAL2(##__VA_ARGS__))
+#define EVAL2(...)    EVAL1(EVAL1(##__VA_ARGS__))
+#define EVAL1(...)    __VA_ARGS__
+
 
 //#define IS_PROBE(V,...) SECOND(V, 0)     // Get the second item passed, or 0
 #define IS_PROBE(...) SECOND(##__VA_ARGS__, 0)     // Get the second item passed, or 0
@@ -680,10 +699,13 @@ inline const char* gtn(T*) {
 #define __REPEAT() _REPEAT
 
 // Call OP(I, ...) N times with ascending counter.
+/*
 #define _REPEAT2(_RPT_I,_RPT_N,_RPT_OP,V,...)                     \
-  _RPT_OP(_RPT_I,V)                                              \
+*/
+#define _REPEAT2(_RPT_I,_RPT_N,_RPT_OP,...)                     \
+  _RPT_OP(_RPT_I,##__VA_ARGS__)                                              \
   IF_ELSE(SUB1(_RPT_N))                                          \
-    ( DEFER2(__REPEAT2)()(ADD1(_RPT_I),SUB1(_RPT_N),_RPT_OP,V) ) \
+    ( DEFER2(__REPEAT2)()(ADD1(_RPT_I),SUB1(_RPT_N),_RPT_OP,##__VA_ARGS__) ) \
     ( /* Do nothing */ )
 #define __REPEAT2() _REPEAT2
 
