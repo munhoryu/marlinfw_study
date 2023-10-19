@@ -20,13 +20,13 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\AVR\HAL.h(198,36): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(346,1): message : 매크로 'IF_DISABLED'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(348,1): message : 매크로 'IF_DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(320,1): message : 매크로 'TERN'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(327,1): message : 매크로 '_TERN'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\AVR\HAL.h(199,36): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(346,1): message : 매크로 'IF_DISABLED'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(348,1): message : 매크로 'IF_DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(320,1): message : 매크로 'TERN'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(327,1): message : 매크로 '_TERN'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins.h(42,7): warning C5103: '(' 및 'RAMPS_13_EFB' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
@@ -84,7 +84,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\ramps\env_validate.h(35,9): warning C4081: '식별자'이(가) 있어야 하는데 '문자열'이(가) 있습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\ramps\pins_RAMPS.h(86,5): warning C5103: '(' 및 'FOAMCUTTER_XYUV' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(316,1): message : 매크로 'ENABLED'의 확장
@@ -98,20 +98,20 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\ramps\pins_RAMPS.h(261,5): warning C5103: '(' 및 'FET_ORDER_EFB' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(352,1): message : 매크로 'EITHER'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(348,1): message : 매크로 'ANY'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(354,1): message : 매크로 'EITHER'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ANY'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\ramps\pins_RAMPS.h(261,5): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(352,1): message : 매크로 'EITHER'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(348,1): message : 매크로 'ANY'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(354,1): message : 매크로 'EITHER'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ANY'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(254,1): message : 매크로 '_DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(214,1): message : 매크로 '_DO_2'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\ramps\pins_RAMPS.h(293,5): warning C5103: '(' 및 'CASE_LIGHT_ENABLE' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(316,1): message : 매크로 'ENABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -146,11 +146,11 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\ramps\pins_RAMPS.h(571,5): warning C5103: '(' 및 'TOUCH_UI_FTDI_EVE' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(351,1): message : 매크로 'BOTH'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ALL'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(353,1): message : 매크로 'BOTH'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(352,1): message : 매크로 'ALL'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\ramps\pins_RAMPS.h(571,5): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(351,1): message : 매크로 'BOTH'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ALL'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(353,1): message : 매크로 'BOTH'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(352,1): message : 매크로 'ALL'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(316,1): message : 매크로 'ENABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(254,1): message : 매크로 '_DO_N'의 확장
@@ -170,13 +170,13 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\ramps\pins_RAMPS.h(918,5): warning C5103: '(' 및 'TOUCH_UI_FTDI_EVE' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(351,1): message : 매크로 'BOTH'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ALL'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(353,1): message : 매크로 'BOTH'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(352,1): message : 매크로 'ALL'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\ramps\pins_RAMPS.h(918,5): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(351,1): message : 매크로 'BOTH'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ALL'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(353,1): message : 매크로 'BOTH'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(352,1): message : 매크로 'ALL'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(316,1): message : 매크로 'ENABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(254,1): message : 매크로 '_DO_N'의 확장
@@ -218,7 +218,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(516,61): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(539,61): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(563,34): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
@@ -244,7 +244,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1780,5): warning C5103: '(' 및 'USE_XMAX_PLUG' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -257,7 +257,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1788,5): warning C5103: '(' 및 'USE_YMIN_PLUG' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -270,7 +270,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1792,5): warning C5103: '(' 및 'USE_YMAX_PLUG' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -283,7 +283,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1800,5): warning C5103: '(' 및 'USE_ZMIN_PLUG' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -296,7 +296,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1804,5): warning C5103: '(' 및 'USE_ZMAX_PLUG' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -309,7 +309,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1840,5): warning C5103: '(' 및 'USE_KMIN_PLUG' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -322,7 +322,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1881,5): warning C5103: '(' 및 'USE_WMIN_PLUG' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -335,7 +335,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1885,5): warning C5103: '(' 및 'USE_WMAX_PLUG' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -348,7 +348,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1894,5): warning C5103: '(' 및 'X_DUAL_ENDSTOPS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -361,7 +361,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1897,5): warning C5103: '(' 및 'X_DUAL_ENDSTOPS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -374,7 +374,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1900,5): warning C5103: '(' 및 'Y_DUAL_ENDSTOPS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -387,7 +387,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1903,5): warning C5103: '(' 및 'Y_DUAL_ENDSTOPS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -400,7 +400,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1906,5): warning C5103: '(' 및 'Z_MULTI_ENDSTOPS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -413,7 +413,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1909,5): warning C5103: '(' 및 'Z_MULTI_ENDSTOPS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -426,7 +426,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1912,5): warning C5103: '(' 및 'Z_MULTI_ENDSTOPS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -439,7 +439,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1915,5): warning C5103: '(' 및 'Z_MULTI_ENDSTOPS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -452,7 +452,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1918,5): warning C5103: '(' 및 'Z_MULTI_ENDSTOPS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -465,7 +465,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\pins\pins_postprocess.h(1921,5): warning C5103: '(' 및 'Z_MULTI_ENDSTOPS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -478,7 +478,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(447,5): warning C5103: '(' 및 'CARTESIO_UI' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(316,1): message : 매크로 'ENABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -546,50 +546,50 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(466,7): warning C5103: '(' 및 'MKS_LCD12864A' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(352,1): message : 매크로 'EITHER'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(348,1): message : 매크로 'ANY'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(354,1): message : 매크로 'EITHER'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ANY'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(466,7): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(352,1): message : 매크로 'EITHER'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(348,1): message : 매크로 'ANY'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(354,1): message : 매크로 'EITHER'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ANY'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(254,1): message : 매크로 '_DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(214,1): message : 매크로 '_DO_2'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(469,7): warning C5103: '(' 및 'MKS_MINI_12864' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(352,1): message : 매크로 'EITHER'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(348,1): message : 매크로 'ANY'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(354,1): message : 매크로 'EITHER'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ANY'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(469,7): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(352,1): message : 매크로 'EITHER'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(348,1): message : 매크로 'ANY'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(354,1): message : 매크로 'EITHER'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ANY'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(254,1): message : 매크로 '_DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(214,1): message : 매크로 '_DO_2'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(472,7): warning C5103: '(' 및 'MKS_MINI_12864_V3' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(352,1): message : 매크로 'EITHER'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(348,1): message : 매크로 'ANY'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(354,1): message : 매크로 'EITHER'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ANY'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(472,7): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(352,1): message : 매크로 'EITHER'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(348,1): message : 매크로 'ANY'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(354,1): message : 매크로 'EITHER'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ANY'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(254,1): message : 매크로 '_DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(214,1): message : 매크로 '_DO_2'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(475,7): warning C5103: '(' 및 'FYSETC_MINI_12864' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(316,1): message : 매크로 'ENABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -679,7 +679,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(585,5): warning C5103: '(' 및 'PSU_CONTROL' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(316,1): message : 매크로 'ENABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -969,18 +969,18 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(1600,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(1603,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(1729,5): warning C5103: '(' 및 'EXT_SOLENOID' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(348,1): message : 매크로 'ANY'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ANY'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(1729,5): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(348,1): message : 매크로 'ANY'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ANY'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(254,1): message : 매크로 '_DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(217,1): message : 매크로 '_DO_5'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(2173,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(2176,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(2180,5): warning C5103: '(' 및 'SENSORLESS_HOMING' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
@@ -995,7 +995,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(2224,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(2227,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(2230,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
@@ -1093,7 +1093,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(2898,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(2901,22): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(2904,32): warning C5103: '(' 및 'MOTOR_CURRENT_PWM_X' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(359,1): message : 매크로 'ANY_PIN'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(361,1): message : 매크로 'ANY_PIN'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(2904,32): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(3112,5): warning C5103: '(' 및 'SKEW_CORRECTION' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
@@ -1122,22 +1122,22 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(3420,5): warning C5103: '(' 및 'HAS_MARLINUI_MENU' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(352,1): message : 매크로 'EITHER'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(348,1): message : 매크로 'ANY'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(354,1): message : 매크로 'EITHER'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ANY'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(3420,5): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(352,1): message : 매크로 'EITHER'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(348,1): message : 매크로 'ANY'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(354,1): message : 매크로 'EITHER'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(350,1): message : 매크로 'ANY'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\shared\Marduino.h(42,1): message : 매크로 'DISABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(254,1): message : 매크로 '_DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(214,1): message : 매크로 '_DO_2'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(3491,5): warning C5103: '(' 및 'SDSUPPORT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(316,1): message : 매크로 'ENABLED'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
@@ -1150,7 +1150,7 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(3517,5): warning C5103: '(' 및 'EN1' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(363,1): message : 매크로 'BUTTONS_EXIST'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(365,1): message : 매크로 'BUTTONS_EXIST'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(3517,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(3521,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
@@ -1166,119 +1166,119 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(253,1): message : 매크로 '__DO_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(769,1): message : 매크로 'NOT'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\inc\Conditionals_post.h(3535,5): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(156,23): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(71,1): message : 매크로 'LOGICAL_AXIS_LIST'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(178,5): warning C5103: '(' 및 'X_AXIS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(49,1): message : 매크로 'NUM_AXIS_LIST'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 'LIST_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(455,1): message : 매크로 '_LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(459,1): message : 매크로 'LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 '_LIST_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(462,52): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(463,52): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(464,52): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(465,52): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(466,53): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(467,53): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(468,53): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(469,53): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(476,66): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(47,1): message : 매크로 'NUM_AXIS_GANG'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(422,1): message : 매크로 'GANG_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(421,1): message : 매크로 '_GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(424,1): message : 매크로 'GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(423,1): message : 매크로 '_GANG_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(477,67): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(47,1): message : 매크로 'NUM_AXIS_GANG'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(422,1): message : 매크로 'GANG_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(421,1): message : 매크로 '_GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(424,1): message : 매크로 'GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(423,1): message : 매크로 '_GANG_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(478,68): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(47,1): message : 매크로 'NUM_AXIS_GANG'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(422,1): message : 매크로 'GANG_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(421,1): message : 매크로 '_GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(424,1): message : 매크로 'GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(423,1): message : 매크로 '_GANG_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(490,20): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(56,1): message : 매크로 'NUM_AXIS_ARGS'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(49,1): message : 매크로 'NUM_AXIS_LIST'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 'LIST_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(455,1): message : 매크로 '_LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(459,1): message : 매크로 'LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 '_LIST_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(491,20): warning C5103: '(' 및 'a' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(49,1): message : 매크로 'NUM_AXIS_LIST'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 'LIST_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(455,1): message : 매크로 '_LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(459,1): message : 매크로 'LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 '_LIST_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(496,23): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(47,1): message : 매크로 'NUM_AXIS_GANG'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(422,1): message : 매크로 'GANG_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(421,1): message : 매크로 '_GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(424,1): message : 매크로 'GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(423,1): message : 매크로 '_GANG_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(499,39): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(500,51): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(501,44): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(503,48): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(504,17): warning C5103: '(' 및 'const' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(78,1): message : 매크로 'LOGICAL_AXIS_ARGS'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(71,1): message : 매크로 'LOGICAL_AXIS_LIST'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(504,47): warning C5103: '(' 및 'a' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(511,17): warning C5103: '(' 및 'const' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(56,1): message : 매크로 'NUM_AXIS_ARGS'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(49,1): message : 매크로 'NUM_AXIS_LIST'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 'LIST_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(455,1): message : 매크로 '_LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(459,1): message : 매크로 'LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 '_LIST_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(511,43): warning C5103: '(' 및 'a' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(540,76): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(47,1): message : 매크로 'NUM_AXIS_GANG'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(422,1): message : 매크로 'GANG_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(421,1): message : 매크로 '_GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(424,1): message : 매크로 'GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(423,1): message : 매크로 '_GANG_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(544,33): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(47,1): message : 매크로 'NUM_AXIS_GANG'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(422,1): message : 매크로 'GANG_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(421,1): message : 매크로 '_GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(424,1): message : 매크로 'GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(423,1): message : 매크로 '_GANG_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(546,72): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(49,1): message : 매크로 'NUM_AXIS_LIST'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 'LIST_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(455,1): message : 매크로 '_LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(459,1): message : 매크로 'LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 '_LIST_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(548,72): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(49,1): message : 매크로 'NUM_AXIS_LIST'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 'LIST_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(455,1): message : 매크로 '_LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(459,1): message : 매크로 'LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 '_LIST_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(552,67): warning C5103: '(' 및 'T' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(53,1): message : 매크로 'NUM_AXIS_ARRAY'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(553,43): warning C5103: '(' 및 'int16_t' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
@@ -1302,234 +1302,234 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(572,61): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(53,1): message : 매크로 'NUM_AXIS_ARRAY'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(579,47): warning C5103: '(' 및 'v' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(460,1): message : 매크로 'ARRAY_N_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(458,1): message : 매크로 'LIST_N_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(455,1): message : 매크로 '_LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(462,1): message : 매크로 'ARRAY_N_1'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(460,1): message : 매크로 'LIST_N_1'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 '_LIST_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(581,58): warning C5103: '(' 및 'rs' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(57,1): message : 매크로 'NUM_AXIS_ELEM'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(49,1): message : 매크로 'NUM_AXIS_LIST'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 'LIST_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(455,1): message : 매크로 '_LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(459,1): message : 매크로 'LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 '_LIST_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(584,80): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(585,74): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(586,80): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(587,74): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(588,80): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(589,74): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(590,80): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(591,74): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(592,81): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(593,75): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(594,81): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(595,75): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(596,81): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(597,75): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(598,81): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(599,75): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(600,82): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(601,76): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(602,82): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(603,76): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(604,82): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(605,76): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(606,82): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(607,76): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(608,82): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(609,70): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(610,82): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(611,68): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(612,82): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(613,70): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(614,82): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(615,68): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(616,82): warning C5103: '(' 및 '_RS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(617,68): warning C5103: '(' 및 '_RS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(618,82): warning C5103: '(' 및 '_LS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(619,68): warning C5103: '(' 및 '_LS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(620,81): warning C5103: '(' 및 'o' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(621,59): warning C5103: '(' 및 'o' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(624,52): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(625,52): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(626,52): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(627,52): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(628,53): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(629,53): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(630,53): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(631,53): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(632,54): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(633,54): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(634,54): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(635,54): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(636,48): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(637,46): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(638,47): warning C5103: '(' 및 '_RS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(639,47): warning C5103: '(' 및 '_LS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(642,72): warning C5103: '(' 및 '&&' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(47,1): message : 매크로 'NUM_AXIS_GANG'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(422,1): message : 매크로 'GANG_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(421,1): message : 매크로 '_GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(424,1): message : 매크로 'GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(423,1): message : 매크로 '_GANG_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(652,20): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(78,1): message : 매크로 'LOGICAL_AXIS_ARGS'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(71,1): message : 매크로 'LOGICAL_AXIS_LIST'의 확장
@@ -1537,17 +1537,11 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(71,1): message : 매크로 'LOGICAL_AXIS_LIST'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(657,23): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(69,1): message : 매크로 'LOGICAL_AXIS_GANG'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(660,50): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(336,1): message : 매크로 'OPTCODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(323,1): message : 매크로 'TERN_'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(327,1): message : 매크로 '_TERN'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(661,45): warning C5103: '(' 및 'pxyz' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(57,1): message : 매크로 'NUM_AXIS_ELEM'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(49,1): message : 매크로 'NUM_AXIS_LIST'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 'LIST_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(455,1): message : 매크로 '_LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(459,1): message : 매크로 'LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 '_LIST_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(662,61): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
@@ -1555,8 +1549,8 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(327,1): message : 매크로 '_TERN'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(663,44): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(665,48): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(70,1): message : 매크로 'LOGICAL_AXIS_CODE'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(668,17): warning C5103: '(' 및 'const' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
@@ -1567,12 +1561,12 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(675,17): warning C5103: '(' 및 'const' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(56,1): message : 매크로 'NUM_AXIS_ARGS'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(49,1): message : 매크로 'NUM_AXIS_LIST'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 'LIST_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(455,1): message : 매크로 '_LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(459,1): message : 매크로 'LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 '_LIST_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(675,43): warning C5103: '(' 및 'a' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(704,77): warning C5103: '(' 및 '+' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(69,1): message : 매크로 'LOGICAL_AXIS_GANG'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(708,35): warning C5103: '(' 및 '||' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
@@ -1584,45 +1578,45 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(742,48): warning C5103: '(' 및 'v' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(72,1): message : 매크로 'LOGICAL_AXIS_LIST_1'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(50,1): message : 매크로 'NUM_AXIS_LIST_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(458,1): message : 매크로 'LIST_N_1'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(455,1): message : 매크로 '_LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(460,1): message : 매크로 'LIST_N_1'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 '_LIST_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(744,58): warning C5103: '(' 및 'rs' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(57,1): message : 매크로 'NUM_AXIS_ELEM'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(49,1): message : 매크로 'NUM_AXIS_LIST'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 'LIST_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(455,1): message : 매크로 '_LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(459,1): message : 매크로 'LIST_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(457,1): message : 매크로 '_LIST_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(755,84): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(756,77): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(757,84): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(758,77): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(759,84): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(760,77): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(761,84): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(762,77): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(763,84): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(70,1): message : 매크로 'LOGICAL_AXIS_CODE'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(764,78): warning C5103: '(' 및 'ls' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
@@ -1665,36 +1659,36 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(70,1): message : 매크로 'LOGICAL_AXIS_CODE'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(787,53): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(788,53): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(789,53): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(790,53): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(791,54): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(792,54): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(793,54): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(794,54): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(48,1): message : 매크로 'NUM_AXIS_CODE'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(400,1): message : 매크로 'CODE_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(399,1): message : 매크로 '_CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(402,1): message : 매크로 'CODE_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(401,1): message : 매크로 '_CODE_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(795,55): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(70,1): message : 매크로 'LOGICAL_AXIS_CODE'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(796,55): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
@@ -1711,18 +1705,15 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(70,1): message : 매크로 'LOGICAL_AXIS_CODE'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(804,72): warning C5103: '(' 및 '&&' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(47,1): message : 매크로 'NUM_AXIS_GANG'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(422,1): message : 매크로 'GANG_N'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(421,1): message : 매크로 '_GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(424,1): message : 매크로 'GANG_N'의 확장
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(423,1): message : 매크로 '_GANG_N'의 확장
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(805,73): warning C5103: '(' 및 '&&' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(69,1): message : 매크로 'LOGICAL_AXIS_GANG'의 확장
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(660,50): error C2065: '_OPTCODE': 선언되지 않은 식별자입니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(660,50): error C2760: 구문 오류: 여기서 ';'은(는) 예상치 못한 오류였습니다. 예상된 오류는 ')'였습니다
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(808,2): message : 컴파일되는 클래스 템플릿 인스턴스화 'XYZEval<T>'에 대한 참조를 확인하세요.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(660,50): error C3878: 구문 오류: 예기치 않은 토큰 '식별자'이(가) 'expression' 다음에 있습니다.
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(660,50): message : 오류 복구를 건너뛰었습니다. '식별자 ('
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(660,50): error C2760: 구문 오류: 여기서 ')'은(는) 예상치 못한 오류였습니다. 예상된 오류는 ';'였습니다
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(660,50): error C3878: 구문 오류: 예기치 않은 토큰 ')'이(가) 'expression_statement' 다음에 있습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(660,50): message : 오류 복구를 건너뛰었습니다. ')'
-C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(660,81): error C2760: 구문 오류: 여기서 '}'은(는) 예상치 못한 오류였습니다. 예상된 오류는 ';'였습니다
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(716,120): error C2065: 'i': 선언되지 않은 식별자입니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(716,120): error C3861: 'i': 식별자를 찾을 수 없습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(716,132): error C2065: 'j': 선언되지 않은 식별자입니다.
@@ -1783,4 +1774,6 @@ C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinf
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(720,162): error C2065: 'u': 선언되지 않은 식별자입니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(720,174): error C2065: 'v': 선언되지 않은 식별자입니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(720,186): error C2065: 'w': 선언되지 않은 식별자입니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(721,151): error C3861: 'i': 식별자를 찾을 수 없습니다.
+C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(721,171): error C3861: 'j': 식별자를 찾을 수 없습니다.
 C:\Users\USER\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(808,1): fatal  error C1003: 오류 수가 100개를 초과했습니다. 컴파일을 중지합니다.
