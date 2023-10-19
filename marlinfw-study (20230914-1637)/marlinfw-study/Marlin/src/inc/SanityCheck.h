@@ -44,13 +44,9 @@
 #define TEST2 1
 #define TEST3 0
 #define TEST4 true
-/*
+
 #if ENABLED(TEST0) || !ENABLED(TEST2) || ENABLED(TEST3) || !ENABLED(TEST1, TEST2, TEST4)
 #error "ENABLED is borked!"
-#endif
-*/
-#if defined(TEST0) || !defined(TEST2) || /*defined(TEST3) ||*/ !(defined(TEST1) && defined(TEST2) && defined(TEST4))
-#pragma "ENABLED is borked!"
 #endif
 #if BOTH(TEST0, TEST1)
 #error "BOTH is borked!"
@@ -299,9 +295,11 @@
 #error "LIN_ADVANCE (1.5) no longer uses LIN_ADVANCE_E_D_RATIO."
 #elif defined(NEOPIXEL_RGBW_LED)
 #error "NEOPIXEL_RGBW_LED is now NEOPIXEL_LED."
-#elif ENABLED(DELTA) && defined(DELTA_PROBEABLE_RADIUS)
+//#elif ENABLED(DELTA) && defined(DELTA_PROBEABLE_RADIUS)
+#elif defined(DELTA) && defined(DELTA_PROBEABLE_RADIUS)
 #error "Remove DELTA_PROBEABLE_RADIUS and use PROBING_MARGIN to inset the probe area instead."
-#elif ENABLED(DELTA) && defined(DELTA_CALIBRATION_RADIUS)
+//#elif ENABLED(DELTA) && defined(DELTA_CALIBRATION_RADIUS)
+#elif defined(DELTA) && defined(DELTA_CALIBRATION_RADIUS)
 #error "Remove DELTA_CALIBRATION_RADIUS and use PROBING_MARGIN to inset the probe area instead."
 #elif defined(UBL_MESH_INSET)
 #error "UBL_MESH_INSET is now just MESH_INSET."
@@ -671,13 +669,17 @@
 #define _L6474              0x6474
 #define _L6480              0x6480
 #define _POWERSTEP01        0xF00D
-#if HAS_DRIVER(L6470)
+//#if HAS_DRIVER(L6470)
+#if ((0x4988 == 0x6470) || (0x4988 == 0x6470) || (0x4988 == 0x6470) || (_I_DRIVER_TYPE == 0x6470) || (_J_DRIVER_TYPE == 0x6470) || (_K_DRIVER_TYPE == 0x6470) || (_U_DRIVER_TYPE == 0x6470) || (_V_DRIVER_TYPE == 0x6470) || (_W_DRIVER_TYPE == 0x6470) || (HAS_X2_STEPPER && (_X2_DRIVER_TYPE == 0x6470)) || (HAS_DUAL_Y_STEPPERS && (_Y2_DRIVER_TYPE == 0x6470)) || (1 >= 2 && (_Z2_DRIVER_TYPE == 0x6470)) || (1 >= 3 && (_Z3_DRIVER_TYPE == 0x6470)) || (1 >= 4 && (_Z4_DRIVER_TYPE == 0x6470)) || (0 EVAL2(EVAL2(EVAL2(EVAL4(EVAL4(EVAL4(EVAL8(EVAL8(EVAL8(EVAL16(EVAL16(EVAL16(EVAL32(EVAL32(EVAL32(EVAL64(EVAL64(EVAL64(EVAL128(EVAL128(EVAL128(EVAL256(|| (1 > 0 && (0x4988 == 0x6470))))))))))))))))))))))))))
 #error "L6470 stepper drivers are no longer supported in Marlin."
-#elif HAS_DRIVER(L6474)
+//#elif HAS_DRIVER(L6474)
+#elif ((0x4988 == 0x6474) || (0x4988 == 0x6474) || (0x4988 == 0x6474) || (_I_DRIVER_TYPE == 0x6474) || (_J_DRIVER_TYPE == 0x6474) || (_K_DRIVER_TYPE == 0x6474) || (_U_DRIVER_TYPE == 0x6474) || (_V_DRIVER_TYPE == 0x6474) || (_W_DRIVER_TYPE == 0x6474) || (HAS_X2_STEPPER && (_X2_DRIVER_TYPE == 0x6474)) || (HAS_DUAL_Y_STEPPERS && (_Y2_DRIVER_TYPE == 0x6474)) || (1 >= 2 && (_Z2_DRIVER_TYPE == 0x6474)) || (1 >= 3 && (_Z3_DRIVER_TYPE == 0x6474)) || (1 >= 4 && (_Z4_DRIVER_TYPE == 0x6474)) || (0 EVAL2(EVAL4(EVAL8(EVAL16(EVAL32(EVAL64(EVAL128(EVAL256(EVAL512(|| (1 > 0 && (0x4988 == 0x6474)))))))))))))
 #error "L6474 stepper drivers are no longer supported in Marlin."
-#elif HAS_DRIVER(L6480)
+//#elif HAS_DRIVER(L6480)
+#elif ((0x4988 == 0x6480) || (0x4988 == 0x6480) || (0x4988 == 0x6480) || (_I_DRIVER_TYPE == 0x6480) || (_J_DRIVER_TYPE == 0x6480) || (_K_DRIVER_TYPE == 0x6480) || (_U_DRIVER_TYPE == 0x6480) || (_V_DRIVER_TYPE == 0x6480) || (_W_DRIVER_TYPE == 0x6480) || (HAS_X2_STEPPER && (_X2_DRIVER_TYPE == 0x6480)) || (HAS_DUAL_Y_STEPPERS && (_Y2_DRIVER_TYPE == 0x6480)) || (1 >= 2 && (_Z2_DRIVER_TYPE == 0x6480)) || (1 >= 3 && (_Z3_DRIVER_TYPE == 0x6480)) || (1 >= 4 && (_Z4_DRIVER_TYPE == 0x6480)) || (0 EVAL2(EVAL4(EVAL8(EVAL16(EVAL32(EVAL64(EVAL128(EVAL256(EVAL512(|| (1 > 0 && (0x4988 == 0x6480)))))))))))))
 #error "L6480 stepper drivers are no longer supported in Marlin."
-#elif HAS_DRIVER(POWERSTEP01)
+//#elif HAS_DRIVER(POWERSTEP01)
+#elif ((0x4988 == 0xF00D) || (0x4988 == 0xF00D) || (0x4988 == 0xF00D) || (_I_DRIVER_TYPE == 0xF00D) || (_J_DRIVER_TYPE == 0xF00D) || (_K_DRIVER_TYPE == 0xF00D) || (_U_DRIVER_TYPE == 0xF00D) || (_V_DRIVER_TYPE == 0xF00D) || (_W_DRIVER_TYPE == 0xF00D) || (HAS_X2_STEPPER && (_X2_DRIVER_TYPE == 0xF00D)) || (HAS_DUAL_Y_STEPPERS && (_Y2_DRIVER_TYPE == 0xF00D)) || (1 >= 2 && (_Z2_DRIVER_TYPE == 0xF00D)) || (1 >= 3 && (_Z3_DRIVER_TYPE == 0xF00D)) || (1 >= 4 && (_Z4_DRIVER_TYPE == 0xF00D)) || (0 EVAL2(EVAL2(EVAL2(EVAL4(EVAL4(EVAL4(EVAL8(EVAL8(EVAL8(EVAL16(EVAL16(EVAL16(EVAL32(EVAL32(EVAL32(EVAL64(EVAL64(EVAL64(EVAL128(EVAL128(EVAL128(EVAL256(|| (1 > 0 && (0x4988 == 0xF00D))))))))))))))))))))))))))
 #error "POWERSTEP01 stepper drivers are no longer supported in Marlin."
 #endif
 #undef _L6470
@@ -692,7 +694,9 @@ static_assert(COUNT(arm) == LOGICAL_AXES, "AXIS_RELATIVE_MODES must contain " _L
 // Consolidate TMC26X, validate migration (#24373)
 #define _ISMAX_1(A) defined(A##_MAX_CURRENT)
 #define _ISSNS_1(A) defined(A##_SENSE_RESISTOR)
-#if DO(ISMAX,||,ALL_AXIS_NAMES)
+//#if DO(ISMAX,||,ALL_AXIS_NAMES)
+#define ALL_AXIS_NAMES_TEMP X, Y
+#if (DO(ISMAX,||,ALL_AXIS_NAMES_TEMP))
 #error "*_MAX_CURRENT is now set with *_CURRENT."
 #elif DO(ISSNS,||,ALL_AXIS_NAMES)
 #error "*_SENSE_RESISTOR (in Milli-Ohms) is now set with *_RSENSE (in Ohms), so you must divide values by 1000."
@@ -1154,15 +1158,20 @@ static_assert(WITHIN(npp_xyz.z, Z_MIN_POS, Z_MAX_POS), "NOZZLE_PARK_POINT.Z is o
    */
 #ifdef SNMM
 #error "SNMM is obsolete. Define MMU_MODEL as PRUSA_MMU1 instead."
-#elif ENABLED(MK2_MULTIPLEXER)
+//#elif ENABLED(MK2_MULTIPLEXER)
+#elif defined(MK2_MULTIPLEXER)
 #error "MK2_MULTIPLEXER is obsolete. Define MMU_MODEL as PRUSA_MMU1 instead."
-#elif ENABLED(PRUSA_MMU2)
+//#elif ENABLED(PRUSA_MMU2)
+#elif defined(PRUSA_MMU2)
 #error "PRUSA_MMU2 is obsolete. Define MMU_MODEL as PRUSA_MMU2 instead."
-#elif ENABLED(PRUSA_MMU2_S_MODE)
+//#elif ENABLED(PRUSA_MMU2_S_MODE)
+#elif defined(PRUSA_MMU2_S_MODE)
 #error "PRUSA_MMU2_S_MODE is obsolete. Define MMU_MODEL as PRUSA_MMU2S instead."
-#elif ENABLED(SMUFF_EMU_MMU2)
+//#elif ENABLED(SMUFF_EMU_MMU2)
+#elif defined(SMUFF_EMU_MMU2)
 #error "SMUFF_EMU_MMU2 is obsolete. Define MMU_MODEL as EXTENDABLE_EMU_MMU2 instead."
-#elif ENABLED(SMUFF_EMU_MMU2S)
+//#elif ENABLED(SMUFF_EMU_MMU2S)
+#elif defined(SMUFF_EMU_MMU2S)
 #error "SMUFF_EMU_MMU2S is obsolete. Define MMU_MODEL as EXTENDABLE_EMU_MMU2S instead."
 #endif
 

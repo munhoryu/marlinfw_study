@@ -25,12 +25,12 @@
 #include "../core/types.h"  // Ahead of sanity-checks
 
 #include "SanityCheck.h"
-#include HAL_PATH(.., inc/SanityCheck.h)
+//#include HAL_PATH(.., inc/SanityCheck.h)
 
 // Include all core headers
-#include "../core/language.h"
-#include "../core/utility.h"
-#include "../core/serial.h"
+//#include "../core/language.h"
+//#include "../core/utility.h"
+//#include "../core/serial.h"
 
 #endif
 
