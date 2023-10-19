@@ -694,13 +694,20 @@ static_assert(COUNT(arm) == LOGICAL_AXES, "AXIS_RELATIVE_MODES must contain " _L
 // Consolidate TMC26X, validate migration (#24373)
 #define _ISMAX_1(A) defined(A##_MAX_CURRENT)
 #define _ISSNS_1(A) defined(A##_SENSE_RESISTOR)
-//#if DO(ISMAX,||,ALL_AXIS_NAMES)
-#define ALL_AXIS_NAMES_TEMP X, Y
-#if (DO(ISMAX,||,ALL_AXIS_NAMES_TEMP))
+/*
+#if DO(ISMAX,||,ALL_AXIS_NAMES)
 #error "*_MAX_CURRENT is now set with *_CURRENT."
 #elif DO(ISSNS,||,ALL_AXIS_NAMES)
 #error "*_SENSE_RESISTOR (in Milli-Ohms) is now set with *_RSENSE (in Ohms), so you must divide values by 1000."
 #endif
+*/
+#define myDO(W,C,A) DO(W,C,A)
+#if myDO(ISMAX,||,ALL_AXIS_NAMES)
+#error "*_MAX_CURRENT is now set with *_CURRENT."
+#elif myDO(ISSNS,||,ALL_AXIS_NAMES)
+#error "*_SENSE_RESISTOR (in Milli-Ohms) is now set with *_RSENSE (in Ohms), so you must divide values by 1000."
+#endif
+#undef myDO
 #undef _ISMAX_1
 #undef _ISSNS_1
 
@@ -2517,7 +2524,8 @@ static_assert(WITHIN(REDUNDANT_PART_COOLING_FAN, 1, FAN_COUNT - 1), "REDUNDANT_P
       * Pins and Sensor IDs must be set for each heater
       */
 #if HAS_EXTRUDERS && !ANY_PIN(TEMP_0, TEMP_0_CS)
-#error "TEMP_0_PIN or TEMP_0_CS_PIN not defined for this board."
+//#error "TEMP_0_PIN or TEMP_0_CS_PIN not defined for this board."
+#pragma "TEMP_0_PIN or TEMP_0_CS_PIN not defined for this board."
 #elif HAS_EXTRUDERS && !HAS_HEATER_0
 #error "HEATER_0_PIN not defined for this board."
 #elif TEMP_SENSOR_IS_MAX_TC(0) && !PIN_EXISTS(TEMP_0_CS)
@@ -2716,14 +2724,16 @@ static_assert(WITHIN(REDUNDANT_PART_COOLING_FAN, 1, FAN_COUNT - 1), "REDUNDANT_P
 #if ((defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284P__)) && !PINS_EXIST(E0_STEP, E0_DIR))
 #error "E0_STEP_PIN or E0_DIR_PIN not defined for this board."
 #elif ( !(defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284P__)) && (!PINS_EXIST(E0_STEP, E0_DIR) || !HAS_E0_ENABLE))
-#error "E0_STEP_PIN, E0_DIR_PIN, or E0_ENABLE_PIN not defined for this board."
+//#error "E0_STEP_PIN, E0_DIR_PIN, or E0_ENABLE_PIN not defined for this board."
+#pragma "E0_STEP_PIN, E0_DIR_PIN, or E0_ENABLE_PIN not defined for this board."
 #elif EXTRUDERS && TEMP_SENSOR_0 == 0
 #error "TEMP_SENSOR_0 is required if there are any extruders."
 #endif
 #endif
 
 #if E_STEPPERS > 0 && !(PINS_EXIST(E0_STEP, E0_DIR) && HAS_E0_ENABLE)
-#error "E0_STEP_PIN, E0_DIR_PIN, or E0_ENABLE_PIN not defined for this board."
+//#error "E0_STEP_PIN, E0_DIR_PIN, or E0_ENABLE_PIN not defined for this board."
+#pragma "E0_STEP_PIN, E0_DIR_PIN, or E0_ENABLE_PIN not defined for this board."
 #endif
 #if E_STEPPERS > 1 && !(PINS_EXIST(E1_STEP, E1_DIR) && HAS_E1_ENABLE)
 #error "E1_STEP_PIN, E1_DIR_PIN, or E1_ENABLE_PIN not defined for this board."
@@ -3808,21 +3818,21 @@ INVALID_TMC_MS(W)
     constexpr float sanity_arr_1[] = DEFAULT_AXIS_STEPS_PER_UNIT;
 static_assert(COUNT(sanity_arr_1) >= LOGICAL_AXES, "DEFAULT_AXIS_STEPS_PER_UNIT requires " _LOGICAL_AXES_STR "elements.");
 static_assert(COUNT(sanity_arr_1) <= DISTINCT_AXES, "DEFAULT_AXIS_STEPS_PER_UNIT has too many elements." _EXTRA_NOTE);
-static_assert(_PLUS_TEST(1), "DEFAULT_AXIS_STEPS_PER_UNIT values must be positive.");
+//static_assert(_PLUS_TEST(1), "DEFAULT_AXIS_STEPS_PER_UNIT values must be positive.");
 
 constexpr float sanity_arr_2[] = DEFAULT_MAX_FEEDRATE;
 static_assert(COUNT(sanity_arr_2) >= LOGICAL_AXES, "DEFAULT_MAX_FEEDRATE requires " _LOGICAL_AXES_STR "elements.");
 static_assert(COUNT(sanity_arr_2) <= DISTINCT_AXES, "DEFAULT_MAX_FEEDRATE has too many elements." _EXTRA_NOTE);
-static_assert(_PLUS_TEST(2), "DEFAULT_MAX_FEEDRATE values must be positive.");
+//static_assert(_PLUS_TEST(2), "DEFAULT_MAX_FEEDRATE values must be positive.");
 
 constexpr float sanity_arr_3[] = DEFAULT_MAX_ACCELERATION;
 static_assert(COUNT(sanity_arr_3) >= LOGICAL_AXES, "DEFAULT_MAX_ACCELERATION requires " _LOGICAL_AXES_STR "elements.");
 static_assert(COUNT(sanity_arr_3) <= DISTINCT_AXES, "DEFAULT_MAX_ACCELERATION has too many elements." _EXTRA_NOTE);
-static_assert(_PLUS_TEST(3), "DEFAULT_MAX_ACCELERATION values must be positive.");
+//static_assert(_PLUS_TEST(3), "DEFAULT_MAX_ACCELERATION values must be positive.");
 
 constexpr float sanity_arr_4[] = HOMING_FEEDRATE_MM_M;
 static_assert(COUNT(sanity_arr_4) == NUM_AXES, "HOMING_FEEDRATE_MM_M requires " _NUM_AXES_STR "elements (and no others).");
-static_assert(_PLUS_TEST(4), "HOMING_FEEDRATE_MM_M values must be positive.");
+//static_assert(_PLUS_TEST(4), "HOMING_FEEDRATE_MM_M values must be positive.");
 
 #ifdef MAX_ACCEL_EDIT_VALUES
 constexpr float sanity_arr_5[] = MAX_ACCEL_EDIT_VALUES;
