@@ -23,8 +23,7 @@
 
 #include "../inc/MarlinConfigPre.h"
 
-//#if ENABLED(EMERGENCY_PARSER)
-#if (EMERGENCY_PARSER)
+#if ENABLED(EMERGENCY_PARSER)
 #include "../feature/e_parser.h"
 #endif
 
@@ -64,10 +63,31 @@ enum class SerialFeature {
     Virtual = 0x04,   //!< Enabled for virtual serial port (like Telnet / Websocket / ...)
     Hookable = 0x08,   //!< Enabled if the serial class supports a setHook method
 };
-ENUM_FLAGS(SerialFeature);
+//ENUM_FLAGS(SerialFeature);
+constexpr SerialFeature operator&(SerialFeature x, SerialFeature y) {
+    return static_cast<SerialFeature>(static_cast<int>(x) & static_cast<int>(y));
+}  
+constexpr SerialFeature operator|(SerialFeature x, SerialFeature y) {
+    return static_cast<SerialFeature>(static_cast<int>(x) | static_cast<int>(y));
+}  
+constexpr SerialFeature operator^(SerialFeature x, SerialFeature y) {
+    return static_cast<SerialFeature>(static_cast<int>(x) ^ static_cast<int>(y));
+}  
+constexpr SerialFeature operator~(SerialFeature x) {
+    return static_cast<SerialFeature>(~static_cast<int>(x));
+}  
+SerialFeature& operator&=(SerialFeature& x, SerialFeature y) {
+    return x &= y;
+}  
+SerialFeature& operator|=(SerialFeature& x, SerialFeature y) {
+    return x |= y;
+}  
+SerialFeature& operator^=(SerialFeature& x, SerialFeature y) {
+    return x ^= y;
+};
 
 // flushTX is not implemented in all HAL, so use SFINAE to call the method where it is.
-//CALL_IF_EXISTS_IMPL(void, flushTX);
+CALL_IF_EXISTS_IMPL(void, flushTX);
 namespace Private {
     template <typename Type, typename Yes = char, typename No = long> struct HasMember_flushTX {
         template <typename C> static Yes& test(decltype(&C::flushTX)); template <typename C> static No& test(...); enum {
@@ -133,8 +153,7 @@ struct EnsureDouble {
 // a completely efficient code.
 template <class Child>
 struct SerialBase {
-//#if ENABLED(EMERGENCY_PARSER)
-#if (EMERGENCY_PARSER)
+#if ENABLED(EMERGENCY_PARSER)
     const bool ep_enabled;
     EmergencyParser::State emergency_state;
     inline bool emergency_parser_enabled() { return ep_enabled; }
