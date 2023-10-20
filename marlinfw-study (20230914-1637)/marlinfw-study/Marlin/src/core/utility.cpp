@@ -25,6 +25,8 @@
 #include "../MarlinCore.h"
 //#include "../module/temperature.h"
 
+void delay(unsigned long ms) {}
+
 void safe_delay(millis_t ms) {
     while (ms > 50) {
         ms -= 50;

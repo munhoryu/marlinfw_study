@@ -1,6 +1,4 @@
-﻿  pch.cpp
-  marlinfw-study.cpp
-  utility.cpp
+﻿  utility.cpp
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(158,23): warning C5103: '(' 및 'x' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(71,1): message : 매크로 'LOGICAL_AXIS_LIST'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(180,5): warning C5103: '(' 및 'X_AXIS' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
@@ -606,11 +604,9 @@ C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\mar
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\utility.h(92,19): warning C5103: '(' 및 ''X'' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(77,1): message : 매크로 'LOGICAL_AXIS_ARRAY'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(71,1): message : 매크로 'LOGICAL_AXIS_LIST'의 확장
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\io.h(713,9): warning C4081: '식별자'이(가) 있어야 하는데 '문자열'이(가) 있습니다.
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\eeprom.h(43,9): warning C4081: '식별자'이(가) 있어야 하는데 '문자열'이(가) 있습니다.
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\delay.h(94,9): warning C4081: '식별자'이(가) 있어야 하는데 '문자열'이(가) 있습니다.
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\delay.h(115,10): warning C4081: '식별자'이(가) 있어야 하는데 '문자열'이(가) 있습니다.
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\delay.h(204,34): warning C4244: '인수': 'double'에서 'uint16_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\io.h(712,9): warning C4081: '식별자'이(가) 있어야 하는데 '문자열'이(가) 있습니다.
+C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\eeprom.h(42,9): warning C4081: '식별자'이(가) 있어야 하는데 '문자열'이(가) 있습니다.
+C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\delay.h(2,9): warning C4068: 알 수 없는 pragma 'onece'
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\AVR\MarlinSerial.h(127,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\AVR\MarlinSerial.h(130,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\AVR\MarlinSerial.h(133,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
@@ -621,6 +617,7 @@ C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\mar
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\serial_hook.h(380,1): message : 매크로 'Serial1Class'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(320,1): message : 매크로 'TERN'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(327,1): message : 매크로 '_TERN'의 확장
+C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\delay.h(2,9): warning C4068: 알 수 없는 pragma 'onece'
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\AVR\HAL.h(178,9): warning C4068: 알 수 없는 pragma 'GCC'
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\AVR\HAL.h(180,9): warning C4068: 알 수 없는 pragma 'GCC'
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\AVR\HAL.h(185,9): warning C4068: 알 수 없는 pragma 'GCC'
@@ -6577,10 +6574,10 @@ C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\mar
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(221,1): message : 매크로 '_DO_9'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(315,1): message : 매크로 '_DIS_1'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(767,1): message : 매크로 'NOT'의 확장
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\utility.cpp(39,5): warning C5103: '(' 및 'SERIAL_OVERRUN_PROTECTION' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
+C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\utility.cpp(41,5): warning C5103: '(' 및 'SERIAL_OVERRUN_PROTECTION' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(316,1): message : 매크로 'ENABLED'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\utility.cpp(39,5): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
+C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\utility.cpp(41,5): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(316,1): message : 매크로 'ENABLED'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(254,1): message : 매크로 '_DO_N'의 확장
@@ -6588,10 +6585,10 @@ C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\mar
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(213,1): message : 매크로 '_DO_1'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\utility.cpp(50,5): warning C5103: '(' 및 'DEBUG_LEVELING_FEATURE' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
+C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\utility.cpp(52,5): warning C5103: '(' 및 'DEBUG_LEVELING_FEATURE' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(316,1): message : 매크로 'ENABLED'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\utility.cpp(50,5): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
+C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\utility.cpp(52,5): warning C5103: '(' 및 'CAT' 붙여넣기로 유효한 전처리 토큰이 만들어지지 않습니다.
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(316,1): message : 매크로 'ENABLED'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(255,1): message : 매크로 'DO'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(254,1): message : 매크로 '_DO_N'의 확장
@@ -6600,11 +6597,9 @@ C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\mar
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(314,1): message : 매크로 '_ENA_1'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(312,1): message : 매크로 '_ISENA'의 확장
   MarlinCore.cpp
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\io.h(713,9): warning C4081: '식별자'이(가) 있어야 하는데 '문자열'이(가) 있습니다.
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\eeprom.h(43,9): warning C4081: '식별자'이(가) 있어야 하는데 '문자열'이(가) 있습니다.
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\delay.h(94,9): warning C4081: '식별자'이(가) 있어야 하는데 '문자열'이(가) 있습니다.
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\delay.h(115,10): warning C4081: '식별자'이(가) 있어야 하는데 '문자열'이(가) 있습니다.
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\delay.h(204,34): warning C4244: '인수': 'double'에서 'uint16_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\io.h(712,9): warning C4081: '식별자'이(가) 있어야 하는데 '문자열'이(가) 있습니다.
+C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\eeprom.h(42,9): warning C4081: '식별자'이(가) 있어야 하는데 '문자열'이(가) 있습니다.
+C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\delay.h(2,9): warning C4068: 알 수 없는 pragma 'onece'
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\AVR\MarlinSerial.h(127,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\AVR\MarlinSerial.h(130,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\AVR\MarlinSerial.h(133,5): warning C5105: 'defined'를 생성하는 매크로 확장에 정의되지 않은 동작이 있습니다.
@@ -6615,6 +6610,7 @@ C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\mar
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\serial_hook.h(380,1): message : 매크로 'Serial1Class'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(320,1): message : 매크로 'TERN'의 확장
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\macros.h(327,1): message : 매크로 '_TERN'의 확장
+C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\arduino-core\avr\delay.h(2,9): warning C4068: 알 수 없는 pragma 'onece'
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\AVR\HAL.h(178,9): warning C4068: 알 수 없는 pragma 'GCC'
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\AVR\HAL.h(180,9): warning C4068: 알 수 없는 pragma 'GCC'
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\HAL\AVR\HAL.h(185,9): warning C4068: 알 수 없는 pragma 'GCC'
@@ -13178,17 +13174,12 @@ C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\mar
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\types.h(71,1): message : 매크로 'LOGICAL_AXIS_LIST'의 확장
   코드를 생성하고 있습니다...
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\serial_base.h(67): warning C4717: 'operator&=': 모든 제어 경로에서 재귀적입니다. 함수로 인해 런타임 스택 오버플로가 발생합니다.
+C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\serial_base.h(67): warning C4717: 'operator^=': 모든 제어 경로에서 재귀적입니다. 함수로 인해 런타임 스택 오버플로가 발생합니다.
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\serial_base.h(67): warning C4717: 'operator|=': 모든 제어 경로에서 재귀적입니다. 함수로 인해 런타임 스택 오버플로가 발생합니다.
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\serial_base.h(67): warning C4717: 'operator^=': 모든 제어 경로에서 재귀적입니다. 함수로 인해 런타임 스택 오버플로가 발생합니다.
+C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\serial_base.h(67): warning C4717: 'operator|=': 모든 제어 경로에서 재귀적입니다. 함수로 인해 런타임 스택 오버플로가 발생합니다.
 C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\serial_base.h(67): warning C4717: 'operator&=': 모든 제어 경로에서 재귀적입니다. 함수로 인해 런타임 스택 오버플로가 발생합니다.
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\serial_base.h(67): warning C4717: 'operator^=': 모든 제어 경로에서 재귀적입니다. 함수로 인해 런타임 스택 오버플로가 발생합니다.
-C:\Users\MunhoRyu\source\repos\marlinfw_study\marlinfw-study (20230914-1637)\marlinfw-study\Marlin\src\core\serial_base.h(67): warning C4717: 'operator|=': 모든 제어 경로에서 재귀적입니다. 함수로 인해 런타임 스택 오버플로가 발생합니다.
 MarlinCore.obj : error LNK2005: "enum SerialFeature & __cdecl operator&=(enum SerialFeature &,enum SerialFeature)" (??_4@YAAAW4SerialFeature@@AAW40@W40@@Z)이(가) utility.obj에 이미 정의되어 있습니다.
 MarlinCore.obj : error LNK2005: "enum SerialFeature & __cdecl operator|=(enum SerialFeature &,enum SerialFeature)" (??_5@YAAAW4SerialFeature@@AAW40@W40@@Z)이(가) utility.obj에 이미 정의되어 있습니다.
 MarlinCore.obj : error LNK2005: "enum SerialFeature & __cdecl operator^=(enum SerialFeature &,enum SerialFeature)" (??_6@YAAAW4SerialFeature@@AAW40@W40@@Z)이(가) utility.obj에 이미 정의되어 있습니다.
-MarlinCore.obj : error LNK2005: "void __cdecl _delay_loop_1(unsigned char)" (?_delay_loop_1@@YAXE@Z)이(가) utility.obj에 이미 정의되어 있습니다.
-MarlinCore.obj : error LNK2005: "void __cdecl _delay_loop_2(unsigned short)" (?_delay_loop_2@@YAXG@Z)이(가) utility.obj에 이미 정의되어 있습니다.
-MarlinCore.obj : error LNK2005: "void __cdecl _delay_ms(double)" (?_delay_ms@@YAXN@Z)이(가) utility.obj에 이미 정의되어 있습니다.
-MarlinCore.obj : error LNK2005: "void __cdecl _delay_us(double)" (?_delay_us@@YAXN@Z)이(가) utility.obj에 이미 정의되어 있습니다.
-utility.obj : error LNK2019: _delay"void __cdecl safe_delay(unsigned int)" (?safe_delay@@YAXI@Z) 함수에서 참조되는 확인할 수 없는 외부 기호
-C:\Users\MunhoRyu\Source\Repos\marlinfw_study\marlinfw-study (20230914-1637)\Debug\marlinfw-study.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
+C:\Users\MunhoRyu\Source\Repos\marlinfw_study\marlinfw-study (20230914-1637)\Debug\marlinfw-study.exe : fatal error LNK1169: 여러 번 정의된 기호가 있습니다.
