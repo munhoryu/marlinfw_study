@@ -74,6 +74,8 @@ struct IF<true, L, R> { typedef L type; };
 
 //#define LOGICAL_AXIS_ARRAY(E,V...) { LOGICAL_AXIS_LIST(E,V) }
 //#define LOGICAL_AXIS_ARRAY_1(V)    { LOGICAL_AXIS_LIST_1(V) }
+#define LOGICAL_AXIS_ARRAY(E,...) { LOGICAL_AXIS_LIST(E,##__VA_ARGS__) }
+#define LOGICAL_AXIS_ARRAY_1(V)    { LOGICAL_AXIS_LIST_1(V) }
 //#define LOGICAL_AXIS_ARGS(T...) LOGICAL_AXIS_LIST(T e, T x, T y, T z, T i, T j, T k, T u, T v, T w)
 #define LOGICAL_AXIS_ARGS(T,...) LOGICAL_AXIS_LIST(T e, T x, T y, T z, T i, T j, T k, T u, T v, T w)
 #define LOGICAL_AXIS_ELEM(O)    LOGICAL_AXIS_LIST(O.e, O.x, O.y, O.z, O.i, O.j, O.k, O.u, O.v, O.w)
@@ -657,7 +659,12 @@ struct XYZEval {
     FI void reset() { LOGICAL_AXIS_GANG(e =, x =, y =, z =, i =, j =, k =, u =, v =, w = ) 0; }
 
     // Setters taking struct types and arrays
-    FI void set(const XYval<T> pxy) { x = pxy.x; OPTCODE(HAS_Y_AXIS, y = pxy.y) }
+    //FI void set(const XYval<T> pxy) { x = pxy.x; OPTCODE(HAS_Y_AXIS, y = pxy.y) }
+    FI void set(const XYval<T> pxy) { x = pxy.x;
+#if defined(HAS_Y_AXIS)
+    y = pxy.y;
+#endif 
+    }
     FI void set(const XYZval<T> pxyz) { set(NUM_AXIS_ELEM(pxyz)); }
     FI void set(const XYval<T> pxy, const T pz) { set(pxy); TERN_(HAS_Z_AXIS, z = pz); }
     FI void set(const T(&arr)[NUM_AXES]) { NUM_AXIS_CODE(x = arr[0], y = arr[1], z = arr[2], i = arr[3], j = arr[4], k = arr[5], u = arr[6], v = arr[7], w = arr[8]); }

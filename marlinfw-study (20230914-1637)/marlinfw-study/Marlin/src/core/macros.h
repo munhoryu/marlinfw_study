@@ -332,10 +332,8 @@ template <class V, class N1, class N2> static constexpr void LIMIT(V& v, const N
 #define OPTITEM(O,A,...)     TERN_(O,DEFER4(_OPTITEM)(A))
 #define _OPTARG(A,...)       , A
 #define OPTARG(O,A,...)      TERN_(O,DEFER4(_OPTARG)(A))
-#define _OPTCODE(A)         A;
+//#define _OPTCODE(A)         A;
 //#define OPTCODE(O,A)        TERN_(O,DEFER4(_OPTCODE)(A))
-#define OPCODE2(A) TERM_(O,DEFER4(A))
-#define OPTCODE(O,A)        OPTCODE2(O,_OPTCODE(A))
 
 // Macros to avoid 'f + 0.0' which is not always optimized away. Minus included for symmetry.
 // Compiler flags -fno-signed-zeros -ffinite-math-only also cover 'f * 1.0', 'f - f', etc.

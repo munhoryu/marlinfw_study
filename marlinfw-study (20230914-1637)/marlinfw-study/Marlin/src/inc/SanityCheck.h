@@ -2523,6 +2523,7 @@ static_assert(WITHIN(REDUNDANT_PART_COOLING_FAN, 1, FAN_COUNT - 1), "REDUNDANT_P
       * Test Sensor & Heater pin combos.
       * Pins and Sensor IDs must be set for each heater
       */
+/*
 #if HAS_EXTRUDERS && !ANY_PIN(TEMP_0, TEMP_0_CS)
 //#error "TEMP_0_PIN or TEMP_0_CS_PIN not defined for this board."
 #pragma "TEMP_0_PIN or TEMP_0_CS_PIN not defined for this board."
@@ -2535,6 +2536,7 @@ static_assert(WITHIN(REDUNDANT_PART_COOLING_FAN, 1, FAN_COUNT - 1), "REDUNDANT_P
 #elif EITHER(HAS_MULTI_HOTEND, HEATERS_PARALLEL) && !HAS_HEATER_1
 #error "HEATER_1_PIN is not defined. TEMP_SENSOR_1 might not be set, or the board (not EEB / EEF?) doesn't define a pin."
 #endif
+*/
 
 #if HAS_MULTI_HOTEND
 #if TEMP_SENSOR_IS_MAX_TC(1) && !PIN_EXISTS(TEMP_1_CS)

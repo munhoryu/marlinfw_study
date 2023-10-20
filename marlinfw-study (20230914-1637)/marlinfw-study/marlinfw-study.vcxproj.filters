@@ -186,6 +186,24 @@
     <ClInclude Include="Marlin\src\inc\SanityCheck.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Marlin\src\HAL\AVR\inc\SanityCheck.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\core\language.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\core\multi_language.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\lcd\language\language_en.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\core\utility.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\core\millis_t.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -195,6 +213,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Marlin\src\MarlinCore.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Marlin\src\core\utility.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
