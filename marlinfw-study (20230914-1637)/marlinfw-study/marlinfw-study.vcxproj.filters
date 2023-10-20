@@ -75,7 +75,7 @@
     <ClInclude Include="Marlin\src\HAL\AVR\fastio.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Marlin\src\HAL\AVR\MarlinSerial.h">
+    <ClInclude Include="Marlin\src\HAL\AVR\MarlinSerial_baclup.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Marlin\src\arduino-core\Arduino.h">
@@ -147,13 +147,10 @@
     <ClInclude Include="Marlin\src\HAL\shared\progmem.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Marlin\src\arduino-core\avr\eeprom.h">
+    <ClInclude Include="Marlin\src\arduino-core\avr\eeprom_backup.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Marlin\src\core\serial_hook.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Marlin\src\core\serial_base.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Marlin\src\pins\pins.h">
@@ -204,6 +201,24 @@
     <ClInclude Include="Marlin\src\core\millis_t.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Marlin\src\core\serial_base_backup.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\core\serial_hook_backup.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\arduino-core\avr\eeprom.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\HAL\AVR\MarlinSerial.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\core\serial_backup.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\core\serial.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -217,6 +232,9 @@
     </ClCompile>
     <ClCompile Include="Marlin\src\core\utility.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Marlin\src\core\serial_base.h">
+      <Filter>헤더 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

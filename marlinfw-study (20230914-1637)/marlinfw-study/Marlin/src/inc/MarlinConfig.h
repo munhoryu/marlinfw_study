@@ -30,10 +30,7 @@
 // Include all core headers
 #include "../core/language.h"
 #include "../core/utility.h"
-//#include "../core/serial.h"
-
+#include "../core/serial.h"
 #endif
 
-/*
 #include "../core/multi_language.h"
-*/

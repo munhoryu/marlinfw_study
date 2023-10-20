@@ -171,7 +171,8 @@
 #elif defined (__AVR_ATmega256RFR2__)
 #  include <avr/iom256rfr2.h>
 #elif defined (__AVR_ATmega2560__)
-#  include <avr/iom2560.h>
+//#  include <avr/iom2560.h>
+#  include "iom2560.h"
 #elif defined (__AVR_ATmega2561__)
 #  include <avr/iom2561.h>
 #elif defined (__AVR_AT90CAN32__)

@@ -1,6 +1,7 @@
 #pragma once
 
 #define __AVR__
+#define __AVR_ATmega2560__
 #define SERIAL_XON_XOFF false
 #define EMERGENCY_PARSER false
 #define SERIAL_STATS_DROPPED_RX false
