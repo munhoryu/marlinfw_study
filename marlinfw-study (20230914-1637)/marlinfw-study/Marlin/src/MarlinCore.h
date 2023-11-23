@@ -14,7 +14,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
 void stop();
 
 // Pass true to keep steppers from timing out
@@ -72,4 +71,3 @@ inline bool kill_state() { return READ(KILL_PIN) == KILL_PIN_STATE; }
 #endif
 
 extern const char M112_KILL_STR[];
-*/

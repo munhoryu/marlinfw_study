@@ -36,6 +36,8 @@
 
 #include "lcd/marlinui.h"
 */
+// selective includes - start
+#if 1
 #if HAS_TOUCH_BUTTONS
 #include "lcd/touch/touch_buttons.h"
 #endif
@@ -58,6 +60,276 @@
 #endif
 #endif
 
+#if HAS_ETHERNET
+#include "feature/ethernet.h"
+#endif
+
+#if ENABLED(IIC_BL24CXX_EEPROM)
+#include "libs/BL24CXX.h"
+#endif
+
+#if ENABLED(DIRECT_STEPPING)
+#include "feature/direct_stepping.h"
+#endif
+
+#if ENABLED(HOST_ACTION_COMMANDS)
+#include "feature/host_actions.h"
+#endif
+
+#if HAS_BEEPER
+#include "libs/buzzer.h"
+#endif
+
+#if ENABLED(EXTERNAL_CLOSED_LOOP_CONTROLLER)
+#include "feature/closedloop.h"
+#endif
+
+#if HAS_MOTOR_CURRENT_I2C
+#include "feature/digipot/digipot.h"
+#endif
+
+#if ENABLED(MIXING_EXTRUDER)
+#include "feature/mixing.h"
+#endif
+
+#if ENABLED(MAX7219_DEBUG)
+#include "feature/max7219.h"
+#endif
+
+#if HAS_COLOR_LEDS
+#include "feature/leds/leds.h"
+#endif
+
+#if ENABLED(BLTOUCH)
+#include "feature/bltouch.h"
+#endif
+
+#if ENABLED(BD_SENSOR)
+#include "feature/bedlevel/bdl/bdl.h"
+#endif
+
+#if ENABLED(POLL_JOG)
+#include "feature/joystick.h"
+#endif
+
+#if HAS_SERVOS
+#include "module/servo.h"
+#endif
+
+#if HAS_MOTOR_CURRENT_DAC
+#include "feature/dac/stepper_dac.h"
+#endif
+
+#if ENABLED(EXPERIMENTAL_I2CBUS)
+#include "feature/twibus.h"
+#endif
+
+#if ENABLED(I2C_POSITION_ENCODERS)
+#include "feature/encoder_i2c.h"
+#endif
+
+#if (HAS_TRINAMIC_CONFIG || HAS_TMC_SPI) && DISABLED(PSU_DEFAULT_OFF)
+#include "feature/tmc_util.h"
+#endif
+
+#if HAS_CUTTER
+#include "feature/spindle_laser.h"
+#endif
+
+#if ENABLED(SDSUPPORT)
+CardReader card;
+#endif
+
+#if ENABLED(G38_PROBE_TARGET)
+uint8_t G38_move; // = 0
+bool G38_did_trigger; // = false
+#endif
+
+#if ENABLED(DELTA)
+#include "module/delta.h"
+#elif ENABLED(POLARGRAPH)
+#include "module/polargraph.h"
+#elif IS_SCARA
+#include "module/scara.h"
+#endif
+
+#if HAS_LEVELING
+#include "feature/bedlevel/bedlevel.h"
+#endif
+
+#if ENABLED(GCODE_REPEAT_MARKERS)
+#include "feature/repeat.h"
+#endif
+
+#if ENABLED(POWER_LOSS_RECOVERY)
+#include "feature/powerloss.h"
+#endif
+
+#if ENABLED(CANCEL_OBJECTS)
+#include "feature/cancel_object.h"
+#endif
+
+#if HAS_FILAMENT_SENSOR
+#include "feature/runout.h"
+#endif
+
+#if EITHER(PROBE_TARE, HAS_Z_SERVO_PROBE)
+#include "module/probe.h"
+#endif
+
+#if ENABLED(HOTEND_IDLE_TIMEOUT)
+#include "feature/hotend_idle.h"
+#endif
+
+#if ENABLED(TEMP_STAT_LEDS)
+#include "feature/leds/tempstat.h"
+#endif
+
+#if ENABLED(CASE_LIGHT_ENABLE)
+#include "feature/caselight.h"
+#endif
+
+#if HAS_FANMUX
+#include "feature/fanmux.h"
+#endif
+
+//#include "module/tool_change.h"
+
+#if HAS_FANCHECK
+#include "feature/fancheck.h"
+#endif
+
+#if ENABLED(USE_CONTROLLER_FAN)
+#include "feature/controllerfan.h"
+#endif
+
+#if HAS_PRUSA_MMU1
+#include "feature/mmu/mmu.h"
+#endif
+
+#if HAS_PRUSA_MMU2
+#include "feature/mmu/mmu2.h"
+#endif
+
+#if ENABLED(PASSWORD_FEATURE)
+#include "feature/password/password.h"
+#endif
+
+#if ENABLED(DGUS_LCD_UI_MKS)
+#include "lcd/extui/dgus/DGUSScreenHandler.h"
+#endif
+
+#if HAS_DRIVER_SAFE_POWER_PROTECT
+#include "feature/stepper_driver_safety.h"
+#endif
+
+#if ENABLED(PSU_CONTROL)
+#include "feature/power.h"
+#endif
+
+#if ENABLED(EASYTHREED_UI)
+#include "feature/easythreed_ui.h"
+#endif
+
+#if ENABLED(MARLIN_TEST_BUILD)
+#include "tests/marlin_tests.h"
+#endif
+
+#endif
+// selective includes - end
+
+//PGMSTR(M112_KILL_STR, "M112 Shutdown");
+MarlinState marlin_state = MF_INITIALIZING;
+
+// For M109 and M190, this flag may be cleared (by M108) to exit the wait loop
+bool wait_for_heatup = true;
+
+// For M0/M1, this flag may be cleared (by M108) to exit the wait-for-user loop
+#if HAS_RESUME_CONTINUE
+bool wait_for_user; // = false;
+void wait_for_user_response(millis_t ms/*=0*/, const bool no_sleep/*=false*/) {
+	/*
+	UNUSED(no_sleep);
+	KEEPALIVE_STATE(PAUSED_FOR_USER);
+	wait_for_user = true;
+	if (ms) ms += millis(); // expire time
+	while (wait_for_user && !(ms && ELAPSED(millis(), ms)))
+		idle(TERN_(ADVANCED_PAUSE_FEATURE, no_sleep));
+	wait_for_user = false;
+	while (ui.button_pressed()) safe_delay(50);
+	*/
+}
+#endif
+
+
+inline void tmc_standby_setup() {
+#if PIN_EXISTS(X_STDBY)
+	SET_INPUT_PULLDOWN(X_STDBY_PIN);
+#endif
+#if PIN_EXISTS(X2_STDBY)
+	SET_INPUT_PULLDOWN(X2_STDBY_PIN);
+#endif
+#if PIN_EXISTS(Y_STDBY)
+	SET_INPUT_PULLDOWN(Y_STDBY_PIN);
+#endif
+#if PIN_EXISTS(Y2_STDBY)
+	SET_INPUT_PULLDOWN(Y2_STDBY_PIN);
+#endif
+#if PIN_EXISTS(Z_STDBY)
+	SET_INPUT_PULLDOWN(Z_STDBY_PIN);
+#endif
+#if PIN_EXISTS(Z2_STDBY)
+	SET_INPUT_PULLDOWN(Z2_STDBY_PIN);
+#endif
+#if PIN_EXISTS(Z3_STDBY)
+	SET_INPUT_PULLDOWN(Z3_STDBY_PIN);
+#endif
+#if PIN_EXISTS(Z4_STDBY)
+	SET_INPUT_PULLDOWN(Z4_STDBY_PIN);
+#endif
+#if PIN_EXISTS(I_STDBY)
+	SET_INPUT_PULLDOWN(I_STDBY_PIN);
+#endif
+#if PIN_EXISTS(J_STDBY)
+	SET_INPUT_PULLDOWN(J_STDBY_PIN);
+#endif
+#if PIN_EXISTS(K_STDBY)
+	SET_INPUT_PULLDOWN(K_STDBY_PIN);
+#endif
+#if PIN_EXISTS(U_STDBY)
+	SET_INPUT_PULLDOWN(U_STDBY_PIN);
+#endif
+#if PIN_EXISTS(V_STDBY)
+	SET_INPUT_PULLDOWN(V_STDBY_PIN);
+#endif
+#if PIN_EXISTS(W_STDBY)
+	SET_INPUT_PULLDOWN(W_STDBY_PIN);
+#endif
+#if PIN_EXISTS(E0_STDBY)
+	SET_INPUT_PULLDOWN(E0_STDBY_PIN);
+#endif
+#if PIN_EXISTS(E1_STDBY)
+	SET_INPUT_PULLDOWN(E1_STDBY_PIN);
+#endif
+#if PIN_EXISTS(E2_STDBY)
+	SET_INPUT_PULLDOWN(E2_STDBY_PIN);
+#endif
+#if PIN_EXISTS(E3_STDBY)
+	SET_INPUT_PULLDOWN(E3_STDBY_PIN);
+#endif
+#if PIN_EXISTS(E4_STDBY)
+	SET_INPUT_PULLDOWN(E4_STDBY_PIN);
+#endif
+#if PIN_EXISTS(E5_STDBY)
+	SET_INPUT_PULLDOWN(E5_STDBY_PIN);
+#endif
+#if PIN_EXISTS(E6_STDBY)
+	SET_INPUT_PULLDOWN(E6_STDBY_PIN);
+#endif
+#if PIN_EXISTS(E7_STDBY)
+	SET_INPUT_PULLDOWN(E7_STDBY_PIN);
+#endif
+}
 
 void setup(void) {
 #ifdef FASTIO_INIT
@@ -68,10 +340,9 @@ void setup(void) {
 #endif
 	tmc_standby_setup();  // TMC Low Power Standby pins must be set early or they're not usable
 
-	/*
-		// Check startup - does nothing if bootloader sets MCUSR to 0
-	const byte mcu = hal.get_reset_source();
-	hal.clear_reset_source();
+	// Check startup - does nothing if bootloader sets MCUSR to 0
+	//const byte mcu = hal.get_reset_source();
+	//hal.clear_reset_source();
 
 #if ENABLED(MARLIN_DEV_MODE)
 	auto log_current_ms = [&](PGM_P const msg) {
@@ -85,9 +356,9 @@ void setup(void) {
 #endif
 #define SETUP_RUN(C) do{ SETUP_LOG(STRINGIFY(C)); C; }while(0)
 
-	MYSERIAL1.begin(BAUDRATE);
+	//MYSERIAL1.begin(BAUDRATE);
 	millis_t serial_connect_timeout = millis() + 1000UL;
-	while (!MYSERIAL1.connected() && PENDING(millis(), serial_connect_timeout)) { //nada }
+	//while (!MYSERIAL1.connected() && PENDING(millis(), serial_connect_timeout)) { //nada }
 
 #if HAS_MULTI_SERIAL && !HAS_ETHERNET
 #ifndef BAUDRATE_2
@@ -105,7 +376,7 @@ void setup(void) {
 	while (!MYSERIAL3.connected() && PENDING(millis(), serial_connect_timeout)) { //nada }
 #endif
 #endif
-	SERIAL_ECHOLNPGM("start");
+	//SERIAL_ECHOLNPGM("start");
 
 	// Set up these pins early to prevent suicide
 #if HAS_KILL
