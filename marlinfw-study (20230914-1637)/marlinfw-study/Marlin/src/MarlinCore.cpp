@@ -1,25 +1,75 @@
 // MarlinCore.cpp
 
 #define __AVR__
+#define ARDUINO
 
 #include "MarlinCore.h"
-//#include "HAL/shared/Delay.h"
-//#include "HAL/shared/esp_wifi.h"
-//#include "HAL/shared/cpu_exception/exception_hook.h"
+#include "HAL/shared/Delay.h"
+#include "HAL/shared/esp_wifi.h"
+#include "HAL/shared/cpu_exception/exception_hook.h"
+
+#if ENABLED(WIFISUPPORT)
+#include "HAL/shared/esp_wifi.h"
+#endif
+
+#ifdef ARDUINO
+#include "arduino-core/pins_arduino.h"
+#endif
+
+#include <math.h>
+
+/*
+#include "module/endstops.h"
+#include "module/motion.h"
+#include "module/planner.h"
+#include "module/printcounter.h" // PrintCounter or Stopwatch
+#include "module/settings.h"
+#include "module/stepper.h"
+#include "module/temperature.h"
+
+#include "gcode/gcode.h"
+#include "gcode/parser.h"
+#include "gcode/queue.h"
+
+#include "feature/pause.h"
+#include "sd/cardreader.h"
+
+#include "lcd/marlinui.h"
+*/
+#if HAS_TOUCH_BUTTONS
+#include "lcd/touch/touch_buttons.h"
+#endif
+
+#if HAS_TFT_LVGL_UI
+#include "lcd/extui/mks_ui/tft_lvgl_configuration.h"
+#include "lcd/extui/mks_ui/draw_ui.h"
+#include "lcd/extui/mks_ui/mks_hardware.h"
+#include <lvgl.h>
+#endif
+
+#if HAS_DWIN_E3V2
+#include "lcd/e3v2/common/encoder.h"
+#if ENABLED(DWIN_CREALITY_LCD)
+#include "lcd/e3v2/creality/dwin.h"
+#elif ENABLED(DWIN_LCD_PROUI)
+#include "lcd/e3v2/proui/dwin.h"
+#elif ENABLED(DWIN_CREALITY_LCD_JYERSUI)
+#include "lcd/e3v2/jyersui/dwin.h"
+#endif
+#endif
+
 
 void setup(void) {
-/*
 #ifdef FASTIO_INIT
 	FASTIO_INIT();
 #endif
-
 #ifdef BOARD_PREINIT
 	BOARD_PREINIT(); // Low-level init (before serial init)
 #endif
-
 	tmc_standby_setup();  // TMC Low Power Standby pins must be set early or they're not usable
 
-	// Check startup - does nothing if bootloader sets MCUSR to 0
+	/*
+		// Check startup - does nothing if bootloader sets MCUSR to 0
 	const byte mcu = hal.get_reset_source();
 	hal.clear_reset_source();
 

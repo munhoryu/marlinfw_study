@@ -196,6 +196,9 @@
     <ClInclude Include="Marlin\src\HAL\AVR\MarlinSerial.h" />
     <ClInclude Include="Marlin\src\HAL\AVR\spi_pins.h" />
     <ClInclude Include="Marlin\src\HAL\AVR\timers.h" />
+    <ClInclude Include="Marlin\src\HAL\shared\cpu_exception\exception_hook.h" />
+    <ClInclude Include="Marlin\src\HAL\shared\Delay.h" />
+    <ClInclude Include="Marlin\src\HAL\shared\esp_wifi.h" />
     <ClInclude Include="Marlin\src\inc\conditionals_post.h" />
     <ClInclude Include="Marlin\src\inc\SanityCheck.h" />
     <ClInclude Include="Marlin\src\lcd\language\language_en.h" />
