@@ -230,6 +230,7 @@
     <ClCompile Include="marlinfw-study.cpp" />
     <ClCompile Include="Marlin\src\core\serial_base.h" />
     <ClCompile Include="Marlin\src\core\utility.cpp" />
+    <ClCompile Include="Marlin\src\HAL\shared\HAL.cpp" />
     <ClCompile Include="Marlin\src\MarlinCore.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

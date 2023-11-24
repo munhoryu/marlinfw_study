@@ -219,6 +219,15 @@
     <ClInclude Include="Marlin\src\core\serial.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Marlin\src\HAL\shared\cpu_exception\exception_hook.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\HAL\shared\Delay.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Marlin\src\HAL\shared\esp_wifi.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -235,6 +244,9 @@
     </ClCompile>
     <ClCompile Include="Marlin\src\core\serial_base.h">
       <Filter>헤더 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Marlin\src\HAL\shared\HAL.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

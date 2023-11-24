@@ -261,6 +261,19 @@ void wait_for_user_response(millis_t ms/*=0*/, const bool no_sleep/*=false*/) {
 }
 #endif
 
+/**
+ * ***************************************************************************
+ * ******************************** FUNCTIONS ********************************
+ * ***************************************************************************
+ */
+ /**
+  * Stepper Reset (RigidBoard, et.al.)
+  */
+#if HAS_STEPPER_RESET
+void disableStepperDrivers() { OUT_WRITE(STEPPER_RESET_PIN, LOW); } // Drive down to keep motor driver chips in reset
+void enableStepperDrivers() { SET_INPUT(STEPPER_RESET_PIN); }      // Set to input, allowing pullups to pull the pin high
+#endif
+
 
 inline void tmc_standby_setup() {
 #if PIN_EXISTS(X_STDBY)
