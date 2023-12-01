@@ -17,6 +17,7 @@ template <bool, class L, class R>
 struct IF { typedef R type; };
 template <class L, class R>
 struct IF<true, L, R> { typedef L type; };
+
 template<size_t N>
 struct Flags {
 	typedef typename IF<(N > 8), uint16_t, uint8_t>::type bits_t;
@@ -113,7 +114,6 @@ typedef struct PlannerBlock {
 #define BLOCK_BUFFER_SIZE 16
 #define BLOCK_MOD(n) ((n)&(BLOCK_BUFFER_SIZE-1))
 
-
 typedef struct {
 	float axis_steps_per_mm[MAX_AXIS];
 } planner_settings_t;
@@ -198,6 +198,7 @@ typedef struct {
 		};
 	};
 } stepper_flags_t;
+
 class Stepper {
 	public:
 	private:
@@ -302,3 +303,24 @@ class Stepper {
 		static uint32_t calc_timer_interval(uint32_t step_rate, uint8_t &loops);
 };//Stepper
 extern Stepper stepper;
+
+
+// timer
+#define F_CPU 16000000
+#define HAL_TIMER_RATE	((F_CPU) / 8)    // i.e., 2MHz or 2.5MHz
+#define MF_TIMER_STEP	1
+#define MF_TIMER_PULSE  MF_TIMER_STEP
+#define MF_TIMER_TEMP   0
+
+void HAL_timer_start(const uint8_t timer_num, const uint32_t) {
+	switch (timer_num) {
+	case MF_TIMER_STEP:
+		// timer 1, 122 Hz
+		break;
+	case MF_TIMER_TEMP:
+		// timer 0, ? Hz
+		// Use timer0 for temperature measurement
+		// Interleave temperature interrupt with millies interrupt
+		break;
+	}
+}//HAL_timer_start()

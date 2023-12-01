@@ -54,3 +54,18 @@ void Planner::set_machine_position_mm(const position_float_t& pos) {
 void sync_plan_position(void) {
 	planner.set_position_mm(current_position);
 }
+
+
+// stepper
+Stepper stepper; // Singleton
+void Stepper::init() {
+    // init dir and enable pins
+    // Init Step Pins
+
+    HAL_timer_start(MF_TIMER_STEP, 122); // Init Stepper ISR to 122 Hz for quick starting
+    //wake_up();
+    //sei();
+
+    // Init direction bits for first moves
+    set_directions(0x07);
+}
