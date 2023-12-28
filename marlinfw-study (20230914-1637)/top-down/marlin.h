@@ -13,7 +13,11 @@ enum MarlinState : uint8_t {
 };
 extern MarlinState marlin_state;
 
+
+
+// macros
 #define _BV(b) (1 << (b))
+#define TEST(n,b) (!!((n)&_BV(b)))
 #define SBI(A,B) (A |= _BV(B))
 #define CBI(A,B) (A &= ~_BV(B))
 
@@ -172,53 +176,48 @@ struct XYval {
 	FI void set(const T px, const T py) { x = px; y = py; }
 	FI void set(const T(&arr)[XY]) { x = arr[0]; y = arr[1]; }
 	FI void set(const T(&arr)[NUM_AXES]) { x = arr[0]; y = arr[1]; }
-	// Length reduced to one dimension
-	FI T magnitude()                                const { return (T)sqrtf(x * x + y * y); }
-	// Pointer to the data as a simple array
-	FI operator T* () { return pos; }
-	// If any element is true then it's true
-	FI operator bool() { return x || y; }
-	// Smallest element
-	FI T small()                                    const { return _MIN(x, y); }
-	// Largest element
-	FI T large()                                    const { return _MAX(x, y); }
+	FI T magnitude()    const { return (T)sqrtf(x * x + y * y); }
+	FI operator T* ()	{ return pos; }
+	FI operator bool()	{ return x || y; }
+	FI T small()        const { return _MIN(x, y); }
+	FI T large()        const { return _MAX(x, y); }
 	// Explicit copy and copies with conversion
-	FI XYval<T>           copy()                    const { return *this; }
-	FI XYval<T>            ABS()                    const { return { T(_ABS(x)), T(_ABS(y)) }; }
+	FI XYval<T>           copy() const { return *this; }
+	FI XYval<T>            ABS() const { return { T(_ABS(x)), T(_ABS(y)) }; }
 	FI XYval<int16_t>    asInt() { return { int16_t(x), int16_t(y) }; }
-	FI XYval<int16_t>    asInt()                    const { return { int16_t(x), int16_t(y) }; }
+	FI XYval<int16_t>    asInt() const { return { int16_t(x), int16_t(y) }; }
 	FI XYval<int32_t>   asLong() { return { int32_t(x), int32_t(y) }; }
-	FI XYval<int32_t>   asLong()                    const { return { int32_t(x), int32_t(y) }; }
+	FI XYval<int32_t>   asLong() const { return { int32_t(x), int32_t(y) }; }
 	FI XYval<int32_t>   ROUNDL() { return { int32_t(LROUND(x)), int32_t(LROUND(y)) }; }
-	FI XYval<int32_t>   ROUNDL()                    const { return { int32_t(LROUND(x)), int32_t(LROUND(y)) }; }
+	FI XYval<int32_t>   ROUNDL() const { return { int32_t(LROUND(x)), int32_t(LROUND(y)) }; }
 	FI XYval<float>    asFloat() { return { static_cast<float>(x), static_cast<float>(y) }; }
-	FI XYval<float>    asFloat()                    const { return { static_cast<float>(x), static_cast<float>(y) }; }
-	FI XYval<float> reciprocal()                    const { return { _RECIP(x),  _RECIP(y) }; }
+	FI XYval<float>    asFloat() const { return { static_cast<float>(x), static_cast<float>(y) }; }
+	FI XYval<float> reciprocal() const { return { _RECIP(x), _RECIP(y) }; }
 	// Marlin workspace shifting is done with G92 and M206
-	FI XYval<float>  asLogical()                    const { XYval<float> o = asFloat(); toLogical(o); return o; }
-	FI XYval<float>   asNative()                    const { XYval<float> o = asFloat(); toNative(o);  return o; }
+	FI XYval<float>  asLogical() const { XYval<float> o = asFloat(); toLogical(o); return o; }
+	FI XYval<float>   asNative() const { XYval<float> o = asFloat(); toNative(o);  return o; }
 	// Cast to a type with more fields by making a new object
-	FI operator XYZval<T>() { return { x, y }; }
-	FI operator XYZval<T>()                         const { return { x, y }; }
+	FI operator XYZval<T>()  { return { x, y }; }
+	FI operator XYZval<T>()  const { return { x, y }; }
 	FI operator XYZEval<T>() { return { x, y }; }
-	FI operator XYZEval<T>()                        const { return { x, y }; }
+	FI operator XYZEval<T>() const { return { x, y }; }
 	// Accessor via an AxisEnum (or any integer) [index]
 	FI       T& operator[](const int n) { return pos[n]; }
-	FI const T& operator[](const int n)            const { return pos[n]; }
+	FI const T& operator[](const int n) const { return pos[n]; }
 	// Assignment operator overrides do the expected thing
 	FI XYval<T>& operator= (const T v) { set(v, v); return *this; }
 	FI XYval<T>& operator= (const XYZval<T>& rs) { set(rs.x, rs.y); return *this; }
 	FI XYval<T>& operator= (const XYZEval<T>& rs) { set(rs.x, rs.y); return *this; }
 	// Override other operators to get intuitive behaviors
-	FI XYval<T>  operator+ (const XYval<T>& rs)   const { XYval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; return ls; }
+	FI XYval<T>  operator+ (const XYval<T>& rs)	const { XYval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; return ls; }
 	FI XYval<T>  operator+ (const XYval<T>& rs) { XYval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; return ls; }
-	FI XYval<T>  operator- (const XYval<T>& rs)   const { XYval<T> ls = *this; ls.x -= rs.x; ls.y -= rs.y; return ls; }
+	FI XYval<T>  operator- (const XYval<T>& rs) const { XYval<T> ls = *this; ls.x -= rs.x; ls.y -= rs.y; return ls; }
 	FI XYval<T>  operator- (const XYval<T>& rs) { XYval<T> ls = *this; ls.x -= rs.x; ls.y -= rs.y; return ls; }
-	FI XYval<T>  operator* (const XYval<T>& rs)   const { XYval<T> ls = *this; ls.x *= rs.x; ls.y *= rs.y; return ls; }
+	FI XYval<T>  operator* (const XYval<T>& rs) const { XYval<T> ls = *this; ls.x *= rs.x; ls.y *= rs.y; return ls; }
 	FI XYval<T>  operator* (const XYval<T>& rs) { XYval<T> ls = *this; ls.x *= rs.x; ls.y *= rs.y; return ls; }
-	FI XYval<T>  operator/ (const XYval<T>& rs)   const { XYval<T> ls = *this; ls.x /= rs.x; ls.y /= rs.y; return ls; }
+	FI XYval<T>  operator/ (const XYval<T>& rs) const { XYval<T> ls = *this; ls.x /= rs.x; ls.y /= rs.y; return ls; }
 	FI XYval<T>  operator/ (const XYval<T>& rs) { XYval<T> ls = *this; ls.x /= rs.x; ls.y /= rs.y; return ls; }
-	FI XYval<T>  operator+ (const XYZval<T>& rs)   const { XYval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; return ls; }
+	FI XYval<T>  operator+ (const XYZval<T>& rs)const { XYval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; return ls; }
 	FI XYval<T>  operator+ (const XYZval<T>& rs) { XYval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; return ls; }
 	FI XYval<T>  operator- (const XYZval<T>& rs)   const { XYval<T> ls = *this; ls.x -= rs.x; ls.y -= rs.y; return ls; }
 	FI XYval<T>  operator- (const XYZval<T>& rs) { XYval<T> ls = *this; ls.x -= rs.x; ls.y -= rs.y; return ls; }
@@ -227,27 +226,27 @@ struct XYval {
 	FI XYval<T>  operator/ (const XYZval<T>& rs)   const { XYval<T> ls = *this; ls.x /= rs.x; ls.y /= rs.y; return ls; }
 	FI XYval<T>  operator/ (const XYZval<T>& rs) { XYval<T> ls = *this; ls.x /= rs.x; ls.y /= rs.y; return ls; }
 	FI XYval<T>  operator+ (const XYZEval<T>& rs)   const { XYval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; return ls; }
-	FI XYval<T>  operator+ (const XYZEval<T>& rs) { XYval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; return ls; }
+	FI XYval<T>  operator+ (const XYZEval<T>& rs)	{ XYval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; return ls; }
 	FI XYval<T>  operator- (const XYZEval<T>& rs)   const { XYval<T> ls = *this; ls.x -= rs.x; ls.y -= rs.y; return ls; }
-	FI XYval<T>  operator- (const XYZEval<T>& rs) { XYval<T> ls = *this; ls.x -= rs.x; ls.y -= rs.y; return ls; }
+	FI XYval<T>  operator- (const XYZEval<T>& rs)	{ XYval<T> ls = *this; ls.x -= rs.x; ls.y -= rs.y; return ls; }
 	FI XYval<T>  operator* (const XYZEval<T>& rs)   const { XYval<T> ls = *this; ls.x *= rs.x; ls.y *= rs.y; return ls; }
-	FI XYval<T>  operator* (const XYZEval<T>& rs) { XYval<T> ls = *this; ls.x *= rs.x; ls.y *= rs.y; return ls; }
+	FI XYval<T>  operator* (const XYZEval<T>& rs)	{ XYval<T> ls = *this; ls.x *= rs.x; ls.y *= rs.y; return ls; }
 	FI XYval<T>  operator/ (const XYZEval<T>& rs)   const { XYval<T> ls = *this; ls.x /= rs.x; ls.y /= rs.y; return ls; }
-	FI XYval<T>  operator/ (const XYZEval<T>& rs) { XYval<T> ls = *this; ls.x /= rs.x; ls.y /= rs.y; return ls; }
+	FI XYval<T>  operator/ (const XYZEval<T>& rs)	{ XYval<T> ls = *this; ls.x /= rs.x; ls.y /= rs.y; return ls; }
 	FI XYval<T>  operator* (const float& p)         const { XYval<T> ls = *this; ls.x *= p; ls.y *= p; return ls; }
-	FI XYval<T>  operator* (const float& p) { XYval<T> ls = *this; ls.x *= p; ls.y *= p; return ls; }
+	FI XYval<T>  operator* (const float& p)			{ XYval<T> ls = *this; ls.x *= p; ls.y *= p; return ls; }
 	FI XYval<T>  operator* (const int& p)           const { XYval<T> ls = *this; ls.x *= p; ls.y *= p; return ls; }
-	FI XYval<T>  operator* (const int& p) { XYval<T> ls = *this; ls.x *= p; ls.y *= p; return ls; }
+	FI XYval<T>  operator* (const int& p)			{ XYval<T> ls = *this; ls.x *= p; ls.y *= p; return ls; }
 	FI XYval<T>  operator/ (const float& p)         const { XYval<T> ls = *this; ls.x /= p; ls.y /= p; return ls; }
-	FI XYval<T>  operator/ (const float& p) { XYval<T> ls = *this; ls.x /= p; ls.y /= p; return ls; }
+	FI XYval<T>  operator/ (const float& p)			{ XYval<T> ls = *this; ls.x /= p; ls.y /= p; return ls; }
 	FI XYval<T>  operator/ (const int& p)           const { XYval<T> ls = *this; ls.x /= p; ls.y /= p; return ls; }
-	FI XYval<T>  operator/ (const int& p) { XYval<T> ls = *this; ls.x /= p; ls.y /= p; return ls; }
+	FI XYval<T>  operator/ (const int& p)			{ XYval<T> ls = *this; ls.x /= p; ls.y /= p; return ls; }
 	FI XYval<T>  operator>>(const int& p)           const { XYval<T> ls = *this; _RS(ls.x); _RS(ls.y); return ls; }
-	FI XYval<T>  operator>>(const int& p) { XYval<T> ls = *this; _RS(ls.x); _RS(ls.y); return ls; }
+	FI XYval<T>  operator>>(const int& p)			{ XYval<T> ls = *this; _RS(ls.x); _RS(ls.y); return ls; }
 	FI XYval<T>  operator<<(const int& p)           const { XYval<T> ls = *this; _LS(ls.x); _LS(ls.y); return ls; }
-	FI XYval<T>  operator<<(const int& p) { XYval<T> ls = *this; _LS(ls.x); _LS(ls.y); return ls; }
+	FI XYval<T>  operator<<(const int& p)			{ XYval<T> ls = *this; _LS(ls.x); _LS(ls.y); return ls; }
 	FI const XYval<T> operator-()                   const { XYval<T> o = *this; o.x = -x; o.y = -y; return o; }
-	FI XYval<T>       operator-() { XYval<T> o = *this; o.x = -x; o.y = -y; return o; }
+	FI XYval<T>       operator-()					{ XYval<T> o = *this; o.x = -x; o.y = -y; return o; }
 	// Modifier operators
 	FI XYval<T>& operator+=(const XYval<T>& rs) { x += rs.x; y += rs.y; return *this; }
 	FI XYval<T>& operator-=(const XYval<T>& rs) { x -= rs.x; y -= rs.y; return *this; }
@@ -332,19 +331,19 @@ struct XYZval {
 	// Override other operators to get intuitive behaviors
 	FI XYZval<T>  operator+ (const XYval<T>& rs) const { XYZval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; return ls; }
 	FI XYZval<T>  operator+ (const XYval<T>& rs) { XYZval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; return ls; }
-	FI XYZval<T>  operator- (const XYval<T>& rs) const { XYZval<T> ls = *this; ls.x -= rs.x;, ls.y -= rs.y; return ls; }
+	FI XYZval<T>  operator- (const XYval<T>& rs) const { XYZval<T> ls = *this; ls.x -= rs.x; ls.y -= rs.y; return ls; }
 	FI XYZval<T>  operator- (const XYval<T>& rs) { XYZval<T> ls = *this; ls.x -= rs.x; ls.y -= rs.y; return ls; }
 	FI XYZval<T>  operator* (const XYval<T>& rs) const { XYZval<T> ls = *this; ls.x *= rs.x; ls.y *= rs.y; return ls; }
 	FI XYZval<T>  operator* (const XYval<T>& rs) { XYZval<T> ls = *this; ls.x *= rs.x; ls.y *= rs.y; return ls; }
-	FI XYZval<T>  operator/ (const XYval<T>& rs) const { XYZval<T> ls = *this; ls.x /= rs.x;, ls.y /= rs.y; return ls; }
+	FI XYZval<T>  operator/ (const XYval<T>& rs) const { XYZval<T> ls = *this; ls.x /= rs.x; ls.y /= rs.y; return ls; }
 	FI XYZval<T>  operator/ (const XYval<T>& rs) { XYZval<T> ls = *this; ls.x /= rs.x; ls.y /= rs.y; return ls; }
 	FI XYZval<T>  operator+ (const XYZval<T>& rs) const { XYZval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; ls.z += rs.z; return ls; }
 	FI XYZval<T>  operator+ (const XYZval<T>& rs) { XYZval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; ls.z += rs.z; return ls; }
 	FI XYZval<T>  operator- (const XYZval<T>& rs) const { XYZval<T> ls = *this; ls.x -= rs.x; ls.y -= rs.y; ls.z -= rs.z; return ls; }
 	FI XYZval<T>  operator- (const XYZval<T>& rs) { XYZval<T> ls = *this; ls.x -= rs.x; ls.y -= rs.y; ls.z -= rs.z; return ls; }
-	FI XYZval<T>  operator* (const XYZval<T>& rs) const { XYZval<T> ls = *this; (ls.x *= rs.x; ls.y *= rs.y; ls.z *= rs.z; return ls; }
+	FI XYZval<T>  operator* (const XYZval<T>& rs) const { XYZval<T> ls = *this; ls.x *= rs.x; ls.y *= rs.y; ls.z *= rs.z; return ls; }
 	FI XYZval<T>  operator* (const XYZval<T>& rs) { XYZval<T> ls = *this; ls.x *= rs.x; ls.y *= rs.y; ls.z *= rs.z; return ls; }
-	FI XYZval<T>  operator/ (const XYZval<T>& rs) const { XYZval<T> ls = *this; (ls.x /= rs.x; ls.y /= rs.y; ls.z /= rs.z; return ls; }
+	FI XYZval<T>  operator/ (const XYZval<T>& rs) const { XYZval<T> ls = *this; ls.x /= rs.x; ls.y /= rs.y; ls.z /= rs.z; return ls; }
 	FI XYZval<T>  operator/ (const XYZval<T>& rs) { XYZval<T> ls = *this; ls.x /= rs.x; ls.y /= rs.y; ls.z /= rs.z; return ls; }
 	FI XYZval<T>  operator+ (const XYZEval<T>& rs) const { XYZval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; ls.z += rs.z; return ls; }
 	FI XYZval<T>  operator+ (const XYZEval<T>& rs) { XYZval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; ls.z += rs.z; return ls; }
@@ -359,7 +358,7 @@ struct XYZval {
 	FI XYZval<T>  operator* (const int& p)         const { XYZval<T> ls = *this; ls.x *= p; ls.y *= p; ls.z *= p; return ls; }
 	FI XYZval<T>  operator* (const int& p)		   { XYZval<T> ls = *this; ls.x *= p; ls.y *= p; ls.z *= p; return ls; }
 	FI XYZval<T>  operator/ (const float& p)       const { XYZval<T> ls = *this; ls.x /= p; ls.y /= p; ls.z /= p; return ls; }
-	FI XYZval<T>  operator/ (const float& p)	   { XYZval<T> ls = *this; ls.x /= p; ls.y /= p; ls.z /= preturn ls; }
+	FI XYZval<T>  operator/ (const float& p) { XYZval<T> ls = *this; ls.x /= p; ls.y /= p; ls.z /= p; return ls; }
 	FI XYZval<T>  operator/ (const int& p)         const { XYZval<T> ls = *this; ls.x /= p; ls.y /= p; ls.z /= p; return ls; }
 	FI XYZval<T>  operator/ (const int& p)		   { XYZval<T> ls = *this; ls.x /= p; ls.y /= p; ls.z /= p; return ls; }
 	FI XYZval<T>  operator>>(const int& p)         const { XYZval<T> ls = *this; _RS(ls.x); _RS(ls.y); _RS(ls.z); return ls; }
@@ -401,43 +400,36 @@ struct XYZEval {
 	// Reset all to 0
 	FI void reset() { x = y = z = e = 0; }
 	// Setters taking struct types and arrays
-	FI void set(const XYval<T> pxy) { x = pxy.x; y = pxy.y) }
+	FI void set(const XYval<T> pxy) { x = pxy.x; y = pxy.y; }
 	FI void set(const XYZval<T> pxyz) { set(pxyz.x, pxyz.y, pxyz.z); }
 	FI void set(const XYval<T> pxy, const T pz) { set(pxy.x, pxy.y); z = pz; }
 	FI void set(const T(&arr)[NUM_AXES]) { x = arr[0]; y = arr[1]; z = arr[2]; }
 	FI void set(const T(&arr)[LOGICAL_AXES]) { e = arr[LOGICAL_AXES - 1]; x = arr[0]; y = arr[1]; z = arr[2]; }
 	FI void set(const XYval<T> pxy, const T pz, const T pe) { set(pxy, pz); e = pe; }
 	FI void set(const XYZval<T> pxyz, const T pe) { set(pxyz); e = pe; }
-	FI void set(const T x, const T y, const T z, const T e) { a = x; b = y; , c = z; _e = e; }
-	FI void set(const T(&arr)[DISTINCT_AXES]) { e = arr[LOGICAL_AXES - 1]; x = arr[0]; y = arr[1]; z = arr[2]; }
+	FI void set(const T x, const T y, const T z, const T e) { a = x; b = y; c = z; _e = e; }
 	// Setter for all individual args
 	FI void set(const T x, const T y, const T z) { a = x; b = y; c = z; }
 	// Setters with fewer elements leave the rest untouched
 	FI void set(const T px) { x = px; }
 	FI void set(const T px, const T py) { x = px; y = py; }
-	FI void set(const T px, const T py, const T pz) { x = px; y = py; z = pz; }
-	// Length reduced to one dimension
-	FI T magnitude()                                const { return (T)sqrtf(x * x + y * y + z * z + e * e); }
-	// Pointer to the data as a simple array
+	FI T magnitude() const { return (T)sqrtf(x * x + y * y + z * z + e * e); }
 	FI operator T* () { return pos; }
-	// If any element is true then it's true
-	FI operator bool() { return 0 LOGICAL_AXIS_GANG(|| e, || x, || y, || z, || i, || j, || k, || u, || v, || w); }
-	// Smallest element
-	FI T small()                                    const { return _MIN(x, y, z, e); }
-	// Largest element
-	FI T large()                                    const { return _MAX(x, y, z, e); }
+	FI operator bool() { return 0 || x || y || z || e; }
+	FI T small()					const { return _MIN(x, y, z, e); }
+	FI T large()					const { return _MAX(x, y, z, e); }
 	// Explicit copy and copies with conversion
-	FI XYZEval<T>          copy()  const { XYZEval<T> v = *this; return v; }
-	FI XYZEval<T>           ABS()  const { return { T(_ABS(x)); T(_ABS(y)); T(_ABS(z)); (T(_ABS(e)) }; }
-	FI XYZEval<int16_t>   asInt() { return { int16_t(x); int16_t(y); int16_t(z); (int16_t(e) }; }
-	FI XYZEval<int16_t>   asInt()  const { return { int16_t(x); int16_t(y); int16_t(z); int16_t(e) }; }
-	FI XYZEval<int32_t>  asLong() { return { int32_t(x); int32_t(y); int32_t(z); int32_t(e) }; }
-	FI XYZEval<int32_t>  asLong()  const { return { int32_t(x); int32_t(y); int32_t(z); int32_t(e) }; }
-	FI XYZEval<int32_t>  ROUNDL() { return { int32_t(LROUND(x)); int32_t(LROUND(y)); int32_t(LROUND(z)); int32_t(LROUND(e)) }; }
-	FI XYZEval<int32_t>  ROUNDL()  const { return { int32_t(LROUND(x)); int32_t(LROUND(y)); int32_t(LROUND(z)); int32_t(LROUND(e) }; }
-	FI XYZEval<float>   asFloat() { return { static_cast<float>(x); static_cast<float>(y); static_cast<float>(z); static_cast<float>(e) }; }
-	FI XYZEval<float>   asFloat()  const { return { static_cast<float>(x); static_cast<float>(y); static_cast<float>(z); (static_cast<float>(e) }; }
-	FI XYZEval<float> reciprocal() const { return { _RECIP(x); _RECIP(y); _RECIP(z); (_RECIP(e) }; }
+	FI XYZEval<T>          copy()	const { XYZEval<T> v = *this; return v; }
+	FI XYZEval<T>           ABS()	const { return { T(_ABS(x)), T(_ABS(y)), T(_ABS(z)), T(_ABS(e)) }; }
+	FI XYZEval<int16_t>   asInt()	{ return { int16_t(x), int16_t(y), int16_t(z), int16_t(e) }; }
+	FI XYZEval<int16_t>   asInt()	const { return { int16_t(x), int16_t(y), int16_t(z), int16_t(e) }; }
+	FI XYZEval<int32_t>  asLong() { return { int32_t(x), int32_t(y), int32_t(z), int32_t(e) }; }
+	FI XYZEval<int32_t>  asLong()  const { return { int32_t(x), int32_t(y), int32_t(z), int32_t(e) }; }
+	FI XYZEval<int32_t>  ROUNDL() { return { int32_t(LROUND(x)), int32_t(LROUND(y)), int32_t(LROUND(z)), int32_t(LROUND(e)) }; }
+	FI XYZEval<int32_t>  ROUNDL()  const { return { int32_t(LROUND(x)), int32_t(LROUND(y)), int32_t(LROUND(z)), int32_t(LROUND(e)) }; }
+	FI XYZEval<float>   asFloat() { return { static_cast<float>(x), static_cast<float>(y), static_cast<float>(z), static_cast<float>(e) }; }
+	FI XYZEval<float>   asFloat()  const { return { static_cast<float>(x), static_cast<float>(y), static_cast<float>(z), static_cast<float>(e) }; }
+	FI XYZEval<float> reciprocal() const { return { _RECIP(x), _RECIP(y), _RECIP(z), _RECIP(e) }; }
 	// Marlin workspace shifting is done with G92 and M206
 	FI XYZEval<float> asLogical()  const { XYZEval<float> o = asFloat(); toLogical(o); return o; }
 	FI XYZEval<float>  asNative()  const { XYZEval<float> o = asFloat(); toNative(o);  return o; }
@@ -470,28 +462,28 @@ struct XYZEval {
 	FI XYZEval<T>  operator* (const XYZval<T>& rs) { XYZval<T>  ls = *this; ls.x *= rs.x; ls.y *= rs.y; ls.z *= rs.z; return ls; }
 	FI XYZEval<T>  operator/ (const XYZval<T>& rs)  const { XYZval<T>  ls = *this; ls.x /= rs.x; ls.y /= rs.y; ls.z /= rs.z; return ls; }
 	FI XYZEval<T>  operator/ (const XYZval<T>& rs) { XYZval<T>  ls = *this; ls.x /= rs.x; ls.y /= rs.y; ls.z /= rs.z; return ls; }
-	FI XYZEval<T>  operator+ (const XYZEval<T>& rs) const { XYZEval<T> ls = *this; ls.e += rs.e, ls.x += rs.x; ls.y += rs.y; ls.z += rs.z; return ls; }
-	FI XYZEval<T>  operator+ (const XYZEval<T>& rs) { XYZEval<T> ls = *this; ls.e += rs.e, ls.x += rs.x; ls.y += rs.y; ls.z += rs.z; return ls; }
-	FI XYZEval<T>  operator- (const XYZEval<T>& rs) const { XYZEval<T> ls = *this; ls.e -= rs.e, ls.x -= rs.x; ls.y -= rs.y; ls.z -= rs.z; return ls; }
-	FI XYZEval<T>  operator- (const XYZEval<T>& rs) { XYZEval<T> ls = *this; ls.e -= rs.e, ls.x -= rs.x; ls.y -= rs.y; ls.z -= rs.z; return ls; }
+	FI XYZEval<T>  operator+ (const XYZEval<T>& rs) const { XYZEval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; ls.z += rs.z; ls.e += rs.e; return ls; }
+	FI XYZEval<T>  operator+ (const XYZEval<T>& rs) { XYZEval<T> ls = *this; ls.x += rs.x; ls.y += rs.y; ls.z += rs.z; ls.e += rs.e; return ls; }
+	FI XYZEval<T>  operator- (const XYZEval<T>& rs) const { XYZEval<T> ls = *this; ls.x -= rs.x; ls.y -= rs.y; ls.z -= rs.z; ls.e -= rs.e; return ls; }
+	FI XYZEval<T>  operator- (const XYZEval<T>& rs) { XYZEval<T> ls = *this; ls.x -= rs.x; ls.y -= rs.y; ls.z -= rs.z; ls.e -= rs.e; return ls; }
 	FI XYZEval<T>  operator* (const XYZEval<T>& rs) const { XYZEval<T> ls = *this; ls.e *= rs.e, ls.x *= rs.x; ls.y *= rs.y; ls.z *= rs.z; return ls; }
-	FI XYZEval<T>  operator* (const XYZEval<T>& rs) { XYZEval<T> ls = *this; ls.e *= rs.e, ls.x *= rs.x; ls.y *= rs.y; ls.z *= rs.z; return ls; }
-	FI XYZEval<T>  operator/ (const XYZEval<T>& rs) const { XYZEval<T> ls = *this; ls.e /= rs.e, ls.x /= rs.x; ls.y /= rs.y; ls.z /= rs.z; return ls; }
-	FI XYZEval<T>  operator/ (const XYZEval<T>& rs) { XYZEval<T> ls = *this; ls.e /= rs.e, ls.x /= rs.x; ls.y /= rs.y; ls.z /= rs.z; return ls; }
+	FI XYZEval<T>  operator* (const XYZEval<T>& rs) { XYZEval<T> ls = *this; ls.x *= rs.x; ls.y *= rs.y; ls.z *= rs.z; ls.e *= rs.e; return ls; }
+	FI XYZEval<T>  operator/ (const XYZEval<T>& rs) const { XYZEval<T> ls = *this; ls.x /= rs.x; ls.y /= rs.y; ls.z /= rs.z; ls.e /= rs.e; return ls; }
+	FI XYZEval<T>  operator/ (const XYZEval<T>& rs) { XYZEval<T> ls = *this; ls.x /= rs.x; ls.y /= rs.y; ls.z /= rs.z; ls.e /= rs.e; return ls; }
 	FI XYZEval<T>  operator* (const float& p)       const { XYZEval<T> ls = *this; ls.e *= p, ls.x *= p; ls.y *= p; ls.z *= p; return ls; }
-	FI XYZEval<T>  operator* (const float& p) { XYZEval<T> ls = *this; ls.e *= p, ls.x *= p, ls.y *= p, ls.z *= p; return ls; }
-	FI XYZEval<T>  operator* (const int& p)         const { XYZEval<T> ls = *this; ls.e *= p, ls.x *= p, ls.y *= p, ls.z *= p; return ls; }
-	FI XYZEval<T>  operator* (const int& p) { XYZEval<T> ls = *this; ls.e *= p, ls.x *= p, ls.y *= p, ls.z *= p; return ls; }
-	FI XYZEval<T>  operator/ (const float& p)       const { XYZEval<T> ls = *this; ls.e /= p, ls.x /= p, ls.y /= p, ls.z /= p; return ls; }
-	FI XYZEval<T>  operator/ (const float& p) { XYZEval<T> ls = *this; ls.e /= p, ls.x /= p, ls.y /= p, ls.z /= p; return ls; }
-	FI XYZEval<T>  operator/ (const int& p)         const { XYZEval<T> ls = *this; ls.e /= p, ls.x /= p, ls.y /= p, ls.z /= p; return ls; }
-	FI XYZEval<T>  operator/ (const int& p) { XYZEval<T> ls = *this; ls.e /= p, ls.x /= p, ls.y /= p, ls.z /= p; return ls; }
-	FI XYZEval<T>  operator>>(const int& p)         const { XYZEval<T> ls = *this; _RS(ls.e); _RS(ls.x); _RS(ls.y); _RS(ls.z);; return ls; }
-	FI XYZEval<T>  operator>>(const int& p) { XYZEval<T> ls = *this; _RS(ls.e); _RS(ls.x); _RS(ls.y); _RS(ls.z);; return ls; }
-	FI XYZEval<T>  operator<<(const int& p)         const { XYZEval<T> ls = *this; _LS(ls.e); _LS(ls.x); _LS(ls.y); _LS(ls.z); ; return ls; }
-	FI XYZEval<T>  operator<<(const int& p) { XYZEval<T> ls = *this; _LS(ls.e); _LS(ls.x); _LS(ls.y); _LS(ls.z); ; return ls; }
-	FI const XYZEval<T> operator-()                 const { return { -x; -y; -z, -e }; }
-	FI       XYZEval<T> operator-() { return { -x; -y; -z, -e }; }
+	FI XYZEval<T>  operator* (const float& p) { XYZEval<T> ls = *this; ls.x *= p, ls.y *= p, ls.z *= p; ls.e *= p; return ls; }
+	FI XYZEval<T>  operator* (const int& p)         const { XYZEval<T> ls = *this; ls.x *= p, ls.y *= p, ls.z *= p; ls.e *= p; return ls; }
+	FI XYZEval<T>  operator* (const int& p) { XYZEval<T> ls = *this; ls.x *= p, ls.y *= p, ls.z *= p; ls.e *= p; return ls; }
+	FI XYZEval<T>  operator/ (const float& p)       const { XYZEval<T> ls = *this; ls.x /= p, ls.y /= p, ls.z /= p; ls.e /= p; return ls; }
+	FI XYZEval<T>  operator/ (const float& p) { XYZEval<T> ls = *this; ls.x /= p, ls.y /= p, ls.z /= p; ls.e /= p; return ls; }
+	FI XYZEval<T>  operator/ (const int& p)         const { XYZEval<T> ls = *this; ls.x /= p, ls.y /= p, ls.z /= p; ls.e /= p; return ls; }
+	FI XYZEval<T>  operator/ (const int& p) { XYZEval<T> ls = *this; ls.x /= p, ls.y /= p, ls.z /= p; ls.e /= p; return ls; }
+	FI XYZEval<T>  operator>>(const int& p)         const { XYZEval<T> ls = *this; _RS(ls.x); _RS(ls.y); _RS(ls.z); _RS(ls.e); return ls; }
+	FI XYZEval<T>  operator>>(const int& p) { XYZEval<T> ls = *this; _RS(ls.x); _RS(ls.y); _RS(ls.z); _RS(ls.e); return ls; }
+	FI XYZEval<T>  operator<<(const int& p)         const { XYZEval<T> ls = *this; _LS(ls.x); _LS(ls.y); _LS(ls.z); _LS(ls.e); return ls; }
+	FI XYZEval<T>  operator<<(const int& p) { XYZEval<T> ls = *this; _LS(ls.x); _LS(ls.y); _LS(ls.z); _LS(ls.e); return ls; }
+	FI const XYZEval<T> operator-()                 const { return { -x, -y, -z, -e }; }
+	FI       XYZEval<T> operator-() { return { -x, -y, -z, -e }; }
 	// Modifier operators
 	FI XYZEval<T>& operator+=(const XYval<T>& rs) { x += rs.x; y += rs.y; return *this; }
 	FI XYZEval<T>& operator-=(const XYval<T>& rs) { x -= rs.x; y -= rs.y; return *this; }
@@ -501,16 +493,16 @@ struct XYZEval {
 	FI XYZEval<T>& operator-=(const XYZval<T>& rs) { x -= rs.x; y -= rs.y; z -= rs.z; return *this; }
 	FI XYZEval<T>& operator*=(const XYZval<T>& rs) { x *= rs.x; y *= rs.y; z *= rs.z; return *this; }
 	FI XYZEval<T>& operator/=(const XYZval<T>& rs) { x /= rs.x; y /= rs.y; z /= rs.z; return *this; }
-	FI XYZEval<T>& operator+=(const XYZEval<T>& rs) { e += rs.e, x += rs.x; y += rs.y; z += rs.z; return *this; }
-	FI XYZEval<T>& operator-=(const XYZEval<T>& rs) { e -= rs.e, x -= rs.x; y -= rs.y; z -= rs.z; return *this; }
-	FI XYZEval<T>& operator*=(const XYZEval<T>& rs) { e *= rs.e, x *= rs.x; y *= rs.y; z *= rs.z; return *this; }
-	FI XYZEval<T>& operator/=(const XYZEval<T>& rs) { e /= rs.e, x /= rs.x; y /= rs.y; z /= rs.z; return *this; }
-	FI XYZEval<T>& operator*=(const T& p) { e *= p, x *= p, y *= p, z *= p;    return *this; }
-	FI XYZEval<T>& operator>>=(const int& p) { _RS(e); _RS(x); _RS(y); _RS(z); _RS(i); return *this; }
-	FI XYZEval<T>& operator<<=(const int& p) { _LS(e); _LS(x); _LS(y); _LS(z); _LS(i); return *this; }
+	FI XYZEval<T>& operator+=(const XYZEval<T>& rs) { x += rs.x; y += rs.y; z += rs.z; e += rs.e; return *this; }
+	FI XYZEval<T>& operator-=(const XYZEval<T>& rs) { x -= rs.x; y -= rs.y; z -= rs.z; e -= rs.e; return *this; }
+	FI XYZEval<T>& operator*=(const XYZEval<T>& rs) { x *= rs.x; y *= rs.y; z *= rs.z; e *= rs.e; return *this; }
+	FI XYZEval<T>& operator/=(const XYZEval<T>& rs) { x /= rs.x; y /= rs.y; z /= rs.z; e /= rs.e; return *this; }
+	FI XYZEval<T>& operator*=(const T& p) { x *= p; y *= p; z *= p; e *= p; return *this; }
+	FI XYZEval<T>& operator>>=(const int& p) { _RS(x); _RS(y); _RS(z); _RS(e); return *this; }
+	FI XYZEval<T>& operator<<=(const int& p) { _LS(x); _LS(y); _LS(z); _LS(e); return *this; }
 	// Exact comparisons. For floats a "NEAR" operation may be better.
 	FI bool operator==(const XYZval<T>& rs) const { return true && x == rs.x && y == rs.y && z == rs.z; }
-	FI bool operator==(const XYZEval<T>& rs) const { return true && && x == rs.x && y == rs.y && z == rs.z &&e == rs.e; }
+	FI bool operator==(const XYZEval<T>& rs) const { return true && x == rs.x && y == rs.y && z == rs.z && e == rs.e; }
 	FI bool operator!=(const XYZval<T>& rs) const { return !operator==(rs); }
 	FI bool operator!=(const XYZEval<T>& rs) const { return !operator==(rs); }
 };//XYZEval
@@ -542,7 +534,7 @@ enum BlockFlagBit {
 };
 
 // Planner block flags as boolean bit fields
-typedef struct {
+typedef struct _block_flags_t {
 	union {
 		uint8_t bits;
 		struct {
@@ -586,7 +578,7 @@ typedef struct PlannerBlock {
 	uint32_t accelerate_until,	// The index of the step event on which to stop acceleration
 		decelerate_after;       // The index of the step event on which to start decelerating
 	uint32_t acceleration_rate;	// The acceleration rate used for acceleration calculation
-	axis_bits_t direction_bits;	// The direction bit set for this block (refers to *_DIRECTION_BIT in config.h)
+	//axis_bits_t direction_bits;	// The direction bit set for this block (refers to *_DIRECTION_BIT in config.h)
 	uint32_t nominal_rate,		// The nominal step rate for this block in step_events/sec
 		initial_rate,           // The jerk-adjusted step rate at start of block
 		final_rate,             // The minimal rate at exit
@@ -691,7 +683,6 @@ class Planner {
 				block_buffer_tail = next_block_index(block_buffer_tail);
 		}
 
-private:
 };//class Panner
 extern Planner planner;
 
@@ -723,7 +714,7 @@ class Stepper {
 	public:
 	private:
 		static block_t* current_block;			// A pointer to the block currently being traced
-		static axis_bits_t	last_direction_bits,// The next stepping-bits to be output
+		static axis_bits_t last_direction_bits,	// The next stepping-bits to be output
 			axis_did_move;						// Last Movement in the given direction is not null, as computed when the last movement was fetched from planner
 		static bool abort_current_block;        // Signals to the stepper that current block should be aborted
 		static uint32_t acceleration_time, deceleration_time; // time measured in Stepper Timer ticks
@@ -736,17 +727,14 @@ class Stepper {
 			accelerate_until,       // The point from where we need to stop acceleration
 			decelerate_after,       // The point from where we need to start decelerating
 			step_event_count;       // The total event count for the current block
+		
 		static int32_t ticks_nominal;
 		static uint32_t acc_step_rate; // needed for deceleration start point
-		// Exact steps at which an endstop was triggered
-		static xyze_long_t endstops_trigsteps;
-		// Positions of stepper motors, in step units
-		static xyze_long_t count_position;
-		// Current stepper motor directions (+1 or -1)
-		static xyze_int8_t count_direction;
+		static xyze_long_t endstops_trigsteps; // Exact steps at which an endstop was triggered
+		static xyze_long_t count_position; // Positions of stepper motors, in step units
+		static xyze_int8_t count_direction; // Current stepper motor directions (+1 or -1)
 	public:
-        // Initialize stepper hardware
-        static void init();
+        static void init(); // Initialize stepper hardware
         // Interrupt Service Routine and phases
         // The stepper subsystem goes to sleep when it runs out of things to execute.
         // Call this to notify the subsystem that it is time to go to work.
@@ -764,16 +752,12 @@ class Stepper {
         static void isr(); // The ISR scheduler
         static void pulse_phase_isr(); // The stepper pulse ISR phase
         static uint32_t block_phase_isr(); // The stepper block processing ISR phase
-
-		// Check if the given block is busy or not - Must not be called from ISR contexts
-        static bool is_block_busy(const block_t* const block);
-        // Get the position of a stepper, in steps
-        static int32_t position(const AxisEnum axis);
-        // Set the current position in steps
-        static void set_position(const xyze_long_t &spos);
+		
+        static bool is_block_busy(const block_t* const block); // Check if the given block is busy or not - Must not be called from ISR contexts
+        static int32_t position(const AxisEnum axis); // Get the position of a stepper, in steps
+        static void set_position(const xyze_long_t &spos); //// Set the current position in steps
         static void set_axis_position(const AxisEnum a, const int32_t &v);
-        // Report the positions of the steppers, in steps
-        static void report_a_position(const xyz_long_t &pos);
+        static void report_a_position(const xyz_long_t &pos); // Report the positions of the steppers, in steps
         static void report_positions();
         // Discard current block and free any resources
         static void discard_current_block() {
@@ -793,6 +777,10 @@ class Stepper {
         // Triggered position of an axis in steps
         static int32_t triggered_position(const AxisEnum axis);
 
+		static void microstep_ms(const uint8_t driver, const int8_t ms1, const int8_t ms2, const int8_t ms3);
+		static void microstep_mode(const uint8_t driver, const uint8_t stepping);
+		static void microstep_readings();
+
 		static stepper_flags_t axis_enabled;  // Axis stepper(s) ENABLED states
         static bool axis_is_enabled(const AxisEnum axis) { return !!((axis_enabled.bits) & (1<<axis));
         }
@@ -806,8 +794,8 @@ class Stepper {
         static bool disable_axis(const AxisEnum axis);
         static void enable_all_steppers();
         static void disable_all_steppers();
-        // Update direction states for all steppers
-        static void set_directions();
+		static void SET_STEP_DIR(const AxisEnum axis);
+		static void set_directions(); // Update direction states for all steppers
         // Set direction bits and update all stepper DIR states
         static void set_directions(const axis_bits_t bits) {
             last_direction_bits = bits;
@@ -824,22 +812,21 @@ class Stepper {
 extern Stepper stepper;
 
 
+
 // timer
+typedef uint16_t hal_timer_t;
+#define HAL_TIMER_TYPE_MAX 0xFFFF
+
 #define F_CPU 16000000
 #define HAL_TIMER_RATE	((F_CPU) / 8)    // i.e., 2MHz or 2.5MHz
 #define MF_TIMER_STEP	1
 #define MF_TIMER_PULSE  MF_TIMER_STEP
 #define MF_TIMER_TEMP   0
 
-void HAL_timer_start(const uint8_t timer_num, const uint32_t) {
-	switch (timer_num) {
-	case MF_TIMER_STEP:
-		// timer 1, 122 Hz
-		break;
-	case MF_TIMER_TEMP:
-		// timer 0, ? Hz
-		// Use timer0 for temperature measurement
-		// Interleave temperature interrupt with millies interrupt
-		break;
-	}
-}//HAL_timer_start()
+void HAL_timer_start(const uint8_t timer_num, const uint32_t);
+void HAL_timer_set_compare(int timer, int compare);
+	(_CAT(TIMER_OCR_, timer) = compare)
+
+
+
+//marlin.h
