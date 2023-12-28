@@ -1,5 +1,7 @@
 ﻿#include "marlin.h"
 #include <math.h>
+#include <algorithm> // min()
+using namespace std;
 
 MarlinState marlin_state = MF_INITIALIZING;
 bool IsRunning() { return marlin_state >= MF_RUNNING; }
@@ -63,7 +65,6 @@ void sync_plan_position(void) {
 // stepper
 Stepper stepper; // Singleton
 
-
 // private
 axis_bits_t Stepper::last_direction_bits, // = 0
 Stepper::axis_did_move; // = 0
@@ -119,69 +120,26 @@ void Stepper::isr() {
     // periods to big periods are respected and the timer does not reset to 0
     HAL_timer_set_compare(MF_TIMER_STEP, hal_timer_t(HAL_TIMER_TYPE_MAX));
 
-    // Count of ticks for the next ISR
-    hal_timer_t next_isr_ticks = 0;
-
-    // Limit the amount of iterations
-    uint8_t max_loops = 10;
-
-    // We need this variable here to be able to use it in the following loop
+    hal_timer_t next_isr_ticks = 0; // Count of ticks for the next ISR
+    uint8_t max_loops = 10; // Limit the amount of iterations
     hal_timer_t min_ticks;
     do {
-        // Enable ISRs to reduce USART processing latency
-        hal.isr_on();
-
-        TERN_(HAS_SHAPING, shaping_isr());                  // Do Shaper stepping, if needed
-
-        if (!nextMainISR) pulse_phase_isr();                // 0 = Do coordinated axes Stepper pulses
-
-#if ENABLED(LIN_ADVANCE)
-        if (!nextAdvanceISR) {                            // 0 = Do Linear Advance E Stepper pulses
-            advance_isr();
-            nextAdvanceISR = la_interval;
-        }
-        else if (nextAdvanceISR == LA_ADV_NEVER)          // Start LA steps if necessary
-            nextAdvanceISR = la_interval;
-#endif
-
-#if ENABLED(INTEGRATED_BABYSTEPPING)
-        const bool is_babystep = (nextBabystepISR == 0);  // 0 = Do Babystepping (XY)Z pulses
-        if (is_babystep) nextBabystepISR = babystepping_isr();
-#endif
+        //hal.isr_on(); // Enable ISRs to reduce USART processing latency
+        if (!nextMainISR) pulse_phase_isr(); // 0 = Do coordinated axes Stepper pulses
 
         // ^== Time critical. NOTHING besides pulse generation should be above here!!!
 
         if (!nextMainISR) nextMainISR = block_phase_isr();  // Manage acc/deceleration, get next block
 
-#if ENABLED(INTEGRATED_BABYSTEPPING)
-        if (is_babystep)                                  // Avoid ANY stepping too soon after baby-stepping
-            NOLESS(nextMainISR, (BABYSTEP_TICKS) / 8);      // FULL STOP for 125µs after a baby-step
-
-        if (nextBabystepISR != BABYSTEP_NEVER)            // Avoid baby-stepping too close to axis Stepping
-            NOLESS(nextBabystepISR, nextMainISR / 2);       // TODO: Only look at axes enabled for baby-stepping
-#endif
-
         // Get the interval to the next ISR call
-        const uint32_t interval = _MIN(
-            uint32_t(HAL_TIMER_TYPE_MAX),                           // Come back in a very long time
-            nextMainISR                                             // Time until the next Pulse / Block phase
-            OPTARG(INPUT_SHAPING_X, ShapingQueue::peek_x())         // Time until next input shaping echo for X
-            OPTARG(INPUT_SHAPING_Y, ShapingQueue::peek_y())         // Time until next input shaping echo for Y
-            OPTARG(LIN_ADVANCE, nextAdvanceISR)                     // Come back early for Linear Advance?
-            OPTARG(INTEGRATED_BABYSTEPPING, nextBabystepISR)        // Come back early for Babystepping?
-        );
+        const uint32_t interval = min(uint32_t(HAL_TIMER_TYPE_MAX), nextMainISR);
 
-        //
         // Compute remaining time for each ISR phase
         //     NEVER : The phase is idle
         //      Zero : The phase will occur on the next ISR call
         //  Non-zero : The phase will occur on a future ISR call
-        //
 
         nextMainISR -= interval;
-        TERN_(HAS_SHAPING, ShapingQueue::decrement_delays(interval));
-        TERN_(LIN_ADVANCE, if (nextAdvanceISR != LA_ADV_NEVER) nextAdvanceISR -= interval);
-        TERN_(INTEGRATED_BABYSTEPPING, if (nextBabystepISR != BABYSTEP_NEVER) nextBabystepISR -= interval);
 
         /**
          * This needs to avoid a race-condition caused by interleaving
@@ -249,9 +207,7 @@ void Stepper::isr() {
 #ifndef __AVR__
     hal.isr_on();
 #endif
-
 }//isr
-
 
 
 

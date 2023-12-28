@@ -825,7 +825,6 @@ typedef uint16_t hal_timer_t;
 
 void HAL_timer_start(const uint8_t timer_num, const uint32_t);
 void HAL_timer_set_compare(int timer, int compare);
-	(_CAT(TIMER_OCR_, timer) = compare)
 
 
 
