@@ -6,10 +6,6 @@ bool IsRunning() { return marlin_state >= MF_RUNNING; }
 bool IsStopped() { return marlin_state == MF_STOPPED; }
 
 
-position_float_t current_position = { 0, 1, 2 };
-position_float_t home_offset{ X_HOME_POS, Y_HOME_POS, Z_HOME_POS };
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 200, 200, 200 }
-
 
 // planner
 Planner planner;
@@ -23,13 +19,13 @@ uint16_t Planner::cleaning_buffer_counter;      // A counter to disable queuing 
 uint8_t Planner::delay_before_delivering;       // This counter delays delivery of blocks when queue becomes empty to allow the opportunity of merging blocks
 
 planner_settings_t Planner::settings;           // Initialized by settings.load()
-position_int32_t Planner::position{ 0 };
-position_float_t Planner::previous_speed;
+xyze_long_t Planner::position{ 0 };
+xyze_float_t Planner::previous_speed;
 float Planner::previous_nominal_speed;
 
 Planner::Planner() { init(); }
 void Planner::init() {
-    float temp[MAX_AXIS] = DEFAULT_AXIS_STEPS_PER_UNIT;
+    float temp[NUM_AXES] = DEFAULT_AXIS_STEPS_PER_UNIT;
     settings.axis_steps_per_mm[0] = temp[0];
     settings.axis_steps_per_mm[1] = temp[1];
     settings.axis_steps_per_mm[2] = temp[2];
@@ -39,11 +35,11 @@ void Planner::init() {
     clear_block_buffer();
     delay_before_delivering = 0;
 }
-void Planner::set_position_mm(const position_float_t &pos) {
-    position_float_t machine = pos;
+void Planner::set_position_mm(const xyze_pos_t &pos) {
+    xyze_pos_t machine = pos;
     set_machine_position_mm(machine);
 }
-void Planner::set_machine_position_mm(const position_float_t& pos) {
+void Planner::set_machine_position_mm(const abce_pos_t & pos) {
     position.set(
         lroundf(pos.x * settings.axis_steps_per_mm[X_AXIS]),
         lroundf(pos.y * settings.axis_steps_per_mm[Y_AXIS]),
@@ -51,6 +47,11 @@ void Planner::set_machine_position_mm(const position_float_t& pos) {
 }
 
 // motion
+extern xyze_pos_t current_position = { 0, 1, 2 };;
+extern xyz_pos_t home_offset{ X_HOME_POS, Y_HOME_POS, Z_HOME_POS };
+
+
+
 void sync_plan_position(void) {
 	planner.set_position_mm(current_position);
 }
