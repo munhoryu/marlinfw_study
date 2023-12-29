@@ -823,8 +823,24 @@ typedef uint16_t hal_timer_t;
 #define MF_TIMER_PULSE  MF_TIMER_STEP
 #define MF_TIMER_TEMP   0
 
+#define STEPPER_TIMER_RATE			HAL_TIMER_RATE
+#define STEPPER_TIMER_PRESCALE		8
+#define STEPPER_TIMER_TICKS_PER_US ((STEPPER_TIMER_RATE) / 1000000)
+
+#define PULSE_TIMER_RATE			STEPPER_TIMER_RATE
+#define PULSE_TIMER_PRESCALE		STEPPER_TIMER_PRESCALE
+#define PULSE_TIMER_TICKS_PER_US	STEPPER_TIMER_TICKS_PER_US
+
+extern uint32_t TIMSK1, OCR1A, OCR0A, TNCT1, TNCT0;
+//#define OCIE1A 0x01
+//#define ENABLE_STEPPER_DRIVER_INTERRUPT()  SBI(TIMSK1, OCIE1A)
+//#define DISABLE_STEPPER_DRIVER_INTERRUPT() CBI(TIMSK1, OCIE1A)
+//#define STEPPER_ISR_ENABLED()             TEST(TIMSK1, OCIE1A)
+
 void HAL_timer_start(const uint8_t timer_num, const uint32_t);
-void HAL_timer_set_compare(int timer, int compare);
+void HAL_timer_set_compare(const uint8_t timer, const uint32_t compare);
+uint32_t HAL_timer_get_compare(const uint8_t timer);
+uint32_t HAL_timer_get_count(const uint8_t timer);
 
 
 
