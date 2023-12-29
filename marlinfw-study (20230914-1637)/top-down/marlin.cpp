@@ -65,9 +65,29 @@ void sync_plan_position(void) {
 // stepper
 Stepper stepper; // Singleton
 
+// public
+stepper_flags_t Stepper::axis_enabled; // {0}
+
 // private
+block_t* Stepper::current_block; // (= nullptr) A pointer to the block currently being traced
 axis_bits_t Stepper::last_direction_bits, // = 0
-Stepper::axis_did_move; // = 0
+            Stepper::axis_did_move; // = 0
+bool Stepper::abort_current_block;
+uint32_t Stepper::acceleration_time, Stepper::deceleration_time;
+uint8_t Stepper::steps_per_isr;
+//constexpr uint8_t Stepper::oversampling_factor;
+xyze_long_t Stepper::delta_error{ 0 };
+xyze_long_t Stepper::advance_dividend{ 0 };
+uint32_t Stepper::advance_divisor = 0,
+        Stepper::step_events_completed = 0, // The number of step events executed in the current block
+        Stepper::accelerate_until,          // The count at which to stop accelerating
+        Stepper::decelerate_after,          // The count at which to start decelerating
+        Stepper::step_event_count;          // The total event count for the current block
+int32_t Stepper::ticks_nominal = -1;
+uint32_t Stepper::acc_step_rate; // needed for deceleration start point
+xyze_long_t Stepper::endstops_trigsteps;
+xyze_long_t Stepper::count_position{ 0 };
+xyze_int8_t Stepper::count_direction{ 0 };
 
 void Stepper::init() {
     // init dir and enable pins
@@ -210,6 +230,13 @@ void Stepper::isr() {
 #endif
 }//isr
 
+// optimized math for AVR
+#define  MultiU24X32toH16(A, B) (A*B)
+#ifdef CPU_32_BIT
+#define STEP_MULTIPLY(A,B) MultiU32X24toH32(A, B)
+#else
+#define STEP_MULTIPLY(A,B) MultiU24X32toH16(A, B)
+#endif
 
 /**
  * This phase of the ISR should ONLY create the pulses for the steppers.
@@ -235,334 +262,162 @@ void Stepper::pulse_phase_isr() {
     step_events_completed += events_to_do;
     //
     xyze_bool_t step_needed{ 0 };
-    // Direct Stepping page?
-    const bool is_page = current_block->is_page();
-
     do {
 #define _APPLY_STEP(AXIS, INV, ALWAYS) AXIS ##_APPLY_STEP(INV, ALWAYS)
 #define _INVERT_STEP_PIN(AXIS) INVERT_## AXIS ##_STEP_PIN
 
-        // Determine if a pulse is needed using Bresenham
-#define PULSE_PREP(AXIS) do{ \
-      delta_error[_AXIS(AXIS)] += advance_dividend[_AXIS(AXIS)]; \
-      step_needed[_AXIS(AXIS)] = (delta_error[_AXIS(AXIS)] >= 0); \
-      if (step_needed[_AXIS(AXIS)]) \
-        delta_error[_AXIS(AXIS)] -= advance_divisor; \
-    }while(0)
-
-    // With input shaping, direction changes can happen with almost only
-    // AWAIT_LOW_PULSE() and  DIR_WAIT_BEFORE() between steps. To work around
-    // the TMC2208 / TMC2225 shutdown bug (#16076), add a half step hysteresis
-    // in each direction. This results in the position being off by half an
-    // average half step during travel but correct at the end of each segment.
-#if AXIS_DRIVER_TYPE_X(TMC2208) || AXIS_DRIVER_TYPE_X(TMC2208_STANDALONE) || \
-        AXIS_DRIVER_TYPE_X(TMC5160) || AXIS_DRIVER_TYPE_X(TMC5160_STANDALONE)
-#define HYSTERESIS_X 64
-#else
-#define HYSTERESIS_X 0
-#endif
-#if AXIS_DRIVER_TYPE_Y(TMC2208) || AXIS_DRIVER_TYPE_Y(TMC2208_STANDALONE) || \
-        AXIS_DRIVER_TYPE_Y(TMC5160) || AXIS_DRIVER_TYPE_Y(TMC5160_STANDALONE)
-#define HYSTERESIS_Y 64
-#else
-#define HYSTERESIS_Y 0
-#endif
-#define _HYSTERESIS(AXIS) HYSTERESIS_##AXIS
-#define HYSTERESIS(AXIS) _HYSTERESIS(AXIS)
-
-#define PULSE_PREP_SHAPING(AXIS, DELTA_ERROR, DIVIDEND) do{ \
-      if (step_needed[_AXIS(AXIS)]) { \
-        DELTA_ERROR += (DIVIDEND); \
-        if ((MAXDIR(AXIS) && DELTA_ERROR <= -(64 + HYSTERESIS(AXIS))) || (MINDIR(AXIS) && DELTA_ERROR >= (64 + HYSTERESIS(AXIS)))) { \
-          { USING_TIMED_PULSE(); START_TIMED_PULSE(); AWAIT_LOW_PULSE(); } \
-          TBI(last_direction_bits, _AXIS(AXIS)); \
-          DIR_WAIT_BEFORE(); \
-          SET_STEP_DIR(AXIS); \
-          DIR_WAIT_AFTER(); \
-        } \
-        step_needed[_AXIS(AXIS)] = DELTA_ERROR <= -(64 + HYSTERESIS(AXIS)) || DELTA_ERROR >= (64 + HYSTERESIS(AXIS)); \
-        if (step_needed[_AXIS(AXIS)]) \
-          DELTA_ERROR += MAXDIR(AXIS) ? -128 : 128; \
-      } \
-    }while(0)
-
     // Start an active pulse if needed
-#define PULSE_START(AXIS) do{ \
-      if (step_needed[_AXIS(AXIS)]) { \
-        count_position[_AXIS(AXIS)] += count_direction[_AXIS(AXIS)]; \
-        _APPLY_STEP(AXIS, !_INVERT_STEP_PIN(AXIS), 0); \
-      } \
-    }while(0)
 
-    // Stop an active pulse if needed
-#define PULSE_STOP(AXIS) do { \
-      if (step_needed[_AXIS(AXIS)]) { \
-        _APPLY_STEP(AXIS, _INVERT_STEP_PIN(AXIS), 0); \
-      } \
-    }while(0)
 
-#if ENABLED(DIRECT_STEPPING)
-  // Direct stepping is currently not ready for HAS_I_AXIS
-        if (is_page) {
-
-#if STEPPER_PAGE_FORMAT == SP_4x4D_128
-
-#define PAGE_SEGMENT_UPDATE(AXIS, VALUE) do{   \
-                 if ((VALUE) <  7) SBI(dm, _AXIS(AXIS)); \
-            else if ((VALUE) >  7) CBI(dm, _AXIS(AXIS)); \
-            page_step_state.sd[_AXIS(AXIS)] = VALUE;     \
-            page_step_state.bd[_AXIS(AXIS)] += VALUE;    \
-          }while(0)
-
-#define PAGE_PULSE_PREP(AXIS) do{ \
-            step_needed[_AXIS(AXIS)] =      \
-              pgm_read_byte(&segment_table[page_step_state.sd[_AXIS(AXIS)]][page_step_state.segment_steps & 0x7]); \
-          }while(0)
-
-            switch (page_step_state.segment_steps) {
-            case DirectStepping::Config::SEGMENT_STEPS:
-                page_step_state.segment_idx += 2;
-                page_step_state.segment_steps = 0;
-                // fallthru
-            case 0: {
-                const uint8_t low = page_step_state.page[page_step_state.segment_idx],
-                    high = page_step_state.page[page_step_state.segment_idx + 1];
-                axis_bits_t dm = last_direction_bits;
-
-                PAGE_SEGMENT_UPDATE(X, low >> 4);
-                PAGE_SEGMENT_UPDATE(Y, low & 0xF);
-                PAGE_SEGMENT_UPDATE(Z, high >> 4);
-                PAGE_SEGMENT_UPDATE(E, high & 0xF);
-
-                if (dm != last_direction_bits)
-                    set_directions(dm);
-
-            } break;
-
-            default: break;
-            }
-
-            PAGE_PULSE_PREP(X);
-            PAGE_PULSE_PREP(Y);
-            PAGE_PULSE_PREP(Z);
-            TERN_(HAS_EXTRUDERS, PAGE_PULSE_PREP(E));
-
-            page_step_state.segment_steps++;
-
-#elif STEPPER_PAGE_FORMAT == SP_4x2_256
-
-#define PAGE_SEGMENT_UPDATE(AXIS, VALUE) \
-            page_step_state.sd[_AXIS(AXIS)] = VALUE; \
-            page_step_state.bd[_AXIS(AXIS)] += VALUE;
-
-#define PAGE_PULSE_PREP(AXIS) do{ \
-            step_needed[_AXIS(AXIS)] =      \
-              pgm_read_byte(&segment_table[page_step_state.sd[_AXIS(AXIS)]][page_step_state.segment_steps & 0x3]); \
-          }while(0)
-
-            switch (page_step_state.segment_steps) {
-            case DirectStepping::Config::SEGMENT_STEPS:
-                page_step_state.segment_idx++;
-                page_step_state.segment_steps = 0;
-                // fallthru
-            case 0: {
-                const uint8_t b = page_step_state.page[page_step_state.segment_idx];
-                PAGE_SEGMENT_UPDATE(X, (b >> 6) & 0x3);
-                PAGE_SEGMENT_UPDATE(Y, (b >> 4) & 0x3);
-                PAGE_SEGMENT_UPDATE(Z, (b >> 2) & 0x3);
-                PAGE_SEGMENT_UPDATE(E, (b >> 0) & 0x3);
-            } break;
-            default: break;
-            }
-
-            PAGE_PULSE_PREP(X);
-            PAGE_PULSE_PREP(Y);
-            PAGE_PULSE_PREP(Z);
-            TERN_(HAS_EXTRUDERS, PAGE_PULSE_PREP(E));
-
-            page_step_state.segment_steps++;
-
-#elif STEPPER_PAGE_FORMAT == SP_4x1_512
-
-#define PAGE_PULSE_PREP(AXIS, BITS) do{             \
-            step_needed[_AXIS(AXIS)] = (steps >> BITS) & 0x1; \
-            if (step_needed[_AXIS(AXIS)])                     \
-              page_step_state.bd[_AXIS(AXIS)]++;              \
-          }while(0)
-
-            uint8_t steps = page_step_state.page[page_step_state.segment_idx >> 1];
-            if (page_step_state.segment_idx & 0x1) steps >>= 4;
-
-            PAGE_PULSE_PREP(X, 3);
-            PAGE_PULSE_PREP(Y, 2);
-            PAGE_PULSE_PREP(Z, 1);
-            PAGE_PULSE_PREP(E, 0);
-
-            page_step_state.segment_idx++;
-
-#else
-#error "Unknown direct stepping page format!"
-#endif
+        // Determine if a pulse is needed using Bresenham, PULSE_PREP
+        for (int i = 0; i<3; i++) {
+            delta_error[i] += advance_dividend[i];
+            step_needed[i] = (delta_error[i] >= 0);
+            if (step_needed[i]) delta_error[i] -= advance_divisor;
         }
-
-#endif // DIRECT_STEPPING
-
-        if (!is_page) {
-            // Determine if pulses are needed
-#if HAS_X_STEP
-            PULSE_PREP(X);
-#endif
-#if HAS_Y_STEP
-            PULSE_PREP(Y);
-#endif
-#if HAS_Z_STEP
-            PULSE_PREP(Z);
-#endif
-#if HAS_I_STEP
-            PULSE_PREP(I);
-#endif
-#if HAS_J_STEP
-            PULSE_PREP(J);
-#endif
-#if HAS_K_STEP
-            PULSE_PREP(K);
-#endif
-#if HAS_U_STEP
-            PULSE_PREP(U);
-#endif
-#if HAS_V_STEP
-            PULSE_PREP(V);
-#endif
-#if HAS_W_STEP
-            PULSE_PREP(W);
-#endif
-
-#if EITHER(HAS_E0_STEP, MIXING_EXTRUDER)
-            PULSE_PREP(E);
-
-#if ENABLED(LIN_ADVANCE)
-            if (step_needed.e && current_block->la_advance_rate) {
-                // don't actually step here, but do subtract movements steps
-                // from the linear advance step count
-                step_needed.e = false;
-                la_advance_steps--;
+        // Start an active pulse if needed, PULSE_START
+        for (int i = 0; i < 3; i++) {
+            if (step_needed[i]) {
+                //_APPLY_STEP(AXIS, _INVERT_STEP_PIN(AXIS), 0);
             }
-#endif
-#endif
-
-#if HAS_SHAPING
-            // record an echo if a step is needed in the primary bresenham
-            const bool x_step = TERN0(INPUT_SHAPING_X, shaping_x.enabled && step_needed[X_AXIS]),
-                y_step = TERN0(INPUT_SHAPING_Y, shaping_y.enabled && step_needed[Y_AXIS]);
-            if (x_step || y_step)
-                ShapingQueue::enqueue(x_step, TERN0(INPUT_SHAPING_X, shaping_x.forward), y_step, TERN0(INPUT_SHAPING_Y, shaping_y.forward));
-
-            // do the first part of the secondary bresenham
-#if ENABLED(INPUT_SHAPING_X)
-            if (shaping_x.enabled)
-                PULSE_PREP_SHAPING(X, shaping_x.delta_error, shaping_x.factor1 * (shaping_x.forward ? 1 : -1));
-#endif
-#if ENABLED(INPUT_SHAPING_Y)
-            if (shaping_y.enabled)
-                PULSE_PREP_SHAPING(Y, shaping_y.delta_error, shaping_y.factor1 * (shaping_y.forward ? 1 : -1));
-#endif
-#endif
         }
-
-#if ISR_MULTI_STEPS
-        if (firstStep)
-            firstStep = false;
-        else
-            AWAIT_LOW_PULSE();
-#endif
-
-        // Pulse start
-#if HAS_X_STEP
-        PULSE_START(X);
-#endif
-#if HAS_Y_STEP
-        PULSE_START(Y);
-#endif
-#if HAS_Z_STEP
-        PULSE_START(Z);
-#endif
-#if HAS_I_STEP
-        PULSE_START(I);
-#endif
-#if HAS_J_STEP
-        PULSE_START(J);
-#endif
-#if HAS_K_STEP
-        PULSE_START(K);
-#endif
-#if HAS_U_STEP
-        PULSE_START(U);
-#endif
-#if HAS_V_STEP
-        PULSE_START(V);
-#endif
-#if HAS_W_STEP
-        PULSE_START(W);
-#endif
-
-#if ENABLED(MIXING_EXTRUDER)
-        if (step_needed.e) {
-            count_position[E_AXIS] += count_direction[E_AXIS];
-            E_STEP_WRITE(mixer.get_next_stepper(), !INVERT_E_STEP_PIN);
+        // Stop an active pulse if needed, PULSE_STOP
+        for (int i = 0; i < 3; i++) {
+            if (step_needed[i]) {
+                //_APPLY_STEP(AXIS, _INVERT_STEP_PIN(AXIS), 0);
+            }
         }
-#elif HAS_E0_STEP
-        PULSE_START(E);
-#endif
-
-        TERN_(I2S_STEPPER_STREAM, i2s_push_sample());
-
-        // TODO: need to deal with MINIMUM_STEPPER_PULSE over i2s
-#if ISR_MULTI_STEPS
-        START_TIMED_PULSE();
-        AWAIT_HIGH_PULSE();
-#endif
-
-        // Pulse stop
-#if HAS_X_STEP
-        PULSE_STOP(X);
-#endif
-#if HAS_Y_STEP
-        PULSE_STOP(Y);
-#endif
-#if HAS_Z_STEP
-        PULSE_STOP(Z);
-#endif
-#if HAS_I_STEP
-        PULSE_STOP(I);
-#endif
-#if HAS_J_STEP
-        PULSE_STOP(J);
-#endif
-#if HAS_K_STEP
-        PULSE_STOP(K);
-#endif
-#if HAS_U_STEP
-        PULSE_STOP(U);
-#endif
-#if HAS_V_STEP
-        PULSE_STOP(V);
-#endif
-#if HAS_W_STEP
-        PULSE_STOP(W);
-#endif
-
-#if ENABLED(MIXING_EXTRUDER)
-        if (step_needed.e) E_STEP_WRITE(mixer.get_stepper(), INVERT_E_STEP_PIN);
-#elif HAS_E0_STEP
-        PULSE_STOP(E);
-#endif
-
-#if ISR_MULTI_STEPS
-        if (events_to_do) START_TIMED_PULSE();
-#endif
-
     } while (--events_to_do);
 }//pulse_phase_isr()
+
+// This is the last half of the stepper interrupt: This one processes and
+// properly schedules blocks from the planner. This is executed after creating
+// the step pulses, so it is not time critical, as pulses are already done.
+uint32_t Stepper::block_phase_isr() {
+    // If no queued movements, just wait 1ms for the next block
+    uint32_t interval = (STEPPER_TIMER_RATE) / 1000UL;
+    // If there is a current block
+    if (current_block) {
+        // If current block is finished, reset pointer and finalize state
+        if (step_events_completed >= step_event_count) {
+            discard_current_block();
+        }
+        else {
+            // Step events not completed yet...
+
+            // Are we in acceleration phase ?
+            if (step_events_completed <= accelerate_until) { // Calculate new timer value
+                acc_step_rate = STEP_MULTIPLY(acceleration_time, current_block->acceleration_rate)
+                              + current_block->initial_rate;
+                if (acc_step_rate > current_block->nominal_rate)
+                    acc_step_rate = current_block->nominal_rate;
+
+                // acc_step_rate is in steps/second
+
+                // step_rate to timer interval and steps per stepper isr
+                interval = calc_timer_interval(acc_step_rate << oversampling_factor, steps_per_isr);
+                acceleration_time += interval;
+            }
+            // Are we in Deceleration phase ?
+            else if (step_events_completed > decelerate_after) {
+                uint32_t step_rate;
+                // Using the old trapezoidal control
+                step_rate = STEP_MULTIPLY(deceleration_time, current_block->acceleration_rate);
+                if (step_rate < acc_step_rate) { // Still decelerating?
+                    step_rate = acc_step_rate - step_rate;
+                    if (step_rate > current_block->final_rate)
+                        step_rate = current_block->final_rate;
+                }
+                else
+                    step_rate = current_block->final_rate;
+                // step_rate to timer interval and steps per stepper isr
+                interval = calc_timer_interval(step_rate << oversampling_factor, steps_per_isr);
+                deceleration_time += interval;
+            }
+            else {  // Must be in cruise phase otherwise
+                // Calculate the ticks_nominal for this nominal speed, if not done yet
+                if (ticks_nominal < 0) {
+                    // step_rate to timer interval and loops for the nominal speed
+                    ticks_nominal = calc_timer_interval(current_block->nominal_rate << oversampling_factor, steps_per_isr);
+                }
+                // The timer interval is just the nominal value for the nominal speed
+                interval = ticks_nominal;
+            }
+        }
+    }
+    else { // !current_block
+    }
+
+    // If there is no current block at this point, attempt to pop one from the buffer
+    // and prepare its movement
+    if (!current_block) {
+        // Anything in the buffer?
+        if ((current_block = planner.get_current_block())) {
+            // Sync block? Sync the stepper counts or fan speeds and return
+            while (current_block->is_sync()) {
+                TERN_(LASER_SYNCHRONOUS_M106_M107, if (current_block->is_fan_sync()) planner.sync_fan_speeds(current_block->fan_speed));
+
+                if (!(current_block->is_fan_sync() || current_block->is_pwr_sync())) _set_position(current_block->position);
+
+                discard_current_block();
+
+                // Try to get a new block
+                if (!(current_block = planner.get_current_block()))
+                    return interval; // No more queued movements!
+            }
+
+            // For non-inline cutter, grossly apply power
+
+            // Flag all moving axes for proper endstop handling
+            axis_bits_t axis_bits = 0;
+            if (!!current_block->steps.a) SBI(axis_bits, A_AXIS);
+            if (!!current_block->steps.b) SBI(axis_bits, B_AXIS);
+            if (!!current_block->steps.c) SBI(axis_bits, C_AXIS);
+            axis_did_move = axis_bits;
+
+            // No acceleration / deceleration time elapsed so far
+            acceleration_time = deceleration_time = 0;
+
+            // Based on the oversampling factor, do the calculations
+            step_event_count = current_block->step_event_count << oversampling_factor;
+
+            // Initialize Bresenham delta errors to 1/2
+            delta_error = -int32_t(step_event_count);
+
+            // Calculate Bresenham dividends and divisors
+            advance_dividend = (current_block->steps << 1).asLong();
+            advance_divisor = step_event_count << 1;
+
+            // No step events completed so far
+            step_events_completed = 0;
+
+            // Compute the acceleration and deceleration points
+            accelerate_until = current_block->accelerate_until << oversampling_factor;
+            decelerate_after = current_block->decelerate_after << oversampling_factor;
+
+            // Initialize the trapezoid generator from the current block.
+            if (current_block->direction_bits != last_direction_bits)
+                set_directions(current_block->direction_bits);
+            }
+            // If the endstop is already pressed, endstop interrupts won't invoke
+            // endstop_triggered and the move will grind. So check here for a
+            // triggered endstop, which marks the block for discard on the next ISR.
+            //endstops.update();
+
+            // Mark the time_nominal as not calculated yet
+            ticks_nominal = -1;
+
+            // Set as deceleration point the initial rate of the block
+            acc_step_rate = current_block->initial_rate;
+
+            // Calculate the initial timer interval
+            interval = calc_timer_interval(current_block->initial_rate << oversampling_factor, steps_per_isr);
+            acceleration_time += interval;
+        }
+    }
+    // Return the interval to wait
+    return interval;
+}//block_phase_isr()
 
 
 

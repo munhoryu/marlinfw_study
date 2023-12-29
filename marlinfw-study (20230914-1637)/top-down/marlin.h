@@ -67,6 +67,9 @@ typedef struct AxisFlags {
 #define NUM_AXES 3
 #define LOGICAL_AXES 4
 #define DISTINCT_AXES 4
+#define A_AXIS X_AXIS
+#define B_AXIS Y_AXIS
+#define C_AXIS Z_AXIS
 
 // types.h
 typedef float feedRate_t;
@@ -578,7 +581,7 @@ typedef struct PlannerBlock {
 	uint32_t accelerate_until,	// The index of the step event on which to stop acceleration
 		decelerate_after;       // The index of the step event on which to start decelerating
 	uint32_t acceleration_rate;	// The acceleration rate used for acceleration calculation
-	//axis_bits_t direction_bits;	// The direction bit set for this block (refers to *_DIRECTION_BIT in config.h)
+	axis_bits_t direction_bits;	// The direction bit set for this block (refers to *_DIRECTION_BIT in config.h)
 	uint32_t nominal_rate,		// The nominal step rate for this block in step_events/sec
 		initial_rate,           // The jerk-adjusted step rate at start of block
 		final_rate,             // The minimal rate at exit
@@ -719,6 +722,7 @@ class Stepper {
 		static bool abort_current_block;        // Signals to the stepper that current block should be aborted
 		static uint32_t acceleration_time, deceleration_time; // time measured in Stepper Timer ticks
 		static uint8_t steps_per_isr;			// Count of steps to perform per Stepper ISR call
+		static constexpr uint8_t oversampling_factor = 0;
 		// Delta error variables for the Bresenham line tracer
 		static xyze_long_t delta_error;
 		static xyze_long_t advance_dividend;
@@ -808,6 +812,7 @@ class Stepper {
 		// Calculate timing interval for the given step rate
 		static uint32_t calc_timer_interval(uint32_t step_rate);
 		static uint32_t calc_timer_interval(uint32_t step_rate, uint8_t &loops);
+
 };//Stepper
 extern Stepper stepper;
 
