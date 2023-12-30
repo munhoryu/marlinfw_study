@@ -8,6 +8,32 @@ bool IsRunning() { return marlin_state >= MF_RUNNING; }
 bool IsStopped() { return marlin_state == MF_STOPPED; }
 
 
+/**
+ * Standard idle routine keeps the machine alive:
+ *  - Core Marlin activities
+ *  - Manage heaters (and Watchdog)
+ *  - Max7219 heartbeat, animation, etc.
+ *
+ *  Only after setup() is complete:
+ *  - Handle filament runout sensors
+ *  - Run HAL idle tasks
+ *  - Handle Power-Loss Recovery
+ *  - Run StallGuard endstop checks
+ *  - Handle SD Card insert / remove
+ *  - Handle USB Flash Drive insert / remove
+ *  - Announce Host Keepalive state (if any)
+ *  - Update the Print Job Timer state
+ *  - Update the Beeper queue
+ *  - Read Buttons and Update the LCD
+ *  - Run i2c Position Encoders
+ *  - Auto-report Temperatures / SD Status
+ *  - Update the Průša MMU2
+ *  - Handle Joystick jogging
+ */
+void idle(const bool no_stepper_sleep) {
+}//idle()
+
+
 
 // planner
 Planner planner;
@@ -21,6 +47,11 @@ uint16_t Planner::cleaning_buffer_counter;      // A counter to disable queuing 
 uint8_t Planner::delay_before_delivering;       // This counter delays delivery of blocks when queue becomes empty to allow the opportunity of merging blocks
 
 planner_settings_t Planner::settings;           // Initialized by settings.load()
+uint32_t Planner::max_acceleration_steps_per_s2[DISTINCT_AXES]; // (steps/s^2) Derived from mm_per_s2
+float Planner::mm_per_step[DISTINCT_AXES];      // (mm) Millimeters per step
+//float Planner::junction_deviation_mm;         // (mm) M205 J
+
+// private:
 xyze_long_t Planner::position{ 0 };
 xyze_float_t Planner::previous_speed;
 float Planner::previous_nominal_speed;
@@ -37,6 +68,45 @@ void Planner::init() {
     clear_block_buffer();
     delay_before_delivering = 0;
 }
+/**
+ * Get the current block for processing
+ * and mark the block as busy.
+ * Return nullptr if the buffer is empty
+ * or if there is a first-block delay.
+ * WARNING: Called from Stepper ISR context!
+ */
+block_t* Planner::get_current_block() {
+    // Get the number of moves in the planner queue so far
+    const uint8_t nr_moves = movesplanned();
+    // If there are any moves queued ...
+    if (nr_moves) {
+        // If there is still delay of delivery of blocks running, decrement it
+        if (delay_before_delivering) {
+            --delay_before_delivering;
+            // If the number of movements queued is less than 3, and there is still time
+            //  to wait, do not deliver anything
+            if (nr_moves < 3 && delay_before_delivering) return nullptr;
+            delay_before_delivering = 0;
+        }
+        // If we are here, there is no excuse to deliver the block
+        block_t* const block = &block_buffer[block_buffer_tail];
+        // No trapezoid calculated? Don't execute yet.
+        if (block->flag.recalculate) return nullptr;
+        // We can't be sure how long an active block will take, so don't count it.
+        //TERN_(HAS_WIRED_LCD, block_buffer_runtime_us -= block->segment_time_us);
+        // As this block is busy, advance the nonbusy block pointer
+        block_buffer_nonbusy = next_block_index(block_buffer_tail);
+        // Push block_buffer_planned pointer, if encountered.
+        if (block_buffer_tail == block_buffer_planned)
+            block_buffer_planned = block_buffer_nonbusy;
+        // Return the block
+        return block;
+    }
+    // The queue became empty
+    //TERN_(HAS_WIRED_LCD, clear_block_buffer_runtime()); // paranoia. Buffer is empty now - so reset accumulated time to zero.
+    return nullptr;
+}
+
 void Planner::set_position_mm(const xyze_pos_t &pos) {
     xyze_pos_t machine = pos;
     set_machine_position_mm(machine);
@@ -47,6 +117,28 @@ void Planner::set_machine_position_mm(const abce_pos_t & pos) {
         lroundf(pos.y * settings.axis_steps_per_mm[Y_AXIS]),
         lroundf(pos.z * settings.axis_steps_per_mm[Z_AXIS]));
 }
+bool Planner::busy() {
+    return (has_blocks_queued() || cleaning_buffer_counter);
+}
+void Planner::finish_and_disable() {
+    while (has_blocks_queued() || cleaning_buffer_counter) idle();
+    stepper.disable_all_steppers();
+}
+
+/**
+ * Get an axis position according to stepper position(s)
+ * For CORE machines apply translation from ABC to XYZ.
+ */
+float Planner::get_axis_position_mm(const AxisEnum axis) {
+    float axis_steps;
+    axis_steps = (float)stepper.position(axis);
+    return axis_steps * mm_per_step[axis];
+}
+
+/**
+ * Block until the planner is finished processing
+ */
+void Planner::synchronize() { while (busy()) idle(); }
 
 
 
@@ -97,6 +189,116 @@ void Stepper::init() {
     //sei();
     set_directions(0x07); // Init direction bits for first moves
 }//init()
+
+#define ENABLE_AXIS_X()
+#define ENABLE_AXIS_Y()
+#define ENABLE_AXIS_Z()
+#define DISABLE_AXIS_X()
+#define DISABLE_AXIS_Y()
+#define DISABLE_AXIS_Z()
+void Stepper::enable_axis(const AxisEnum axis) {
+    switch (axis) {
+    case X_AXIS: ENABLE_AXIS_X(); break;
+    case Y_AXIS: ENABLE_AXIS_Y(); break;
+    case Z_AXIS: ENABLE_AXIS_Z(); break;
+        default: break;
+    }
+    mark_axis_enabled(axis);
+}
+bool Stepper::disable_axis(const AxisEnum axis) {
+    mark_axis_disabled(axis);
+    // If all the axes that share the enabled bit are disabled
+    const bool can_disable = can_axis_disable(axis);
+    if (can_disable) {
+        switch (axis) {
+        case X_AXIS: DISABLE_AXIS_X(); break;
+        case Y_AXIS: DISABLE_AXIS_Y(); break;
+        case Z_AXIS: DISABLE_AXIS_Z(); break;
+        default: break;
+        }
+    }
+    return can_disable;
+}
+void Stepper::enable_all_steppers() {
+    enable_axis(X_AXIS); enable_axis(Y_AXIS); enable_axis(Z_AXIS);
+}
+void Stepper::disable_all_steppers() {
+    disable_axis(X_AXIS); disable_axis(Y_AXIS); disable_axis(Z_AXIS);
+}
+
+
+// Check if the given block is busy or not - Must not be called from ISR contexts
+// The current_block could change in the middle of the read by an Stepper ISR, so
+// we must explicitly prevent that!
+bool Stepper::is_block_busy(const block_t* const block) {
+#ifdef __AVR__
+    // A SW memory barrier, to ensure GCC does not overoptimize loops
+#define sw_barrier() asm volatile("": : :"memory");
+
+// Keep reading until 2 consecutive reads return the same value,
+// meaning there was no update in-between caused by an interrupt.
+// This works because stepper ISRs happen at a slower rate than
+// successive reads of a variable, so 2 consecutive reads with
+// the same value means no interrupt updated it.
+    block_t* vold, * vnew = current_block;
+    sw_barrier();
+    do {
+        vold = vnew;
+        vnew = current_block;
+        sw_barrier();
+    } while (vold != vnew);
+#else
+    block_t* vnew = current_block;
+#endif
+    // Return if the block is busy or not
+    return block == vnew;
+}
+/**
+ * Set the stepper positions directly in steps
+ * The input is based on the typical per-axis XYZE steps.
+ * For CORE machines XYZ needs to be translated to ABC.
+ * This allows get_axis_position_mm to correctly
+ * derive the current XYZE position later on.
+ */
+void Stepper::_set_position(const abce_long_t& spos) {
+    // default non-h-bot planning
+    count_position = spos;
+}
+// Get a stepper's position in steps.
+int32_t Stepper::position(const AxisEnum axis) {
+#ifdef __AVR__
+    // Protect the access to the position. Only required for AVR, as
+    //  any 32bit CPU offers atomic access to 32bit variables
+    const bool was_enabled = suspend();
+#endif
+    const int32_t v = count_position[axis];
+#ifdef __AVR__
+    // Reenable Stepper ISR
+    if (was_enabled) wake_up();
+#endif
+    return v;
+}
+// Set the current position in steps
+void Stepper::set_position(const xyze_long_t& spos) {
+    planner.synchronize();
+    const bool was_enabled = suspend();
+    _set_position(spos);
+    if (was_enabled) wake_up();
+}
+void Stepper::set_axis_position(const AxisEnum a, const int32_t& v) {
+    planner.synchronize();
+#ifdef __AVR__
+    // Protect the access to the position. Only required for AVR, as
+    //  any 32bit CPU offers atomic access to 32bit variables
+    const bool was_enabled = suspend();
+#endif
+    count_position[a] = v;
+#ifdef __AVR__
+    // Reenable Stepper ISR
+    if (was_enabled) wake_up();
+#endif
+}
+
 /*
 #define SET_STEP_DIR(A)                       \
   if (motor_direction(_AXIS(A))) {            \
@@ -290,6 +492,139 @@ void Stepper::pulse_phase_isr() {
     } while (--events_to_do);
 }//pulse_phase_isr()
 
+const uint16_t speed_lookuptable_fast[256][2] = {
+  { 62500, 55556}, { 6944, 3268}, { 3676, 1176}, { 2500, 607}, { 1893, 369}, { 1524, 249}, { 1275, 179}, { 1096, 135},
+  { 961, 105}, { 856, 85}, { 771, 69}, { 702, 58}, { 644, 49}, { 595, 42}, { 553, 37}, { 516, 32},
+  { 484, 28}, { 456, 25}, { 431, 23}, { 408, 20}, { 388, 19}, { 369, 16}, { 353, 16}, { 337, 14},
+  { 323, 13}, { 310, 11}, { 299, 11}, { 288, 11}, { 277, 9}, { 268, 9}, { 259, 8}, { 251, 8},
+  { 243, 8}, { 235, 7}, { 228, 6}, { 222, 6}, { 216, 6}, { 210, 6}, { 204, 5}, { 199, 5},
+  { 194, 5}, { 189, 4}, { 185, 4}, { 181, 4}, { 177, 4}, { 173, 4}, { 169, 4}, { 165, 3},
+  { 162, 3}, { 159, 4}, { 155, 3}, { 152, 3}, { 149, 2}, { 147, 3}, { 144, 3}, { 141, 2},
+  { 139, 3}, { 136, 2}, { 134, 2}, { 132, 3}, { 129, 2}, { 127, 2}, { 125, 2}, { 123, 2},
+  { 121, 2}, { 119, 1}, { 118, 2}, { 116, 2}, { 114, 1}, { 113, 2}, { 111, 2}, { 109, 1},
+  { 108, 2}, { 106, 1}, { 105, 2}, { 103, 1}, { 102, 1}, { 101, 1}, { 100, 2}, { 98, 1},
+  { 97, 1}, { 96, 1}, { 95, 2}, { 93, 1}, { 92, 1}, { 91, 1}, { 90, 1}, { 89, 1},
+  { 88, 1}, { 87, 1}, { 86, 1}, { 85, 1}, { 84, 1}, { 83, 0}, { 83, 1}, { 82, 1},
+  { 81, 1}, { 80, 1}, { 79, 1}, { 78, 0}, { 78, 1}, { 77, 1}, { 76, 1}, { 75, 0},
+  { 75, 1}, { 74, 1}, { 73, 1}, { 72, 0}, { 72, 1}, { 71, 1}, { 70, 0}, { 70, 1},
+  { 69, 0}, { 69, 1}, { 68, 1}, { 67, 0}, { 67, 1}, { 66, 0}, { 66, 1}, { 65, 0},
+  { 65, 1}, { 64, 1}, { 63, 0}, { 63, 1}, { 62, 0}, { 62, 1}, { 61, 0}, { 61, 1},
+  { 60, 0}, { 60, 0}, { 60, 1}, { 59, 0}, { 59, 1}, { 58, 0}, { 58, 1}, { 57, 0},
+  { 57, 1}, { 56, 0}, { 56, 0}, { 56, 1}, { 55, 0}, { 55, 1}, { 54, 0}, { 54, 0},
+  { 54, 1}, { 53, 0}, { 53, 0}, { 53, 1}, { 52, 0}, { 52, 0}, { 52, 1}, { 51, 0},
+  { 51, 0}, { 51, 1}, { 50, 0}, { 50, 0}, { 50, 1}, { 49, 0}, { 49, 0}, { 49, 1},
+  { 48, 0}, { 48, 0}, { 48, 1}, { 47, 0}, { 47, 0}, { 47, 0}, { 47, 1}, { 46, 0},
+  { 46, 0}, { 46, 1}, { 45, 0}, { 45, 0}, { 45, 0}, { 45, 1}, { 44, 0}, { 44, 0},
+  { 44, 0}, { 44, 1}, { 43, 0}, { 43, 0}, { 43, 0}, { 43, 1}, { 42, 0}, { 42, 0},
+  { 42, 0}, { 42, 1}, { 41, 0}, { 41, 0}, { 41, 0}, { 41, 0}, { 41, 1}, { 40, 0},
+  { 40, 0}, { 40, 0}, { 40, 0}, { 40, 1}, { 39, 0}, { 39, 0}, { 39, 0}, { 39, 0},
+  { 39, 1}, { 38, 0}, { 38, 0}, { 38, 0}, { 38, 0}, { 38, 1}, { 37, 0}, { 37, 0},
+  { 37, 0}, { 37, 0}, { 37, 0}, { 37, 1}, { 36, 0}, { 36, 0}, { 36, 0}, { 36, 0},
+  { 36, 1}, { 35, 0}, { 35, 0}, { 35, 0}, { 35, 0}, { 35, 0}, { 35, 0}, { 35, 1},
+  { 34, 0}, { 34, 0}, { 34, 0}, { 34, 0}, { 34, 0}, { 34, 1}, { 33, 0}, { 33, 0},
+  { 33, 0}, { 33, 0}, { 33, 0}, { 33, 0}, { 33, 1}, { 32, 0}, { 32, 0}, { 32, 0},
+  { 32, 0}, { 32, 0}, { 32, 0}, { 32, 0}, { 32, 1}, { 31, 0}, { 31, 0}, { 31, 0},
+  { 31, 0}, { 31, 0}, { 31, 0}, { 31, 1}, { 30, 0}, { 30, 0}, { 30, 0}, { 30, 0}
+};
+const uint16_t speed_lookuptable_slow[256][2] = {
+  { 62500, 12500}, { 50000, 8334}, { 41666, 5952}, { 35714, 4464}, { 31250, 3473}, { 27777, 2777}, { 25000, 2273}, { 22727, 1894},
+  { 20833, 1603}, { 19230, 1373}, { 17857, 1191}, { 16666, 1041}, { 15625, 920}, { 14705, 817}, { 13888, 731}, { 13157, 657},
+  { 12500, 596}, { 11904, 541}, { 11363, 494}, { 10869, 453}, { 10416, 416}, { 10000, 385}, { 9615, 356}, { 9259, 331},
+  { 8928, 308}, { 8620, 287}, { 8333, 269}, { 8064, 252}, { 7812, 237}, { 7575, 223}, { 7352, 210}, { 7142, 198},
+  { 6944, 188}, { 6756, 178}, { 6578, 168}, { 6410, 160}, { 6250, 153}, { 6097, 145}, { 5952, 139}, { 5813, 132},
+  { 5681, 126}, { 5555, 121}, { 5434, 115}, { 5319, 111}, { 5208, 106}, { 5102, 102}, { 5000, 99}, { 4901, 94},
+  { 4807, 91}, { 4716, 87}, { 4629, 84}, { 4545, 81}, { 4464, 79}, { 4385, 75}, { 4310, 73}, { 4237, 71},
+  { 4166, 68}, { 4098, 66}, { 4032, 64}, { 3968, 62}, { 3906, 60}, { 3846, 59}, { 3787, 56}, { 3731, 55},
+  { 3676, 53}, { 3623, 52}, { 3571, 50}, { 3521, 49}, { 3472, 48}, { 3424, 46}, { 3378, 45}, { 3333, 44},
+  { 3289, 43}, { 3246, 41}, { 3205, 41}, { 3164, 39}, { 3125, 39}, { 3086, 38}, { 3048, 36}, { 3012, 36},
+  { 2976, 35}, { 2941, 35}, { 2906, 33}, { 2873, 33}, { 2840, 32}, { 2808, 31}, { 2777, 30}, { 2747, 30},
+  { 2717, 29}, { 2688, 29}, { 2659, 28}, { 2631, 27}, { 2604, 27}, { 2577, 26}, { 2551, 26}, { 2525, 25},
+  { 2500, 25}, { 2475, 25}, { 2450, 23}, { 2427, 24}, { 2403, 23}, { 2380, 22}, { 2358, 22}, { 2336, 22},
+  { 2314, 21}, { 2293, 21}, { 2272, 20}, { 2252, 20}, { 2232, 20}, { 2212, 20}, { 2192, 19}, { 2173, 18},
+  { 2155, 19}, { 2136, 18}, { 2118, 18}, { 2100, 17}, { 2083, 17}, { 2066, 17}, { 2049, 17}, { 2032, 16},
+  { 2016, 16}, { 2000, 16}, { 1984, 16}, { 1968, 15}, { 1953, 16}, { 1937, 14}, { 1923, 15}, { 1908, 15},
+  { 1893, 14}, { 1879, 14}, { 1865, 14}, { 1851, 13}, { 1838, 14}, { 1824, 13}, { 1811, 13}, { 1798, 13},
+  { 1785, 12}, { 1773, 13}, { 1760, 12}, { 1748, 12}, { 1736, 12}, { 1724, 12}, { 1712, 12}, { 1700, 11},
+  { 1689, 12}, { 1677, 11}, { 1666, 11}, { 1655, 11}, { 1644, 11}, { 1633, 10}, { 1623, 11}, { 1612, 10},
+  { 1602, 10}, { 1592, 10}, { 1582, 10}, { 1572, 10}, { 1562, 10}, { 1552, 9}, { 1543, 10}, { 1533, 9},
+  { 1524, 9}, { 1515, 9}, { 1506, 9}, { 1497, 9}, { 1488, 9}, { 1479, 9}, { 1470, 9}, { 1461, 8},
+  { 1453, 8}, { 1445, 9}, { 1436, 8}, { 1428, 8}, { 1420, 8}, { 1412, 8}, { 1404, 8}, { 1396, 8},
+  { 1388, 7}, { 1381, 8}, { 1373, 7}, { 1366, 8}, { 1358, 7}, { 1351, 7}, { 1344, 8}, { 1336, 7},
+  { 1329, 7}, { 1322, 7}, { 1315, 7}, { 1308, 6}, { 1302, 7}, { 1295, 7}, { 1288, 6}, { 1282, 7},
+  { 1275, 6}, { 1269, 7}, { 1262, 6}, { 1256, 6}, { 1250, 7}, { 1243, 6}, { 1237, 6}, { 1231, 6},
+  { 1225, 6}, { 1219, 6}, { 1213, 6}, { 1207, 6}, { 1201, 5}, { 1196, 6}, { 1190, 6}, { 1184, 5},
+  { 1179, 6}, { 1173, 5}, { 1168, 6}, { 1162, 5}, { 1157, 5}, { 1152, 6}, { 1146, 5}, { 1141, 5},
+  { 1136, 5}, { 1131, 5}, { 1126, 5}, { 1121, 5}, { 1116, 5}, { 1111, 5}, { 1106, 5}, { 1101, 5},
+  { 1096, 5}, { 1091, 5}, { 1086, 4}, { 1082, 5}, { 1077, 5}, { 1072, 4}, { 1068, 5}, { 1063, 4},
+  { 1059, 5}, { 1054, 4}, { 1050, 4}, { 1046, 5}, { 1041, 4}, { 1037, 4}, { 1033, 5}, { 1028, 4},
+  { 1024, 4}, { 1020, 4}, { 1016, 4}, { 1012, 4}, { 1008, 4}, { 1004, 4}, { 1000, 4}, { 996, 4},
+  { 992, 4}, { 988, 4}, { 984, 4}, { 980, 4}, { 976, 4}, { 972, 4}, { 968, 3}, { 965, 3}
+};
+
+// Calculate timer interval, with all limits applied.
+uint32_t Stepper::calc_timer_interval(uint32_t step_rate) {
+#ifdef CPU_32_BIT
+    // In case of high-performance processor, it is able to calculate in real-time
+    return uint32_t(STEPPER_TIMER_RATE) / step_rate;
+#else
+    // AVR is able to keep up at 30khz Stepping ISR rate.
+    constexpr uint32_t min_step_rate = (F_CPU) / 500000U;
+    if (step_rate <= min_step_rate) {
+        step_rate = 0;
+        uintptr_t *table_address = (uintptr_t *)&speed_lookuptable_slow[0][0];
+        return uint16_t(*table_address);
+    }
+    else {
+        step_rate -= min_step_rate; // Correct for minimal speed
+        if (step_rate >= 0x0800) {  // higher step rate
+            const uint8_t rate_mod_256 = (step_rate & 0x00FF);
+            const uintptr_t *table_address = (uintptr_t *)(&speed_lookuptable_fast[uint8_t(step_rate >> 8)][0]),
+                gain = uint16_t(*(table_address + 2));
+            //return uint16_t(*(table_address)) - MultiU8X16toH16(rate_mod_256, gain);
+            return uint16_t(*(table_address)) - rate_mod_256*gain;
+        }
+        else { // lower step rates
+            uintptr_t *table_address = (uintptr_t *)(&speed_lookuptable_slow[0][0]);
+            table_address += (step_rate >> 1) & 0xFFFC;
+            return uint16_t(*table_address)
+                - ((uint16_t(*(table_address + 2)) * uint8_t(step_rate & 0x0007)) >> 3);
+        }
+    }
+#endif
+}
+
+// Get the timer interval and the number of loops to perform per tick
+uint32_t Stepper::calc_timer_interval(uint32_t step_rate, uint8_t& loops) {
+    uint8_t multistep = 1;
+    // The stepping frequency limits for each multistepping rate
+    static const uint32_t limit[] = {
+      (MAX_STEP_ISR_FREQUENCY_1X),
+      (MAX_STEP_ISR_FREQUENCY_2X >> 1),
+      (MAX_STEP_ISR_FREQUENCY_4X >> 2),
+      (MAX_STEP_ISR_FREQUENCY_8X >> 3),
+      (MAX_STEP_ISR_FREQUENCY_16X >> 4),
+      (MAX_STEP_ISR_FREQUENCY_32X >> 5),
+      (MAX_STEP_ISR_FREQUENCY_64X >> 6),
+      (MAX_STEP_ISR_FREQUENCY_128X >> 7)
+    };
+    // Select the proper multistepping
+    uint8_t idx = 0;
+    while (idx < 7 && step_rate >(uint32_t)*(&limit[idx])) {
+        step_rate >>= 1;
+        multistep <<= 1;
+        ++idx;
+    };
+    if (step_rate > uint32_t(MAX_STEP_ISR_FREQUENCY_1X))
+        step_rate = uint32_t(MAX_STEP_ISR_FREQUENCY_1X);
+    loops = multistep;
+    return calc_timer_interval(step_rate);
+}
+
+// This is the last half of the stepper interrupt: This one processes and
+// properly schedules blocks from the planner. This is executed after creating
+// the step pulses, so it is not time critical, as pulses are already done.
+
+
 // This is the last half of the stepper interrupt: This one processes and
 // properly schedules blocks from the planner. This is executed after creating
 // the step pulses, so it is not time critical, as pulses are already done.
@@ -355,19 +690,13 @@ uint32_t Stepper::block_phase_isr() {
         if ((current_block = planner.get_current_block())) {
             // Sync block? Sync the stepper counts or fan speeds and return
             while (current_block->is_sync()) {
-                TERN_(LASER_SYNCHRONOUS_M106_M107, if (current_block->is_fan_sync()) planner.sync_fan_speeds(current_block->fan_speed));
-
-                if (!(current_block->is_fan_sync() || current_block->is_pwr_sync())) _set_position(current_block->position);
-
+                _set_position(current_block->position);
                 discard_current_block();
-
                 // Try to get a new block
                 if (!(current_block = planner.get_current_block()))
                     return interval; // No more queued movements!
             }
-
             // For non-inline cutter, grossly apply power
-
             // Flag all moving axes for proper endstop handling
             axis_bits_t axis_bits = 0;
             if (!!current_block->steps.a) SBI(axis_bits, A_AXIS);
@@ -398,7 +727,6 @@ uint32_t Stepper::block_phase_isr() {
             // Initialize the trapezoid generator from the current block.
             if (current_block->direction_bits != last_direction_bits)
                 set_directions(current_block->direction_bits);
-            }
             // If the endstop is already pressed, endstop interrupts won't invoke
             // endstop_triggered and the move will grind. So check here for a
             // triggered endstop, which marks the block for discard on the next ISR.

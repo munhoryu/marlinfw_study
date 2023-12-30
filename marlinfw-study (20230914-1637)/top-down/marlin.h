@@ -12,6 +12,17 @@ enum MarlinState : uint8_t {
 	MF_WAITING,
 };
 extern MarlinState marlin_state;
+void idle(const bool no_stepper_sleep=false);
+
+
+// stepper
+typedef uint8_t axis_bits_t;
+enum AxisEnum : uint8_t {
+	//X_AXIS_ENUM, Y_AXIS_ENUM, Z_AXIS_ENUM, MAX_AXIS_ENUM
+	//, ALL_AXES_ENUM = 0xFE, NO_AXIS_ENUM = 0xFF
+	X_AXIS, Y_AXIS, Z_AXIS, E_AXIS,
+	A_AXIS = X_AXIS, B_AXIS = Y_AXIS, C_AXIS = Z_AXIS
+};
 
 
 
@@ -20,7 +31,12 @@ extern MarlinState marlin_state;
 #define TEST(n,b) (!!((n)&_BV(b)))
 #define SBI(A,B) (A |= _BV(B))
 #define CBI(A,B) (A &= ~_BV(B))
-
+#define _MIN(a,b) ((a)<(b)?(a):(b))
+//#define _MIN3(a,b,c) (_MIN(_MIN(a,b),(c))
+//#define _MIN4(a,b,c,d) (_MIN(_MIN(a,b),_MIN(c,d)))
+#define _MAX(a,b) ((a)>(b)?(a):(b))
+//#define _MAX3(a,b,c) (_MAX(_MAX(a,b),(c)))
+//#define _MAX4(a,b,c,d) (_MAX(_MAX(a,b),_MAX(c,d)))
 template <bool, class L, class R>
 struct IF { typedef R type; };
 template <class L, class R>
@@ -60,16 +76,16 @@ typedef struct AxisFlags {
 } axis_flags_t;
 
 
-#define X_AXIS 0
-#define Y_AXIS 1
-#define Z_AXIS 2
+//#define X_AXIS 0
+//#define Y_AXIS 1
+//#define Z_AXIS 2
 #define XY 2
 #define NUM_AXES 3
 #define LOGICAL_AXES 4
 #define DISTINCT_AXES 4
-#define A_AXIS X_AXIS
-#define B_AXIS Y_AXIS
-#define C_AXIS Z_AXIS
+//#define A_AXIS X_AXIS
+//#define B_AXIS Y_AXIS
+//#define C_AXIS Z_AXIS
 
 // types.h
 typedef float feedRate_t;
@@ -302,8 +318,8 @@ struct XYZval {
 	FI operator T* () { return pos; }
 	// If any element is true then it's true
 	FI operator bool() { return x || y || z; }
-	FI T small() const { return _MIN(x, y, z); }
-	FI T large() const { return _MAX(x, y, z); }
+	FI T small() const { return _MIN3(x, y, z); }
+	FI T large() const { return _MAX3(x, y, z); }
 	// Explicit copy and copies with conversion
 	FI XYZval<T>          copy() const { XYZval<T> o = *this; return o; }
 	FI XYZval<T>           ABS() const { return { T(_ABS(x)), T(_ABS(y)), T(_ABS(z)) }; }
@@ -419,8 +435,8 @@ struct XYZEval {
 	FI T magnitude() const { return (T)sqrtf(x * x + y * y + z * z + e * e); }
 	FI operator T* () { return pos; }
 	FI operator bool() { return 0 || x || y || z || e; }
-	FI T small()					const { return _MIN(x, y, z, e); }
-	FI T large()					const { return _MAX(x, y, z, e); }
+	FI T small()					const { return _MIN4(x, y, z, e); }
+	FI T large()					const { return _MAX4(x, y, z, e); }
 	// Explicit copy and copies with conversion
 	FI XYZEval<T>          copy()	const { XYZEval<T> v = *this; return v; }
 	FI XYZEval<T>           ABS()	const { return { T(_ABS(x)), T(_ABS(y)), T(_ABS(z)), T(_ABS(e)) }; }
@@ -445,7 +461,7 @@ struct XYZEval {
 	FI       T& operator[](const int n) { return pos[n]; }
 	FI const T& operator[](const int n)          const { return pos[n]; }
 	// Assignment operator overrides do the expected thing
-	FI XYZEval<T>& operator= (const T v) { set(LOGICAL_AXIS_LIST_1(v)); return *this; }
+	FI XYZEval<T>& operator= (const T v) { set(v, v, v, v); return *this; }
 	FI XYZEval<T>& operator= (const XYval<T>& rs) { set(rs.x, rs.y); return *this; }
 	FI XYZEval<T>& operator= (const XYZval<T>& rs) { set(NUM_AXIS_ELEM(rs)); return *this; }
 	// Override other operators to get intuitive behaviors
@@ -533,7 +549,9 @@ enum BlockFlagBit {
 	// from a safe speed (in consideration of jerking from zero speed).
 	BLOCK_BIT_NOMINAL_LENGTH,
 	// The block is segment 2+ of a longer move
-	BLOCK_BIT_CONTINUED
+	BLOCK_BIT_CONTINUED,
+	// Sync the stepper counts from the block
+	BLOCK_BIT_SYNC_POSITION
 };
 
 // Planner block flags as boolean bit fields
@@ -647,11 +665,21 @@ class Planner {
 	public:
 		Planner();
 		void init();
-
-	private:	
-		// Get the index of the next / previous block in the ring buffer
-		static constexpr uint8_t next_block_index(const uint8_t block_index) { return BLOCK_MOD(block_index + 1); }
-		static constexpr uint8_t prev_block_index(const uint8_t block_index) { return BLOCK_MOD(block_index - 1); }
+		// Recalculate steps/s^2 accelerations based on mm/s^2 settings
+		static void refresh_acceleration_rates();
+		// Recalculate 'position' and 'mm_per_step'.
+		// Must be called whenever settings.axis_steps_per_mm changes!
+		static void refresh_positioning();
+		// For an axis set the Maximum Acceleration in mm/s^2
+		static void set_max_acceleration(const AxisEnum axis, float inMaxAccelMMS2);
+		// For an axis set the Maximum Feedrate in mm/s
+		static void set_max_feedrate(const AxisEnum axis, float inMaxFeedrateMMS);
+		// For an axis set the Maximum Jerk (instant change) in mm/s
+		static void set_max_jerk(const AxisEnum, const_float_t) {}
+		// Manage fans, paste pressure, etc.
+		static void check_axes_activity();
+		static float fade_scaling_factor_for_z(const_float_t) { return 1; }
+		static bool leveling_active_at_z(const_float_t) { return true; }
 	public:
 		// Number of moves currently in the planner including the busy block, if any
 		static uint8_t movesplanned() { return BLOCK_MOD(block_buffer_head - block_buffer_tail); }
@@ -664,27 +692,143 @@ class Planner {
 		// Get count of movement slots free
 		static uint8_t moves_free() { return BLOCK_BUFFER_SIZE - 1 - movesplanned(); }
 
+		/**
+		 * Planner::get_next_free_block
+		 * - Get the next head indices (passed by reference)
+		 * - Wait for the number of spaces to open up in the planner
+		 * - Return the first head block
+		 */
+		static block_t* get_next_free_block(uint8_t& next_buffer_head, const uint8_t count = 1) {
+			// Wait until there are enough slots free
+			while (moves_free() < count) { idle(); }
+			// Return the first available block
+			next_buffer_head = next_block_index(block_buffer_head);
+			return &block_buffer[block_buffer_head];
+		}
+
+		/**
+		 * Planner::_buffer_steps
+		 * Add a new linear movement to the buffer (in terms of steps).
+		 *  target      - target position in steps units
+		 *  fr_mm_s     - (target) speed of the move
+		 *  extruder    - target extruder
+		 *  hints       - parameters to aid planner calculations
+		 * Returns true if movement was buffered, false otherwise
+		 */
+		static bool _buffer_steps(const xyze_long_t& target
+			, feedRate_t fr_mm_s, const uint8_t extruder, const PlannerHints& hints
+		);
+
+		/**
+		 * @brief Populate a block in preparation for insertion
+		 * @details Populate the fields of a new linear movement block
+		 *          that will be added to the queue and processed soon
+		 *          by the Stepper ISR.
+		 * @param block         A block to populate
+		 * @param target        Target position in steps units
+		 * @param target_float  Target position in native mm
+		 * @param cart_dist_mm  The pre-calculated move lengths for all axes, in mm
+		 * @param fr_mm_s       (target) speed of the move
+		 * @param extruder      target extruder
+		 * @param hints         parameters to aid planner calculations
+		 * @return  true if movement is acceptable, false otherwise
+		 */
+		static bool _populate_block(block_t* const block, const xyze_long_t& target
+			, feedRate_t fr_mm_s, const uint8_t extruder, const PlannerHints& hints
+		);
+
+		/**
+		 * Planner::buffer_sync_block
+		 * Add a block to the buffer that just updates the position
+		 * @param sync_flag sets a condition bit to process additional items
+		 * such as sync fan pwm or sync M3/M4 laser power into a queued block
+		 */
+		static void buffer_sync_block(const BlockFlagBit flag = BLOCK_BIT_SYNC_POSITION);
+
+		/**
+		 * Planner::buffer_segment
+		 * Add a new linear movement to the buffer in axis units.
+		 * Leveling and kinematics should be applied ahead of calling this.
+		 *  a,b,c,e     - target positions in mm and/or degrees
+		 *  fr_mm_s     - (target) speed of the move
+		 *  extruder    - optional target extruder (otherwise active_extruder)
+		 *  hints       - optional parameters to aid planner calculations
+		 */
+		static bool buffer_segment(const abce_pos_t& abce
+			, const_feedRate_t fr_mm_s
+			, const PlannerHints& hints = PlannerHints()
+		);
+
+		/**
+		 * Add a new linear movement to the buffer.
+		 * The target is cartesian. It's translated to
+		 * delta/scara if needed.
+		 *  cart         - target position in mm or degrees
+		 *  fr_mm_s      - (target) speed of the move (mm/s)
+		 *  extruder     - optional target extruder (otherwise active_extruder)
+		 *  hints        - optional parameters to aid planner calculations
+		 */
+		static bool buffer_line(const xyze_pos_t& cart, const_feedRate_t fr_mm_s
+			, const PlannerHints& hints = PlannerHints()
+		);
+
 		static void set_position_mm(const xyze_pos_t & pos);
 		static void set_machine_position_mm(const abce_pos_t & pos);
+		static float get_axis_position_mm(const AxisEnum axis);
+		static abce_pos_t get_axis_positions_mm() {
+			const abce_pos_t out = { get_axis_position_mm(A_AXIS), get_axis_position_mm(B_AXIS), get_axis_position_mm(C_AXIS), get_axis_position_mm(E_AXIS) };
+			return out;
+		}
 
+		// Called to force a quick stop of the machine (for example, when
+		// a Full Shutdown is required, or when endstops are hit)
+		static void quick_stop();
+
+		// Called when an endstop is triggered. Causes the machine to stop immediately
+		static void endstop_triggered(const AxisEnum axis);
+
+		// Triggered position of an axis in mm (not core-savvy)
+		static float triggered_position_mm(const AxisEnum axis);
+
+		// Blocks are queued, or we're running out moves, or the closed loop controller is waiting
+		static bool busy();
+
+		// Block until all buffered steps are executed / cleaned
+		static void synchronize();
+
+		// Wait for moves to finish and disable all steppers
+		static void finish_and_disable();
+
+		// Periodic handler to manage the cleaning buffer counter
+		// Called from the Temperature ISR at ~1kHz
+		static void isr() { if (cleaning_buffer_counter) --cleaning_buffer_counter; }
 
 		// Does the buffer have any blocks queued?
-		FORCE_INLINE static bool has_blocks_queued() { return (block_buffer_head != block_buffer_tail); }
+		static bool has_blocks_queued() { return (block_buffer_head != block_buffer_tail); }
 		/**
 		 * Get the current block for processing
 		 * and mark the block as busy.
 		 * Return nullptr if the buffer is empty
 		 * or if there is a first-block delay.
 		 * WARNING: Called from Stepper ISR context!
+		 */
 		static block_t* get_current_block();
+
 		/**
 		 * "Release" the current block so its slot can be reused.
 		 * Called when the current block is no longer needed.
 		 */
-		FORCE_INLINE static void release_current_block() {
+		static void release_current_block() {
 			if (has_blocks_queued())
 				block_buffer_tail = next_block_index(block_buffer_tail);
 		}
+
+
+	private:
+		// Get the index of the next / previous block in the ring buffer
+		static constexpr uint8_t next_block_index(const uint8_t block_index) { return BLOCK_MOD(block_index + 1); }
+		static constexpr uint8_t prev_block_index(const uint8_t block_index) { return BLOCK_MOD(block_index - 1); }
+
 
 };//class Panner
 extern Planner planner;
@@ -697,11 +841,46 @@ void sync_plan_position(void);
 
 
 // stepper
+/*
 typedef uint8_t axis_bits_t;
 enum AxisEnum : uint8_t {
-	X_AXIS_ENUM, Y_AXIS_ENUM, Z_AXIS_ENUM, MAX_AXIS_ENUM
-	, ALL_AXES_ENUM = 0xFE, NO_AXIS_ENUM = 0xFF
+	//X_AXIS_ENUM, Y_AXIS_ENUM, Z_AXIS_ENUM, MAX_AXIS_ENUM
+	//, ALL_AXES_ENUM = 0xFE, NO_AXIS_ENUM = 0xFF
+	X_AXIS, Y_AXIS, Z_AXIS, E_AXIS,
+	A_AXIS = X_AXIS, B_AXIS = Y_AXIS, C_AXIS = Z_AXIS
 };
+*/
+// And each stepper (start + stop pulse) takes in worst case
+#define ISR_BASE_CYCLES  996UL
+#define ISR_LOOP_BASE_CYCLES 32UL
+#define ISR_STEPPER_CYCLES 88UL
+// Add time for each stepper
+#define ISR_X_STEPPER_CYCLES ISR_STEPPER_CYCLES
+#define ISR_Y_STEPPER_CYCLES ISR_STEPPER_CYCLES
+#define ISR_Z_STEPPER_CYCLES ISR_STEPPER_CYCLES
+#define MIN_ISR_LOOP_CYCLES ( ISR_X_STEPPER_CYCLES + ISR_Y_STEPPER_CYCLES + ISR_Z_STEPPER_CYCLES)
+// HAS_DRIVER(A4988)
+#define MAXIMUM_STEPPER_RATE 500000
+#define MINIMUM_STEPPER_PULSE 1
+// Calculate the minimum MPU cycles needed per pulse to enforce, limited to the max stepper rate
+#define _MIN_STEPPER_PULSE_CYCLES(N) _MAX(uint32_t((F_CPU) / (MAXIMUM_STEPPER_RATE)), ((F_CPU) / 500000UL) * (N))
+#define MIN_STEPPER_PULSE_CYCLES _MIN_STEPPER_PULSE_CYCLES(uint32_t(MINIMUM_STEPPER_PULSE))
+
+// The loop takes the base time plus the time for all the bresenham logic for R pulses plus the time
+// between pulses for (R-1) pulses. But the user could be enforcing a minimum time so the loop time is:
+#define ISR_LOOP_CYCLES(R) ((ISR_LOOP_BASE_CYCLES + MIN_ISR_LOOP_CYCLES + MIN_STEPPER_PULSE_CYCLES) * (R - 1) + _MAX(MIN_ISR_LOOP_CYCLES, MIN_STEPPER_PULSE_CYCLES))
+
+// Now estimate the total ISR execution time in cycles given a step per ISR multiplier
+#define ISR_EXECUTION_CYCLES(R) (((ISR_BASE_CYCLES + ISR_LOOP_CYCLES(R))) / (R))
+// The maximum allowable stepping frequency when doing x128-x1 stepping (in Hz)
+#define MAX_STEP_ISR_FREQUENCY_128X ((F_CPU) / ISR_EXECUTION_CYCLES(128))
+#define MAX_STEP_ISR_FREQUENCY_64X  ((F_CPU) / ISR_EXECUTION_CYCLES(64))
+#define MAX_STEP_ISR_FREQUENCY_32X  ((F_CPU) / ISR_EXECUTION_CYCLES(32))
+#define MAX_STEP_ISR_FREQUENCY_16X  ((F_CPU) / ISR_EXECUTION_CYCLES(16))
+#define MAX_STEP_ISR_FREQUENCY_8X   ((F_CPU) / ISR_EXECUTION_CYCLES(8))
+#define MAX_STEP_ISR_FREQUENCY_4X   ((F_CPU) / ISR_EXECUTION_CYCLES(4))
+#define MAX_STEP_ISR_FREQUENCY_2X   ((F_CPU) / ISR_EXECUTION_CYCLES(2))
+#define MAX_STEP_ISR_FREQUENCY_1X   ((F_CPU) / ISR_EXECUTION_CYCLES(1))
 
 typedef struct {
 	union {
