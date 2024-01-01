@@ -37,11 +37,25 @@ enum AxisEnum : uint8_t {
 #define _MAX(a,b) ((a)>(b)?(a):(b))
 //#define _MAX3(a,b,c) (_MAX(_MAX(a,b),(c)))
 //#define _MAX4(a,b,c,d) (_MAX(_MAX(a,b),_MAX(c,d)))
+#define WITHIN(N,L,H)       ((N) >= (L) && (N) <= (H))
+#define ISEOL(C)            ((C) == '\n' || (C) == '\r')
+#define NUMERIC(a)          WITHIN(a, '0', '9')
+#define DECIMAL(a)          (NUMERIC(a) || a == '.')
+#define HEXCHR(a)           (NUMERIC(a) ? (a) - '0' : WITHIN(a, 'a', 'f') ? ((a) - 'a' + 10)  : WITHIN(a, 'A', 'F') ? ((a) - 'A' + 10) : -1)
+#define NUMERIC_SIGNED(a)   (NUMERIC(a) || (a) == '-' || (a) == '+')
+#define DECIMAL_SIGNED(a)   (DECIMAL(a) || (a) == '-' || (a) == '+')
+#define COUNT(a)            (sizeof(a)/sizeof(*a))
+#define ZERO(a)             memset((void*)a,0,sizeof(a))
+#define COPY(a,b) do{ \
+    static_assert(sizeof(a[0]) == sizeof(b[0]), "COPY: '" STRINGIFY(a) "' and '" STRINGIFY(b) "' types (sizes) don't match!"); \
+    memcpy(&a[0],&b[0],_MIN(sizeof(a),sizeof(b))); \
+  }while(0)
+
+
 template <bool, class L, class R>
 struct IF { typedef R type; };
 template <class L, class R>
 struct IF<true, L, R> { typedef L type; };
-
 template<size_t N>
 struct Flags {
 	typedef typename IF<(N > 8), uint16_t, uint8_t>::type bits_t;
@@ -528,13 +542,162 @@ struct XYZEval {
 
 
 
+// queue.h - The G-code command queue, which holds commands before they
+//           go to the parser and dispatcher.
+// configuration_adv.h
+// @section serial
+// The ASCII buffer for serial input
+#define MAX_CMD_SIZE 96
+
+#define BUFSIZE 4
+#define NUM_SERIAL 1
+
+// serial_base.h
+// Used in multiple places
+// You can build it but not manipulate it.
+// There are only few places where it's required to access the underlying member: GCodeQueue, SerialMask and MultiSerial
+struct serial_index_t {
+	// A signed index, where -1 is a special case meaning no action (neither output or input)
+	int8_t  index;
+	// Check if the index is within the range [a ... b]
+	constexpr inline bool within(const int8_t a, const int8_t b) const { return WITHIN(index, a, b); }
+	constexpr inline bool valid() const { return WITHIN(index, 0, 7); } // At most, 8 bits
+	// Construction is either from an index
+	constexpr serial_index_t(const int8_t index) : index(index) {}
+	// Default to "no index"
+	constexpr serial_index_t() : index(-1) {}
+};
+
+// pgmspaces.h
+#define PGM_P const char *
+
+class GCodeQueue {
+public:
+	 // The buffers per serial port.
+	struct SerialState {
+		/**
+		 * GCode line number handling. Hosts may include line numbers when sending
+		 * commands to Marlin, and lines will be checked for sequentiality.
+		 * M110 N<int> sets the current line number.
+		 */
+		long last_N;
+		int count;                      //!< Number of characters read in the current line of serial input
+		char line_buffer[MAX_CMD_SIZE]; //!< The current line accumulator
+		uint8_t input_state;            //!< The input state
+	};
+	static SerialState serial_state[NUM_SERIAL]; //!< Serial states for each serial port
+	/**
+	 * GCode Command Queue
+	 * A simple (circular) ring buffer of BUFSIZE command strings.
+	 * Commands are copied into this buffer by the command injectors
+	 * (immediate, serial, sd card) and they are processed sequentially by
+	 * the main loop. The gcode.process_next_command method parses the next
+	 * command and hands off execution to individual handler functions.
+	 */
+	struct CommandLine {
+		char buffer[MAX_CMD_SIZE];	//!< The command buffer
+		bool skip_ok;               //!< Skip sending ok when command is processed?
+	};
+	// A handy ring buffer type
+	struct RingBuffer {
+		uint8_t length,             //!< Number of commands in the queue
+			index_r,                //!< Ring buffer's read position
+			index_w;                //!< Ring buffer's write position
+		CommandLine commands[BUFSIZE];  //!< The ring buffer of commands
+		inline serial_index_t command_port() const { return 0; }
+		inline void clear() { length = index_r = index_w = 0; }
+		void advance_pos(uint8_t& p, const int inc) { if (++p >= BUFSIZE) p = 0; length += inc; }
+		void commit_command(bool skip_ok);
+		bool enqueue(const char* cmd, bool skip_ok = true);
+		void ok_to_send();
+		inline bool full(uint8_t cmdCount = 1) const { return length > (BUFSIZE - cmdCount); }
+		inline bool occupied() const { return length != 0; }
+		inline bool empty() const { return !occupied(); }
+		inline CommandLine& peek_next_command() { return commands[index_r]; }
+		inline char* peek_next_command_string() { return peek_next_command().buffer; }
+	};
+	static RingBuffer ring_buffer;
+	static void clear() { ring_buffer.clear(); }
+	// Next Injected Command (PROGMEM) pointer. (nullptr == empty)
+	// Internal commands are enqueued ahead of serial / SD commands.
+	static PGM_P injected_commands_P;
+	// Injected Commands (SRAM)
+	static char injected_commands[64];
+	// Enqueue command(s) to run from PROGMEM. Drained by process_injected_command_P().
+	// Don't inject comments or use leading spaces!
+	// Aborts the current PROGMEM queue so only use for one or two commands.
+	static void inject_P(PGM_P const pgcode) { injected_commands_P = pgcode; }
+	//static void inject(FSTR_P const fgcode) { inject_P(FTOP(fgcode)); }
+	// Enqueue command(s) to run from SRAM. Drained by process_injected_command().
+	// Aborts the current SRAM queue so only use for one or two commands.
+	static void inject(const char* const gcode) {
+		strncpy(injected_commands, gcode, sizeof(injected_commands) - 1);
+	}
+	// Enqueue and return only when commands are actually enqueued
+	static void enqueue_one_now(const char* const cmd);
+	//static void enqueue_one_now(FSTR_P const fcmd);
+	// Attempt to enqueue a single G-code command
+	// and return 'true' if successful.
+	//static bool enqueue_one(FSTR_P const fcmd);
+	// Enqueue with Serial Echo
+	// Return true on success
+	static bool enqueue_one(const char* cmd);
+	// Enqueue from program memory and return only when commands are actually enqueued
+	static void enqueue_now_P(PGM_P const pcmd);
+	//static void enqueue_now(FSTR_P const fcmd) { enqueue_now_P(FTOP(fcmd)); }
+	// Check whether there are any commands yet to be executed
+	static bool has_commands_queued() { return ring_buffer.length || injected_commands_P || injected_commands[0]; }
+	// Get the next command in the queue, optionally log it to SD, then dispatch it
+	static void advance();
+	// Run the entire queue in-place
+	static void exhaust();
+	/**
+	 * Add to the circular command queue the next command from:
+	 *  - The command-injection queue (injected_commands_P)
+	 *  - The active serial input (usually USB)
+	 *  - The SD card file being actively printed
+	 */
+	static void get_available_commands();
+	/**
+	 * Send an "ok" message to the host, indicating
+	 * that a command was successfully processed.
+	 * If ADVANCED_OK is enabled also include:
+	 *   N<int>  Line number of the command, if any
+	 *   P<int>  Planner space remaining
+	 *   B<int>  Block queue space remaining
+	 */
+	static void ok_to_send() { ring_buffer.ok_to_send(); }
+	/**
+	 * Clear the serial line and request a resend of
+	 * the next expected line number.
+	 */
+	static void flush_and_request_resend(const serial_index_t serial_ind);
+	/**
+	 * (Re)Set the current line number for the last received command
+	 */
+	static void set_current_line_number(long n) { serial_state[ring_buffer.command_port().index].last_N = n; }
+	// BUFFER_MONITORING
+private:
+	static void get_serial_commands();
+	//SDSUPPORT
+	// Process the next "immediate" command (PROGMEM)
+	static bool process_injected_command_P();
+	// Process the next "immediate" command (SRAM)
+	static bool process_injected_command();
+	//static void gcode_line_error(FSTR_P const ferr, const serial_index_t serial_ind);
+	friend class GcodeSuite;
+};
+extern GCodeQueue queue;
+extern const char G28_STR[];
+
+
+
 // motion
 #define X_HOME_POS 100
 #define Y_HOME_POS 200
 #define Z_HOME_POS 300
 extern xyze_pos_t current_position;
 extern xyz_pos_t home_offset;
-
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400}
 
 

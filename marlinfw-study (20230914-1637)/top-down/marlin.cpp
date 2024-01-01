@@ -7,6 +7,49 @@ MarlinState marlin_state = MF_INITIALIZING;
 bool IsRunning() { return marlin_state >= MF_RUNNING; }
 bool IsStopped() { return marlin_state == MF_STOPPED; }
 
+inline void manage_inactivity(const bool no_stepper_sleep = false) {
+    queue.get_available_commands();
+    //const millis_t ms = millis();
+    // Prevent steppers timing-out
+    const bool do_reset_timeout = no_stepper_sleep;
+    // Reset both the M18/M84 activity timeout and the M85 max 'kill' timeout
+    //if (do_reset_timeout) gcode.reset_stepper_timeout(ms);
+    /*
+    if (gcode.stepper_max_timed_out(ms)) {
+        SERIAL_ERROR_START();
+        SERIAL_ECHOPGM(STR_KILL_PRE);
+        SERIAL_ECHOLNPGM(STR_KILL_INACTIVE_TIME, parser.command_ptr);
+        kill();
+    }
+    */
+    const bool has_blocks = planner.has_blocks_queued();  // Any moves in the planner?
+    //if (has_blocks) gcode.reset_stepper_timeout(ms);      // Reset timeout for M18/M84, M85 max 'kill', and laser.
+    // M18 / M84 : Handle steppers inactive time timeout
+    /*
+    if (gcode.stepper_inactive_time) {
+        static bool already_shutdown_steppers; // = false
+        if (!has_blocks && !do_reset_timeout && gcode.stepper_inactive_timeout()) {
+            if (!already_shutdown_steppers) {
+                already_shutdown_steppers = true;
+                // Individual axes will be disabled if configured
+                stepper.disable_axis(X_AXIS);
+                stepper.disable_axis(Y_AXIS);
+                stepper.disable_axis(Z_AXIS);
+            }
+        }
+        else
+            already_shutdown_steppers = false;
+    }
+    */
+    // Limit check_axes_activity frequency to 10Hz
+    /*
+    static millis_t next_check_axes_ms = 0;
+    if (ELAPSED(ms, next_check_axes_ms)) {
+        planner.check_axes_activity();
+        next_check_axes_ms = ms + 100UL;
+    }
+    */
+}//manage_inactivity()
 
 /**
  * Standard idle routine keeps the machine alive:
@@ -30,8 +73,146 @@ bool IsStopped() { return marlin_state == MF_STOPPED; }
  *  - Update the Průša MMU2
  *  - Handle Joystick jogging
  */
-void idle(const bool no_stepper_sleep) {
+void idle(const bool no_stepper_sleep/*=false*/) {
+    manage_inactivity(no_stepper_sleep); // core marlin activites
+    //thermalManager.task(); // Manage Heaters (and Watchdog)
+    // Return if setup() isn't completed
+    if (marlin_state == MF_INITIALIZING) goto IDLE_DONE;
+    //(void)check_tool_sensor_stats(active_extruder, true);
+    //hal.idletask();
+IDLE_DONE:
+    //idle_depth--;
+    return;
 }//idle()
+
+
+
+// queue
+ // Frequently used G-code strings
+const char G28_STR[] ="G28";
+GCodeQueue::SerialState GCodeQueue::serial_state[NUM_SERIAL] = { 0 };
+GCodeQueue::RingBuffer GCodeQueue::ring_buffer = { 0 };
+//BUFFER_MONITORING
+// Next Injected PROGMEM Command pointer. (nullptr == empty)
+// Internal commands are enqueued ahead of serial / SD commands.
+PGM_P GCodeQueue::injected_commands_P; // = nullptr
+// Injected SRAM Commands
+char GCodeQueue::injected_commands[64]; // = { 0 }
+void GCodeQueue::RingBuffer::commit_command(bool skip_ok) {
+    commands[index_w].skip_ok = skip_ok;
+    advance_pos(index_w, 1);
+}
+/**
+ * Copy a command from RAM into the main command buffer.
+ * Return true if the command was successfully added.
+ * Return false for a full buffer, or if the 'command' is a comment.
+ */
+bool GCodeQueue::RingBuffer::enqueue(const char* cmd, bool skip_ok/*=true*/) {
+    if (*cmd == ';' || length >= BUFSIZE) return false;
+    strcpy(commands[index_w].buffer, cmd);
+    commit_command(skip_ok);
+    return true;
+}
+/**
+ * Enqueue with Serial Echo
+ * Return true if the command was consumed
+ */
+bool GCodeQueue::enqueue_one(const char* const cmd) {
+    //SERIAL_ECHOLNPGM("enqueue_one(\"", cmd, "\")");
+    if (*cmd == 0 || ISEOL(*cmd)) return true;
+    if (ring_buffer.enqueue(cmd)) {
+        //SERIAL_ECHO_MSG(STR_ENQUEUEING, cmd, "\"");
+        return true;
+    }
+    return false;
+}
+/**
+ * Process the next "immediate" command from PROGMEM.
+ * Return 'true' if any commands were processed.
+ */
+bool GCodeQueue::process_injected_command_P() {
+    if (!injected_commands_P) return false;
+    char c;
+    size_t i = 0;
+    while ((c = *(&injected_commands_P[i])) && c != '\n') i++;
+    // Extract current command and move pointer to next command
+    //char cmd[i + 1];
+    char cmd[64];
+    memcpy(cmd, injected_commands_P, i);
+    cmd[i] = '\0';
+    injected_commands_P = c ? injected_commands_P + i + 1 : nullptr;
+    // Execute command if non-blank
+    if (i) {
+        //parser.parse(cmd);
+        //gcode.process_parsed_command();
+    }
+    return true;
+}
+/**
+ * Process the next "immediate" command from SRAM.
+ * Return 'true' if any commands were processed.
+ */
+bool GCodeQueue::process_injected_command() {
+    if (injected_commands[0] == '\0') return false;
+    char c;
+    size_t i = 0;
+    while ((c = injected_commands[i]) && c != '\n') i++;
+    // Execute a non-blank command
+    if (i) {
+        injected_commands[i] = '\0';
+        //parser.parse(injected_commands);
+        //gcode.process_parsed_command();
+    }
+    // Copy the next command into place
+    for (
+        uint8_t d = 0, s = i + !!c;                     // dst, src
+        (injected_commands[d] = injected_commands[s]);  // copy, exit if 0
+        d++, s++                                        // next dst, src
+        );
+    return true;
+}
+/**
+ * Enqueue and return only when commands are actually enqueued.
+ * Never call this from a G-code handler!
+ */
+void GCodeQueue::enqueue_one_now(const char* const cmd) { while (!enqueue_one(cmd)) idle(); }
+//void GCodeQueue::enqueue_one_now(FSTR_P const fcmd) { while (!enqueue_one(fcmd)) idle(); }
+/**
+ * Attempt to enqueue a single G-code command
+ * and return 'true' if successful.
+ */
+/*
+bool GCodeQueue::enqueue_one(FSTR_P const fcmd) {
+    size_t i = 0;
+    PGM_P p = FTOP(fcmd);
+    char c;
+    while ((c = pgm_read_byte(&p[i])) && c != '\n') i++;
+    char cmd[i + 1];
+    memcpy_P(cmd, p, i);
+    cmd[i] = '\0';
+    return ring_buffer.enqueue(cmd);
+}
+*/
+/**
+ * Enqueue from program memory and return only when commands are actually enqueued
+ * Never call this from a G-code handler!
+ */
+void GCodeQueue::enqueue_now_P(PGM_P const pgcode) {
+    size_t i = 0;
+    PGM_P p = pgcode;
+    for (;;) {
+        char c;
+        while ((c = *(&p[i])) && c != '\n') i++;
+        //char cmd[i + 1];
+        char cmd[64];
+        memcpy(cmd, p, i);
+        cmd[i] = '\0';
+        enqueue_one_now(cmd);
+        if (!c) break;
+        p += i + 1;
+    }
+}
+
 
 
 

@@ -56,6 +56,9 @@ void setup(void) {
  *    as long as idle() or manage_inactivity() are being called.
  */
 void loop(void) {
+	idle();
+	//queque.advance();
+	//endstops.event_handler();
 	stepper.isr();
 }//loop()
 
