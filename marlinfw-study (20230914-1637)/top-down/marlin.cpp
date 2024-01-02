@@ -7,86 +7,6 @@ MarlinState marlin_state = MF_INITIALIZING;
 bool IsRunning() { return marlin_state >= MF_RUNNING; }
 bool IsStopped() { return marlin_state == MF_STOPPED; }
 
-inline void manage_inactivity(const bool no_stepper_sleep = false) {
-    queue.get_available_commands();
-    //const millis_t ms = millis();
-    // Prevent steppers timing-out
-    const bool do_reset_timeout = no_stepper_sleep;
-    // Reset both the M18/M84 activity timeout and the M85 max 'kill' timeout
-    //if (do_reset_timeout) gcode.reset_stepper_timeout(ms);
-    /*
-    if (gcode.stepper_max_timed_out(ms)) {
-        SERIAL_ERROR_START();
-        SERIAL_ECHOPGM(STR_KILL_PRE);
-        SERIAL_ECHOLNPGM(STR_KILL_INACTIVE_TIME, parser.command_ptr);
-        kill();
-    }
-    */
-    const bool has_blocks = planner.has_blocks_queued();  // Any moves in the planner?
-    //if (has_blocks) gcode.reset_stepper_timeout(ms);      // Reset timeout for M18/M84, M85 max 'kill', and laser.
-    // M18 / M84 : Handle steppers inactive time timeout
-    /*
-    if (gcode.stepper_inactive_time) {
-        static bool already_shutdown_steppers; // = false
-        if (!has_blocks && !do_reset_timeout && gcode.stepper_inactive_timeout()) {
-            if (!already_shutdown_steppers) {
-                already_shutdown_steppers = true;
-                // Individual axes will be disabled if configured
-                stepper.disable_axis(X_AXIS);
-                stepper.disable_axis(Y_AXIS);
-                stepper.disable_axis(Z_AXIS);
-            }
-        }
-        else
-            already_shutdown_steppers = false;
-    }
-    */
-    // Limit check_axes_activity frequency to 10Hz
-    /*
-    static millis_t next_check_axes_ms = 0;
-    if (ELAPSED(ms, next_check_axes_ms)) {
-        planner.check_axes_activity();
-        next_check_axes_ms = ms + 100UL;
-    }
-    */
-}//manage_inactivity()
-
-/**
- * Standard idle routine keeps the machine alive:
- *  - Core Marlin activities
- *  - Manage heaters (and Watchdog)
- *  - Max7219 heartbeat, animation, etc.
- *
- *  Only after setup() is complete:
- *  - Handle filament runout sensors
- *  - Run HAL idle tasks
- *  - Handle Power-Loss Recovery
- *  - Run StallGuard endstop checks
- *  - Handle SD Card insert / remove
- *  - Handle USB Flash Drive insert / remove
- *  - Announce Host Keepalive state (if any)
- *  - Update the Print Job Timer state
- *  - Update the Beeper queue
- *  - Read Buttons and Update the LCD
- *  - Run i2c Position Encoders
- *  - Auto-report Temperatures / SD Status
- *  - Update the Průša MMU2
- *  - Handle Joystick jogging
- */
-void idle(const bool no_stepper_sleep/*=false*/) {
-    manage_inactivity(no_stepper_sleep); // core marlin activites
-    //thermalManager.task(); // Manage Heaters (and Watchdog)
-    // Return if setup() isn't completed
-    if (marlin_state == MF_INITIALIZING) goto IDLE_DONE;
-    //(void)check_tool_sensor_stats(active_extruder, true);
-    //hal.idletask();
-IDLE_DONE:
-    //idle_depth--;
-    return;
-}//idle()
-
-
-
 // queue
  // Frequently used G-code strings
 const char G28_STR[] ="G28";
@@ -109,7 +29,7 @@ void GCodeQueue::RingBuffer::commit_command(bool skip_ok) {
  */
 bool GCodeQueue::RingBuffer::enqueue(const char* cmd, bool skip_ok/*=true*/) {
     if (*cmd == ';' || length >= BUFSIZE) return false;
-    strcpy(commands[index_w].buffer, cmd);
+    strcpy_s(commands[index_w].buffer, cmd);
     commit_command(skip_ok);
     return true;
 }
@@ -211,6 +131,237 @@ void GCodeQueue::enqueue_now_P(PGM_P const pgcode) {
         if (!c) break;
         p += i + 1;
     }
+}
+/**
+ * Send an "ok" message to the host, indicating
+ * that a command was successfully processed.
+ * If ADVANCED_OK is enabled also include:
+ *   N<int>  Line number of the command, if any
+ *   P<int>  Planner space remaining
+ *   B<int>  Block queue space remaining
+ */
+void GCodeQueue::RingBuffer::ok_to_send() {
+    CommandLine& command = commands[index_r];
+    if (command.skip_ok) return;
+    //SERIAL_ECHOPGM(STR_OK);
+    //SERIAL_EOL();
+}
+/**
+ * Send a "Resend: nnn" message to the host to
+ * indicate that a command needs to be re-sent.
+ */
+void GCodeQueue::flush_and_request_resend(const serial_index_t serial_ind) {
+    //SERIAL_FLUSH();
+    //SERIAL_ECHOLNPGM(STR_RESEND, serial_state[serial_ind.index].last_N + 1);
+    //SERIAL_ECHOLNPGM(STR_OK);
+}
+static bool serial_data_available(serial_index_t index) {
+    /*
+    const int a = SERIAL_IMPL.available(index);
+#if ENABLED(RX_BUFFER_MONITOR) && RX_BUFFER_SIZE
+    if (a > RX_BUFFER_SIZE - 2) {
+        PORT_REDIRECT(SERIAL_PORTMASK(index));
+        SERIAL_ERROR_MSG("RX BUF overflow, increase RX_BUFFER_SIZE: ", a);
+    }
+#endif
+    return a > 0;
+    */
+    return false;
+}
+inline int read_serial(const serial_index_t index) { 
+    //return SERIAL_IMPL.read(index);
+    return '/0';
+}
+/*
+void GCodeQueue::gcode_line_error(FSTR_P const ferr, const serial_index_t serial_ind) {
+    PORT_REDIRECT(SERIAL_PORTMASK(serial_ind)); // Reply to the serial port that sent the command
+    SERIAL_ERROR_START();
+    SERIAL_ECHOLNF(ferr, serial_state[serial_ind.index].last_N);
+    while (read_serial(serial_ind) != -1) { } // Clear out the RX buffer. Why don't use flush here ?
+    flush_and_request_resend(serial_ind);
+    serial_state[serial_ind.index].count = 0;
+}
+*/
+FORCE_INLINE bool is_M29(const char* const cmd) {  // matches "M29" & "M29 ", but not "M290", etc
+    //const char* const m29 = strstr_P(cmd, PSTR("M29"));
+    //return m29 && !NUMERIC(m29[3]);
+    return false;
+}
+
+#define PS_NORMAL 0
+#define PS_EOL    1
+#define PS_QUOTED 2
+#define PS_PAREN  3
+#define PS_ESC    4
+inline void process_stream_char(const char c, uint8_t& sis, char(&buff)[MAX_CMD_SIZE], int& ind) {
+    if (sis == PS_EOL) return;    // EOL comment or overflow
+    else if (sis == PS_PAREN) { // Inline comment
+        if (c == ')') sis = PS_NORMAL;
+        return;
+    }
+    else if (sis >= PS_ESC)       // End escaped char
+        sis -= PS_ESC;
+    else if (c == '\\') {         // Start escaped char
+        sis += PS_ESC;
+        if (sis == PS_ESC) return;  // Keep if quoting
+    }
+    else if (sis == PS_QUOTED) {
+        if (c == '"') sis = PS_NORMAL; // End quoted string
+    }
+    else if (c == '"')          // Start quoted string
+        sis = PS_QUOTED;
+    else if (c == ';') {          // Start end-of-line comment
+        sis = PS_EOL;
+        return;
+    }
+    else if (c == '(') {        // Start inline comment
+        sis = PS_PAREN;
+        return;
+    }
+    // Backspace erases previous characters
+    if (c == 0x08) {
+        if (ind) buff[--ind] = '\0';
+    }
+    else {
+        buff[ind++] = c;
+        if (ind >= MAX_CMD_SIZE - 1)
+            sis = PS_EOL;             // Skip the rest on overflow
+    }
+}
+
+/**
+ * Handle a line being completed. For an empty line
+ * keep sensor readings going and watchdog alive.
+ */
+inline bool process_line_done(uint8_t& sis, char(&buff)[MAX_CMD_SIZE], int& ind) {
+    sis = PS_NORMAL;                    // "Normal" Serial Input State
+    buff[ind] = '\0';                   // Of course, I'm a Terminator.
+    const bool is_empty = (ind == 0);   // An empty line?
+    if (is_empty)
+        //thermalManager.task();            // Keep sensors satisfied
+        int i = 0;
+    else
+        ind = 0;                          // Start a new line
+    return is_empty;                    // Inform the caller
+}
+/**
+ * Get all commands waiting on the serial port and queue them.
+ * Exit when the buffer is full or when no more characters are
+ * left on the serial port.
+ */
+void GCodeQueue::get_serial_commands() {
+    //#if ENABLED(BINARY_FILE_TRANSFER)
+    // If the command buffer is empty for too long,
+    // send "wait" to indicate Marlin is still waiting.
+
+    // Loop while serial characters are incoming and the queue is not full
+    for (bool hadData = true; hadData;) {
+        // Unless a serial port has data, this will exit on next iteration
+        hadData = false;
+        // Check if the queue is full and exit if it is.
+        if (ring_buffer.full()) return;
+        // No data for this port ? Skip it
+        if (!serial_data_available(0)) continue;
+        // Ok, we have some data to process, let's make progress here
+        hadData = true;
+        const int c = read_serial(0);
+        if (c < 0) {
+            // This should never happen, let's log it
+            PORT_REDIRECT(SERIAL_PORTMASK(p));     // Reply to the serial port that sent the command
+            // Crash here to get more information why it failed
+            BUG_ON("SP available but read -1");
+            SERIAL_ERROR_MSG(STR_ERR_SERIAL_MISMATCH);
+            SERIAL_FLUSH();
+            continue;
+        }
+        const char serial_char = (char)c;
+        SerialState& serial = serial_state[p];
+        if (ISEOL(serial_char)) {
+            // Reset our state, continue if the line was empty
+            if (process_line_done(serial.input_state, serial.line_buffer, serial.count))
+                continue;
+            char* command = serial.line_buffer;
+            while (*command == ' ') command++;                   // Skip leading spaces
+            char* npos = (*command == 'N') ? command : nullptr;  // Require the N parameter to start the line
+            if (npos) {
+                const bool M110 = !!strstr_P(command, PSTR("M110"));
+                if (M110) {
+                    char* n2pos = strchr(command + 4, 'N');
+                    if (n2pos) npos = n2pos;
+                }
+                const long gcode_N = strtol(npos + 1, nullptr, 10);
+                    // The line number must be in the correct sequence.
+                    if (gcode_N != serial.last_N + 1 && !M110) {
+                        // A request-for-resend line was already in transit so we got two - oops!
+                        if (WITHIN(gcode_N, serial.last_N - 1, serial.last_N)) continue;
+                        // A corrupted line or too high, indicating a lost line
+                        gcode_line_error(F(STR_ERR_LINE_NO), p);
+                        break;
+                    }
+
+                    char* apos = strrchr(command, '*');
+                    if (apos) {
+                        uint8_t checksum = 0, count = uint8_t(apos - command);
+                        while (count) checksum ^= command[--count];
+                        if (strtol(apos + 1, nullptr, 10) != checksum) {
+                            gcode_line_error(F(STR_ERR_CHECKSUM_MISMATCH), p);
+                            break;
+                        }
+                    }
+                    else {
+                        gcode_line_error(F(STR_ERR_NO_CHECKSUM), p);
+                        break;
+                    }
+
+                    serial.last_N = gcode_N;
+                }
+#if ENABLED(SDSUPPORT)
+                // Pronterface "M29" and "M29 " has no line number
+                else if (card.flag.saving && !is_M29(command)) {
+                    gcode_line_error(F(STR_ERR_NO_CHECKSUM), p);
+                    break;
+                }
+#endif
+
+                //
+                // Movement commands give an alert when the machine is stopped
+                //
+
+                if (IsStopped()) {
+                    char* gpos = strchr(command, 'G');
+                    if (gpos) {
+                        switch (strtol(gpos + 1, nullptr, 10)) {
+                        case 0 ... 1:
+                        TERN_(ARC_SUPPORT, case 2 ... 3:)
+                        TERN_(BEZIER_CURVE_SUPPORT, case 5:)
+                            PORT_REDIRECT(SERIAL_PORTMASK(p));     // Reply to the serial port that sent the command
+                                                       SERIAL_ECHOLNPGM(STR_ERR_STOPPED);
+                                                       LCD_MESSAGE(MSG_STOPPED);
+                                                       break;
+                        }
+                    }
+                }
+
+#if DISABLED(EMERGENCY_PARSER)
+                // Process critical commands early
+                if (command[0] == 'M') switch (command[3]) {
+                case '8': if (command[2] == '0' && command[1] == '1') { wait_for_heatup = false; TERN_(HAS_MARLINUI_MENU, wait_for_user = false); } break;
+                case '2': if (command[2] == '1' && command[1] == '1') kill(FPSTR(M112_KILL_STR), nullptr, true); break;
+                case '0': if (command[1] == '4' && command[2] == '1') quickstop_stepper(); break;
+                }
+#endif
+
+#if NO_TIMEOUTS > 0
+                last_command_time = ms;
+#endif
+
+                // Add the command to the queue
+                ring_buffer.enqueue(serial.line_buffer, false OPTARG(HAS_MULTI_SERIAL, p));
+            }
+            else
+                process_stream_char(serial_char, serial.input_state, serial.line_buffer, serial.count);
+
+    } // queue has space, serial has data
 }
 
 
@@ -961,5 +1112,88 @@ uint32_t HAL_timer_get_count(const uint8_t timer) {
 
 
 
-//marlin.cpp
+// marlin
+inline void manage_inactivity(const bool no_stepper_sleep = false) {
+    queue.get_available_commands();
+    //const millis_t ms = millis();
+    // Prevent steppers timing-out
+    const bool do_reset_timeout = no_stepper_sleep;
+    // Reset both the M18/M84 activity timeout and the M85 max 'kill' timeout
+    //if (do_reset_timeout) gcode.reset_stepper_timeout(ms);
+    /*
+    if (gcode.stepper_max_timed_out(ms)) {
+        SERIAL_ERROR_START();
+        SERIAL_ECHOPGM(STR_KILL_PRE);
+        SERIAL_ECHOLNPGM(STR_KILL_INACTIVE_TIME, parser.command_ptr);
+        kill();
+    }
+    */
+    const bool has_blocks = planner.has_blocks_queued();  // Any moves in the planner?
+    //if (has_blocks) gcode.reset_stepper_timeout(ms);      // Reset timeout for M18/M84, M85 max 'kill', and laser.
+    // M18 / M84 : Handle steppers inactive time timeout
+    /*
+    if (gcode.stepper_inactive_time) {
+        static bool already_shutdown_steppers; // = false
+        if (!has_blocks && !do_reset_timeout && gcode.stepper_inactive_timeout()) {
+            if (!already_shutdown_steppers) {
+                already_shutdown_steppers = true;
+                // Individual axes will be disabled if configured
+                stepper.disable_axis(X_AXIS);
+                stepper.disable_axis(Y_AXIS);
+                stepper.disable_axis(Z_AXIS);
+            }
+        }
+        else
+            already_shutdown_steppers = false;
+    }
+    */
+    // Limit check_axes_activity frequency to 10Hz
+    /*
+    static millis_t next_check_axes_ms = 0;
+    if (ELAPSED(ms, next_check_axes_ms)) {
+        planner.check_axes_activity();
+        next_check_axes_ms = ms + 100UL;
+    }
+    */
+}//manage_inactivity()
+
+/**
+ * Standard idle routine keeps the machine alive:
+ *  - Core Marlin activities
+ *  - Manage heaters (and Watchdog)
+ *  - Max7219 heartbeat, animation, etc.
+ *
+ *  Only after setup() is complete:
+ *  - Handle filament runout sensors
+ *  - Run HAL idle tasks
+ *  - Handle Power-Loss Recovery
+ *  - Run StallGuard endstop checks
+ *  - Handle SD Card insert / remove
+ *  - Handle USB Flash Drive insert / remove
+ *  - Announce Host Keepalive state (if any)
+ *  - Update the Print Job Timer state
+ *  - Update the Beeper queue
+ *  - Read Buttons and Update the LCD
+ *  - Run i2c Position Encoders
+ *  - Auto-report Temperatures / SD Status
+ *  - Update the Průša MMU2
+ *  - Handle Joystick jogging
+ */
+void idle(const bool no_stepper_sleep/*=false*/) {
+    manage_inactivity(no_stepper_sleep); // core marlin activites
+    //thermalManager.task(); // Manage Heaters (and Watchdog)
+    // Return if setup() isn't completed
+    if (marlin_state == MF_INITIALIZING) goto IDLE_DONE;
+    //(void)check_tool_sensor_stats(active_extruder, true);
+    //hal.idletask();
+IDLE_DONE:
+    //idle_depth--;
+    return;
+}//idle()
+
+
+
+
+ 
+ //marlin.cpp
 
